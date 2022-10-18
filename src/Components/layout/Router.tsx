@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
+// аним ч/з react-transition-group
 import { CSSTransition } from "react-transition-group";
-// выбор изза возможности в родителе откр. стр.дочки
+// аним ч/з react-spring. выбор изза возможности в родителе откр. стр.дочки
 import { useTransition, animated } from "react-spring";
 
 // Глав.Эл.Шаблона
@@ -14,7 +16,6 @@ import { Prob2 } from "../pages/Prob2";
 import { AboutMe } from "../pages/AboutMe";
 // НОВ.ПРОЕКТ
 import { NewPro } from "../../projects/NewPro/NewPro";
-import { BeginrProjts } from "../../projects/BeginrProjts/BeginrProjts";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -65,7 +66,6 @@ export function Router() {
           <Routes location={item}>
             <Route index element={<NewPro />} />
             <Route path="NewPro" element={<NewPro />} />
-            <Route path="BeginrProjts" element={<BeginrProjts />} />
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />
             <Route path="Prob2" element={<Prob2 />} />

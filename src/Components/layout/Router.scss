@@ -21,6 +21,7 @@
     margin: 0 auto;
   }
 
+  // ЛОГО
   .header__logo {
     display: flex;
     .header__img {
@@ -29,6 +30,7 @@
       margin: -10px 10px -10px -10px;
     }
     .header__link {
+      display: flex;
       height: 30px;
       font-weight: bold;
       font-size: 30px;

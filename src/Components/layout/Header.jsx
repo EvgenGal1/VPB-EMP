@@ -4,8 +4,6 @@ import { NavLink, Link } from "react-router-dom";
 // хук AllKey для вывода доп.меню через опред.кнп.
 import { useAllKeysPress } from "../../scripts/hooks/useAllKeysPress";
 
-import "../../img/vr/catalog/anonim1.jpg";
-
 export function Header() {
   const [dopCombinePress, setDopCombinePress] = useState(false);
   // массив букв после хука (возвращ true е/и переданные и нажатые равны)
@@ -26,12 +24,12 @@ export function Header() {
       <header className="header">
         <div className="header-container">
           <div className="header__logo">
-            <img
-              className="header__img"
-              src={require("../../img/vr/logo/ЕжеСветRedBlackWhiteEff.png")}
-              alt=""
-            />
             <Link to="/" className="header__link">
+              <img
+                className="header__img"
+                src={require("../../img/vr/logo/ЕжеСветRedBlackWhiteEff.png")}
+                alt=""
+              />
               <h3>НОВ.ПРОЕКТ</h3>
             </Link>
           </div>
@@ -40,14 +38,6 @@ export function Header() {
               <span className="menu-top__items m-t-items">
                 <NavLink to="/NewPro" className="m-t-items__navlink activ-prob">
                   NewPro
-                </NavLink>
-              </span>
-              <span className="menu-top__items m-t-items">
-                <NavLink
-                  to="/BeginrProjts"
-                  className="m-t-items__navlink activ-prob"
-                >
-                  BeginrProjts
                 </NavLink>
               </span>
               <span className="menu-top__items m-t-items">
