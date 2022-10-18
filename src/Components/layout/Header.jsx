@@ -43,6 +43,14 @@ export function Header() {
                 </NavLink>
               </span>
               <span className="menu-top__items m-t-items">
+                <NavLink
+                  to="/BeginrProjts"
+                  className="m-t-items__navlink activ-prob"
+                >
+                  BeginrProjts
+                </NavLink>
+              </span>
+              <span className="menu-top__items m-t-items">
                 <NavLink to="/Prob0" className="m-t-items__navlink activ-prob">
                   Prob0
                 </NavLink>
