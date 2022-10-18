@@ -9,10 +9,10 @@
 
 <div>
 <p>Ветки примерно следующего образца:</p>
-<div><span>VPB</span> - проекты сборок</div>
-<div><span>EXP</span> - мини проекты</div>
+<div><span>VarsProjBuilds</span> - все проекты сборок</div>
+<div><span>ExpsMiniProjs</span> - все мини проекты</div>
 <p>Ч/з точку отдельный проект</p>
-<p>Пример - <span>EXP.beginr-projts<span></p>
+<p>Пример - <span>EMP.beginr-projts<span></p>
 <p>Ч/з подчерк отдельный мини проект в уже ведущемся проекта</p>
-<p>Пример - <span>EXP.beginr-projts_modal<span></p>
+<p>Пример - <span>EMP.beginr-projts_modal<span></p>
 </div>
