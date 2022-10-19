@@ -24,10 +24,8 @@ export function Prob0() {
       <hr />
       <div className="prob0__pages">
         <Routes>
-          222
           <Route path="Prob1" element={<Prob1 />} />
           <Route path="Prob2" element={<Prob2 />} />
-          333 444
         </Routes>
       </div>
     </div>
