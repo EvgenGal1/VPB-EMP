@@ -16,6 +16,14 @@ import { Prob2 } from "../pages/Prob2";
 import { AboutMe } from "../pages/AboutMe";
 // НОВ.ПРОЕКТ
 import { NewPro } from "../../projects/NewPro/NewPro";
+// НОВ.ПРОЕКТЫ ExpsMiniProjs
+import { BeginrProjts } from "../../projects/BeginrProjts/BeginrProjts";
+import { BegPrj_Modal } from "../../projects/BeginrProjts/src/pages/BegPrj_Modal";
+import { BegPrj_Quiz } from "../../projects/BeginrProjts/src/pages/BegPrj_Quiz";
+// НОВ.ПРОЕКТЫ UlbiTV
+import { UlbiTV } from "../../projects/UlbiTV/UlbiTV";
+import { UlbiTV_MiniDrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_MiniDrADr";
+// import { UlbiTV_DrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_DrADr";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -66,6 +74,15 @@ export function Router() {
           <Routes location={item}>
             <Route index element={<NewPro />} />
             <Route path="NewPro" element={<NewPro />} />
+            {/* ExpsMiniProjs */}
+            {/* BeginrProjts */}
+            <Route path="BeginrProjts/*" element={<BeginrProjts />} />
+            <Route path="BegPrj_Modal" element={<BegPrj_Modal />} />
+            <Route path="BegPrj_Quiz" element={<BegPrj_Quiz />} />
+            {/* UlbiTV */}
+            <Route path="UlbiTV/*" element={<UlbiTV />} />
+            <Route path="UlbiTV_MiniDrADr" element={<UlbiTV_MiniDrADr />} />
+            {/* <Route path="UlbiTV_DrADr" element={<UlbiTV_DrADr />} /> */}
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />

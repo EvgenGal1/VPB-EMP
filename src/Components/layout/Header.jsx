@@ -40,6 +40,47 @@ export function Header() {
                   NewPro
                 </NavLink>
               </span>
+              {/* ПРОЕКТЫ ExpsMiniProjs */}
+              {/* ПРОЕКТЫ BeginrProjts */}
+              <span className="menu-top__items m-t-items">
+                <NavLink
+                  to="/BeginrProjts"
+                  className="m-t-items__navlink activ-prob"
+                >
+                  BeginrProjts
+                </NavLink>
+                {/* // ^ данная вложеность и переход на стр. возможен е/и сами влож.стр. добав. в общ. Routes, на один уровень с верхним NavLink */}
+                <ul className="m-t-items__ul m-t-its-ul">
+                  <li className="m-t-its-ul__li">
+                    <Link to="/BegPrj_Modal" className="">
+                      BegPrj_Modal
+                    </Link>
+                  </li>
+                  <li className="m-t-its-ul__li">
+                    <Link to="/BegPrj_Quiz" className="">
+                      BegPrj_Quiz
+                    </Link>
+                  </li>
+                </ul>
+              </span>
+              {/* ПРОЕКТЫ UlbiTV */}
+              <span className="menu-top__items m-t-items">
+                <NavLink to="/UlbiTV" className="m-t-items__navlink activ-prob">
+                  UlbiTV
+                </NavLink>
+                <ul className="m-t-items__ul m-t-its-ul">
+                  <li className="m-t-its-ul__li">
+                    <Link to="/UlbiTV_MiniDrADr" className="">
+                      MiniDrADr
+                    </Link>
+                  </li>
+                  {/* <li className="m-t-its-ul__li">
+            <Link to="/UlbiTV_DrADr" className="">
+            UlbiTV_DrADr
+            </Link>
+          </li> */}
+                </ul>
+              </span>
               <span className="menu-top__items m-t-items">
                 <NavLink to="/Prob0" className="m-t-items__navlink activ-prob">
                   Prob0
