@@ -11,14 +11,11 @@ export function UlbiTV(props) {
   return (
     <div className="UlbiTV">
       <div className="UlbiTV__descript">
-        <h1>НОВ.ПРОЕКТЫ ExpsMiniProjs</h1>
-        <p>BegPrj_Modal</p>
-        <p>BegPrj_Quiz</p>
+        <h1>НОВ.ПРОЕКТЫ UlbiTV</h1>
+        <p>MiniDrADr</p>
+        {/* <p>DrADr</p> */}
       </div>
-      {/* <div className="UlbiTV__content">
-        <BegPrj_Modal />
-        <BegPrj_Quiz />
-      </div> */}
+      <hr />
       <div className="UlbiTV__nav">
         <nav>
           <NavLink to="UlbiTV_MiniDrADr">UlbiTV_MiniDrADr</NavLink>
@@ -28,10 +25,8 @@ export function UlbiTV(props) {
       <hr />
       <div className="UlbiTV__pages">
         <Routes>
-          222
           <Route path="UlbiTV_MiniDrADr" element={<UlbiTV_MiniDrADr />} />
           {/* <Route path="UlbiTV_DrADr" element={<UlbiTV_DrADr />} /> */}
-          333 444
         </Routes>
       </div>
     </div>
