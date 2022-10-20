@@ -18,7 +18,7 @@ export function UlbiTV(props) {
       <hr />
       <div className="UlbiTV__nav">
         <nav>
-          <NavLink to="UlbiTV_MiniDrADr">UlbiTV_MiniDrADr</NavLink>
+          <NavLink to="UlbiTV_MiniDrADr">MiniDrADr</NavLink>
           {/* <NavLink to="UlbiTV_DrADr">UlbiTV_DrADr</NavLink> */}
         </nav>
       </div>
