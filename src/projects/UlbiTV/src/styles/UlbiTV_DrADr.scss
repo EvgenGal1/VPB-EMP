@@ -1,48 +1,53 @@
 // UlbiTV_DrADr =======================================================================================
 .UlbiTV_DrADr {
   .DrADr__content {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+    // больш. классов с div[class$="__content"]
     flex-direction: row;
-    justify-content: center;
     align-items: flex-start;
   }
-}
-.board {
-  min-width: 250px;
-  min-height: 250px;
-  padding: 7px 5px;
-  margin: 10px 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff !important;
-  border: 5px solid darkred;
-  border-radius: 12px;
-  cursor: pointer;
-  &__title {
-    font-size: 15px;
-    font-weight: 700;
+  .board {
+    min-width: 250px;
+    min-height: 250px;
+    padding: 10px;
+    margin: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff !important;
+    border: 5px solid darkred;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &__title {
+      font-size: 15px;
+      font-weight: 700;
+    }
   }
-}
-.item {
-  width: 90%;
-  height: 100%;
-  padding: 10px;
-  margin: 5px 0px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.1s;
-  // background: #ff0;
-  border: 2px solid darkred;
-  box-shadow: 5px 5px 10px 3px #555 !important;
-  &:hover {
-    font-weight: bold;
-    // увелич. важность т.к. в коде использ.цвета
-    // background: #ff0 !important;
-    box-shadow: 3px 3px 7px 0px #555 !important;
-    transform: scale(1.1);
+
+  .items {
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+
+    .item {
+      // width: 100%;
+      // height: 100%;
+      padding: 10px;
+      margin: 5px 0px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.1s;
+      // background: #ff0;
+      border: 2px solid darkred;
+      box-shadow: 3px 3px 7px 0px #555;
+
+      &:hover {
+        font-weight: bold;
+        background: gold !important;
+        // увелич. важность т.к. в коде использ.цвета
+        box-shadow: 5px 5px 10px 3px #555 !important;
+        transform: scale(1.1);
+      }
+    }
   }
 }

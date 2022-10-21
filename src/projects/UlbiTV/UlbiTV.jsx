@@ -12,8 +12,29 @@ export function UlbiTV(props) {
     <div className="UlbiTV">
       <div className="UlbiTV__descript">
         <h1>НОВ.ПРОЕКТЫ UlbiTV</h1>
-        <p>MiniDrADr</p>
-        <p>DrADr</p>
+        <ul>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=FgvJH91a5K0&list=RDLVFgvJH91a5K0"
+              target="_blank"
+              rel="noreferrer"
+              // style={{ textDecoration: "lineThrough" }} // ??? не раб
+              style={{ textDecoration: "underline" }}
+            >
+              MiniDrADr
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=RPtDuVba1XQ&list=RDLVFgvJH91a5K0"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "underline" }}
+            >
+              DrADr
+            </a>
+          </li>
+        </ul>
       </div>
       <hr />
       <div className="UlbiTV__nav">
