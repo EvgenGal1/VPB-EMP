@@ -21,7 +21,7 @@ export function UlbiTV(props) {
               // style={{ textDecoration: "lineThrough" }} // ??? не раб
               style={{ textDecoration: "underline" }}
             >
-              MiniDrADr
+              Mini Drag and Drop (`Перетаскивать`)
             </a>
           </li>
           <li>
@@ -31,7 +31,17 @@ export function UlbiTV(props) {
               rel="noreferrer"
               style={{ textDecoration: "underline" }}
             >
-              DrADr
+              Drag and Drop (по видео + свой допы)
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=7F1w63ZfgDY"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "underline" }}
+            >
+              НЕ ДЕЛАЛ - Drag and drop загрузка файла на сервер REACT
             </a>
           </li>
         </ul>

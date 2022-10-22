@@ -49,6 +49,7 @@
   &__menu-top {
     // .menu-top__span {
     display: flex;
+    flex-wrap: wrap;
     // затемняет сосед. эл. при наведении (меню)
     &:hover span:not(:hover) {
       opacity: 0.5;

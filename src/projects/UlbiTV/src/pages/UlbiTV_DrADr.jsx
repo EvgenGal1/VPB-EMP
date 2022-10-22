@@ -4,46 +4,177 @@ export function UlbiTV_DrADr() {
   // набор досок с задачами в сост. по умолч. Масс. с объ-ми (доски) с массивом объ-ов (задачи)
   const [boards, setBoards] = useState([
     {
-      id: 1,
+      id: 10,
       title: "ПЛАНЫ",
       items: [
-        { id: 1.1, text: "1.1 Любимка" },
-        { id: 1.2, text: "1.2 Семья" },
-        { id: 1.3, text: "1.3 Спать" },
-        { id: 1.4, text: "1.4 Играть" },
-        { id: 1.5, text: "1.5 Код" },
-        { id: 1.6, text: "1.6 Читать" },
+        { id: 1.1, text: "Любимка" },
+        { id: 1.2, text: "Семья" },
+        { id: 1.3, text: "Спать" },
+        { id: 1.4, text: "Играть" },
+        { id: 1.5, text: "Код" },
+        { id: 1.6, text: "Читать" },
       ],
     },
     {
-      id: 2,
+      id: 20,
       title: "НА СЕГОДНЯ",
       items: [
-        { id: 2.1, text: "2.1 Мясо" },
-        { id: 2.2, text: "2.2 Работа" },
-        { id: 2.3, text: "2.3 Гулянка" },
-        { id: 2.4, text: "2.4 Код" },
+        { id: 2.1, text: "Мясо" },
+        { id: 2.2, text: "Работа" },
+        { id: 2.3, text: "Гулянка" },
+        { id: 2.4, text: "Код" },
       ],
     },
     {
       id: 3,
       title: "ПРОВЕРЕНО",
       items: [
-        { id: 3.1, text: "3.1 Любимка" },
-        { id: 3.2, text: "3.2 Семья" },
+        { id: 3.1, text: "Любимка" },
+        { id: 3.2, text: "Семья" },
       ],
     },
     {
-      id: 4,
+      id: 40,
       title: "СДЕЛАЛ",
       items: [
-        { id: 4.1, text: "4.1 Мясо" },
-        { id: 4.2, text: "4.2 Код" },
-        { id: 4.3, text: "4.3 Почитать" },
-        { id: 4.4, text: "4.4 Семья" },
+        { id: 4.1, text: "Мясо" },
+        { id: 4.2, text: "Код" },
+        { id: 4.3, text: "Почитать" },
+        { id: 4.4, text: "Семья" },
       ],
     },
   ]);
+
+  // стат. добавления эл.
+  const [newItem, setNewItem] = useState("");
+  // стат. ошибки ввода
+  const [newItemErr, setNewItemErr] = useState(false);
+
+  // fn добавлен. эл. (пока по умолч. в первую доску)
+  const addNewItem = (item) => {
+    if (item === 'Заполните поле!!!') return
+    if (item !== "") {
+      const newItem1 = {
+        key: Date.now(),
+        id: new Date().getMilliseconds(),
+        text: newItem
+      };
+      setCurrentBoard([...boards, boards[0].items.push(newItem1)]);
+      setNewItem("")
+    }
+    else {
+      setNewItem("Заполните поле!!!")
+      setNewItemErr(true)
+      setTimeout(() => {
+        setNewItem("");
+        setNewItemErr(false);
+      }
+        , 500)
+    }
+  };
+
+  const removeItem2 = (idItem) => {
+    console.log('setBoards ', setBoards);
+    console.log('idItem ', idItem);
+    setBoards.forEach((id, index) => {
+      console.log('id ', id);
+      console.log('index ', index);
+      if (id.id === idItem) {
+        console.log('id.id  ', id.id);
+        setBoards.splice(index, 1)
+      }
+    })
+
+    //     function removeNode(arr, id) {
+    //   arr.forEach((it, index) => {
+    //     if (it.id === id) {
+    //       arr.splice(index, 1)
+    //     }
+    //     removeNode(it.children, id)
+    //   })
+    // }
+
+    // removeNode([db], 4);
+    // console.log(db);
+  }
+
+  // const removeItem = (id) => {
+  //   setBoards(
+  //     boards.filter((board) => {
+  //       return board.filter((item) => {
+  //         return item
+  //       })
+  //     })
+  //   )
+  // }
+  // fn удаления эл. из доски
+  const removeItem1 = (id) => {
+    console.log('id ', id);
+
+    // setBoards(prevState => prevState.filter(el => el.id !== id))
+
+    setBoards(
+      //   // Array.prototype.map () ожидает возврата значения от функции стрелки.
+      boards.filter((b) => {
+        console.log('boards ', boards);
+        console.log('b ', b);
+        // b.id !== id
+        // setBoards(prevState => prevState.filter(el => el.id !== id))
+        // b.length;
+        //     b.items.map((i) => {
+        //       console.log('i ', i);
+        // if (b.id === id) {
+        //   console.log('i.id в ', b.id);
+        //   console.log('i в ', b);
+        //   console.log('id в ', id);
+        //   return boards
+        // }
+        return b.items.filter((i) =>
+          // {
+          //   console.log('b.items ', b.items); // array. id - 10,20,..
+          i.id === id
+          //   // return i.id !== id
+          //   // return i
+          //   // console.log('i ', i);
+          //   if (i.id !== id) {
+          //     console.log('ооооооооооооооонннннннннннннннноооооооооооооооооо');
+          //     console.log('i.id в ', i.id); // 1.1,
+          //     console.log('i в ', i);
+          //     console.log('id в ', id);
+          //     // return setBoards(boards)/
+
+          //     // return b.items
+
+          //     // return boards
+          //     // return i
+          //     // return b
+          //   }
+          //   // return i
+          //   // return b
+          //   // return b.items
+          // }
+        )
+        // if (i.id !== id) {
+        //   console.log('i.id в ', i.id);
+        //   console.log('i в ', i);
+        //   console.log('id в ', id);
+        //   // return id
+        // }
+        //       // Ожидается, что назначение или функциональный вызов и вместо этого увидел выражение.
+        //       // return id
+        //     })
+        // return i.id !== id
+        // return b
+        // return boards
+      })
+    )
+  };
+
+  // {boards.map((board) => (
+  //                 {board.items.map((item) => (
+
+  // setBoards(
+  //     boards.map((b) => {
 
   // запоминаем взятую задачу
   const [currentItem, setCurrentItem] = useState(null);
@@ -100,7 +231,7 @@ export function UlbiTV_DrADr() {
     }
   }
   // действ. после опуска (изменение порядка)
-  function dropHandler(e, board, item) {
+  function dragDropHandler(e, board, item) {
     // откл. действ. по умолч.
     e.preventDefault();
     // получ id эл.(тек.задачи) из масс. у текущ.доски(от куда эл.). Обращ к текущей доске в поле item и возвращ. id эл. в массиве (indexOf)
@@ -124,6 +255,7 @@ export function UlbiTV_DrADr() {
           return currentBoard;
         }
         // иначе возврат.эл.итер.
+        // e.stopPropagation();
         return b;
       })
     );
@@ -135,10 +267,12 @@ export function UlbiTV_DrADr() {
 
   // слуш на доске
   function dropCardHandler(e, board) {
-    // доп.проверка из комментов видео. Из выбран. доски берём id эл.
-    const currentId = board.items.map((item) => item.id);
-    // доп.проверка из вид. е/и выбран.id НЕ включает текущ.id (убирает переход сразу 2 эл. в нов.доску)
-    if (!currentId.includes(currentItem.id)) {
+    // доп.проверка 1 вар из комментов видео. Из выбран. доски берём id эл.
+    // const currentId = board.items.map((item) => item.id);
+    // доп.проверка 1 вар из вид. е/и выбран.id НЕ включает текущ.id (убирает переход сразу 2 эл. в нов.доску)
+    // if (!currentId.includes(currentItem.id)) {
+    // доп.проверка 2 вар из вид. Смотрит отсутств. класса
+    if (e.target.className !== "item") {
       // добавл. задачу в конец доски. Обращ. в наведённой доске к items и ч/з push вставл. текущ.эл.
       board.items.push(currentItem);
       // получ id эл.(тек.задачи) из масс. у текущ.доски(от куда эл.).
@@ -175,43 +309,75 @@ export function UlbiTV_DrADr() {
         <h1>DrADr</h1>
       </div>
       <div className="DrADr__content">
-        {/* перебор внешнего масс. с отрисовкой.  */}
-        {boards.map((board) => (
-          <div
-            key={board.id}
-            className="board"
-            // слуш-ли на доске
-            onDragOver={(e) => dragOverHandler(e)}
-            onDrop={(e) => dropCardHandler(e, board)}
-            onDragLeave={(e) => dragLeaveHandler(e)}
-          >
-            <div className="board__title">{board.title}</div>
-            {/* по эл.(items) из внешн. масс.(board), перебор внутр. масс. с отрис. */}
-            <div className="items">
-              {board.items.map((item) => (
-                <div
-                  key={item.id}
-                  className="item"
-                  // ЛОГИКА. Вешаем слушатели с вызов. fn приним. событ. В слуш-ли Start и Drop ещё принима карты
-                  // флаг для перетаскивания в true
-                  draggable={true}
-                  // слушатель при действ.
-                  onDragStart={(e) => dragStartHandler(e, board, item)}
-                  // слуш. при выходе за пределы др.
-                  onDragLeave={(e) => dragLeaveHandler(e)}
-                  // слуш. при опуск. перемешения
-                  onDragEnd={(e) => dragEndHandler(e)}
-                  // слуш. при нахожден. над др. объ.
-                  onDragOver={(e) => dragOverHandler(e)}
-                  // при опускании и ожид. действ.
-                  onDrop={(e) => dropHandler(e, board, item)}
-                >
-                  {item.text}
-                </div>
-              ))}
+        {/* ФОРМА */}
+        <form className="form">
+          <input
+            type="text"
+            // name={newItem}
+            name="description"
+            // value={newItem}
+            // value={e.target.value} 
+            value={newItem == null ? '' : newItem}
+            className="form__field"
+            // onClick={(e) => addNewItem()}
+            onChange={(e) => setNewItem(e.target.value)}
+            style={
+              newItemErr
+                ? { outline: "2px solid #f00" }
+                : { outline: "none" }
+            }
+          />
+          <button
+            className="btn btn--primary btn--inside uppercase"
+            onClick={() => addNewItem(newItem)}
+            type='button'>button</button>
+        </form>
+        {/* ДОСКИ */}
+        <div
+          className="boards"
+        >
+          {/* перебор внешнего масс. с отрисовкой.  */}
+          {boards.map((board) => (
+            <div
+              // onClick={() => removeItem(board.id)}
+              key={board.id}
+              className="board"
+              // слуш-ли на доске
+              onDragOver={(e) => dragOverHandler(e)}
+              onDrop={(e) => dropCardHandler(e, board)}
+              onDragLeave={(e) => dragLeaveHandler(e)}
+            >
+              <div className="board__title">
+                {board.title}
+              </div>
+              {/* по эл.(items) из внешн. масс.(board), перебор внутр. масс. с отрис. */}
+              <div className="items">
+                {board.items.map((item) => (
+                  <div
+                    // onClick={() => removeItem(item.id)}
+                    key={item.id}
+                    className="item"
+                    // ЛОГИКА. Вешаем слушатели с вызов. fn приним. событ. В слуш-ли Start и Drop ещё принима карты
+                    // флаг для перетаскивания в true
+                    draggable={true}
+                    // слушатель при действ.
+                    onDragStart={(e) => dragStartHandler(e, board, item)}
+                    // слуш. при выходе за пределы др.
+                    onDragLeave={(e) => dragLeaveHandler(e)}
+                    // слуш. при опуск. перемешения
+                    onDragEnd={(e) => dragEndHandler(e)}
+                    // слуш. при нахожден. над др. объ.
+                    onDragOver={(e) => dragOverHandler(e)}
+                    // при опускании и ожид. действ.
+                    onDrop={(e) => dragDropHandler(e, board, item)}
+                  >
+                    {item.id} {item.text}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
