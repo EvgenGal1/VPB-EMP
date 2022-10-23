@@ -1,10 +1,10 @@
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
-import { CSSTransitionGroup } from "react-transition-group";
-import { CSSTransition } from "react-transition-group";
 
 import { Prob1 } from "./Prob1";
 import { Prob2 } from "./Prob2";
+
+import "./Accordion.scss";
 
 export function Prob0() {
   return (
