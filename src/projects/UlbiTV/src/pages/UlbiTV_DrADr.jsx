@@ -46,44 +46,115 @@ export function UlbiTV_DrADr() {
   ]);
 
   // стат. добавления эл.
-  const [newItem, setNewItem] = useState("");
+  const [newValItem, setValNewItem] = useState("");
   // стат. ошибки ввода
   const [newItemErr, setNewItemErr] = useState(false);
 
   // fn добавлен. эл. (пока по умолч. в первую доску)
   const addNewItem = (item) => {
-    if (item === 'Заполните поле!!!') return
+    if (item === "Заполни поле!!!") return;
     if (item !== "") {
-      const newItem1 = {
+      const newItem = {
         key: Date.now(),
         id: new Date().getMilliseconds(),
-        text: newItem
+        text: newValItem,
       };
-      setCurrentBoard([...boards, boards[0].items.push(newItem1)]);
-      setNewItem("")
-    }
-    else {
-      setNewItem("Заполните поле!!!")
-      setNewItemErr(true)
+      setCurrentBoard([...boards, boards[0].items.push(newItem)]);
+      setValNewItem("");
+    } else {
+      setValNewItem("Заполни поле!!!");
+      setNewItemErr(true);
       setTimeout(() => {
-        setNewItem("");
+        setValNewItem("");
         setNewItemErr(false);
-      }
-        , 500)
+      }, 500);
     }
   };
 
-  const removeItem2 = (idItem) => {
-    console.log('setBoards ', setBoards);
-    console.log('idItem ', idItem);
-    setBoards.forEach((id, index) => {
-      console.log('id ', id);
-      console.log('index ', index);
-      if (id.id === idItem) {
-        console.log('id.id  ', id.id);
-        setBoards.splice(index, 1)
+  const removeItem9 = (item) => {
+    // if (item === "Заполни поле!!!") return;
+    if (item !== "") {
+      // const newItem1 = {
+      //   key: Date.now(),
+      //   id: new Date().getMilliseconds(),
+      //   text: newItem,
+      // };
+      // setCurrentBoard([...boards, boards[0].items.push(newItem1)]);
+      setCurrentBoard([...boards, boards.splice(item, item)]);
+      // setNewItem("");
+    }
+    // else {
+    //   setNewItem("Заполни поле!!!");
+    //   setNewItemErr(true);
+    //   setTimeout(() => {
+    //     setNewItem("");
+    //     setNewItemErr(false);
+    //   }, 500);
+    // }
+  };
+
+  function removeNode(arr, id) {
+    arr.forEach((it, index) => {
+      if (it.id === id) {
+        arr.splice(index, 1);
       }
-    })
+      removeNode(it.children, id);
+    });
+  }
+
+  // по логам видно что нажатая задача не возвращается. не понятно ка теперь вывести
+  const removeItem = (boardId, itemId, board, item) => {
+    // console.log('setBoards ', setBoards);
+    console.log("board ", board);
+    console.log("boardId ", boardId);
+    console.log("item ", item);
+    console.log("itemId ", itemId);
+    // boards.filter((i) => {
+    //   if (i.id === id) {
+    // setBoards(
+    // setCurrentBoard(
+    boards.filter((item) => item.id !== itemId);
+    // currentBoard.filter((item) => item.id !== itemId);
+    // setCurrentBoard.filter((item) => item.id !== itemId);
+    // boards.splice(boardId, itemId)
+    // currentBoard.splice(boardId, itemId)
+    // boards.splice(itemId, boardId)
+    //   board.forEach((item, index) => {
+    //   if (item.id === itemId) {
+    //     board.splice(index, 1);
+    //   }
+    //   removeItem(item.children, itemId);
+    // });
+    // );
+    // setBoards(
+    // setBoards.forEach((id, index) => {
+    // boards.forEach((board, index) => {
+    //   // console.log("board ", board);
+    //   // setBoards(
+    //   board.items.filter(
+    //     // (items) => items.itemId !== itemId
+    //     (items) =>
+    //       //   //   //   // Array.prototype.filter () ожидает возврата от функции стрелки
+    //       {
+    //         if (items.id !== itemId) {
+    //           // setBoards.splice(items, 1);
+    //           //       // console.log("i 2 ", items);
+    //           console.log("i.id 2 ", items.id);
+    //           //       // console.log("b.items 2 ", board.items);
+    //           //       // console.log("boards 2 ", boards);
+    //           //       return setBoards(boards);
+    //         }
+    //         //     //     //   // return setBoards(boards);
+    //       }
+    //     // i.id !== id
+    //   );
+    //   // );
+    //   // if (id.id === idItem) {
+    //   //   console.log('id.id  ', id.id);
+    //   //   setBoards.splice(index, 1)
+    //   // }
+    // });
+    // );
 
     //     function removeNode(arr, id) {
     //   arr.forEach((it, index) => {
@@ -96,28 +167,68 @@ export function UlbiTV_DrADr() {
 
     // removeNode([db], 4);
     // console.log(db);
-  }
+  };
 
-  // const removeItem = (id) => {
-  //   setBoards(
-  //     boards.filter((board) => {
-  //       return board.filter((item) => {
-  //         return item
-  //       })
-  //     })
-  //   )
-  // }
+  const removeItem7 = (id) => {
+    setBoards(
+      boards.filter((i) => {
+        if (i.id === id) {
+          // console.log("b 2 ", b);
+          console.log("1 ", 1);
+          // console.log("b.items 2 ", b.items);
+          //         return setBoards(boards);
+        }
+      })
+    );
+  };
+
+  const removeItem5 = (id) => {
+    // setBoards(
+    // удал доску
+    // boards.filter(
+    //   (b) => b.id !== id
+
+    boards.filter(
+      // boards.map(
+      (b) => {
+        console.log("b 1 ", b);
+        console.log("b.items 1 ", b.items);
+        // setBoards(
+        // b.items.filter((i) => i.id !== id);
+        b.items.filter((i) => {
+          if (i.id !== id) {
+            console.log("b 2 ", b);
+            console.log("1 ", 1);
+            console.log("b.items 2 ", b.items);
+            //         return setBoards(boards);
+          }
+          console.log("2 ", 2);
+          //       // console.log("boards ", boards);
+        });
+        // );
+      }
+      //
+      // {
+      //   return board.filter((item) => {
+      //     return item
+      //   })
+      // })
+    );
+    // )
+  };
+
   // fn удаления эл. из доски
   const removeItem1 = (id) => {
-    console.log('id ', id);
+    console.log("id ", id);
 
     // setBoards(prevState => prevState.filter(el => el.id !== id))
 
     setBoards(
       //   // Array.prototype.map () ожидает возврата значения от функции стрелки.
-      boards.filter((b) => {
-        console.log('boards ', boards);
-        console.log('b ', b);
+      // boards.filter((b) => {
+      boards.map((b) => {
+        console.log("boards ", boards);
+        console.log("b ", b);
         // b.id !== id
         // setBoards(prevState => prevState.filter(el => el.id !== id))
         // b.length;
@@ -129,10 +240,11 @@ export function UlbiTV_DrADr() {
         //   console.log('id в ', id);
         //   return boards
         // }
-        return b.items.filter((i) =>
-          // {
-          //   console.log('b.items ', b.items); // array. id - 10,20,..
-          i.id === id
+        return b.items.filter(
+          (i) =>
+            // {
+            //   console.log('b.items ', b.items); // array. id - 10,20,..
+            i.id !== id
           //   // return i.id !== id
           //   // return i
           //   // console.log('i ', i);
@@ -153,7 +265,7 @@ export function UlbiTV_DrADr() {
           //   // return b
           //   // return b.items
           // }
-        )
+        );
         // if (i.id !== id) {
         //   console.log('i.id в ', i.id);
         //   console.log('i в ', i);
@@ -167,7 +279,7 @@ export function UlbiTV_DrADr() {
         // return b
         // return boards
       })
-    )
+    );
   };
 
   // {boards.map((board) => (
@@ -180,7 +292,6 @@ export function UlbiTV_DrADr() {
   const [currentItem, setCurrentItem] = useState(null);
   // запоминаем доску от куда задача взята
   const [currentBoard, setCurrentBoard] = useState(null);
-
   // FN СЛУШАТЕЛИ
   // взяли карту
   function dragStartHandler(e, board, item) {
@@ -316,30 +427,29 @@ export function UlbiTV_DrADr() {
             // name={newItem}
             name="description"
             // value={newItem}
-            // value={e.target.value} 
-            value={newItem == null ? '' : newItem}
+            // value={e.target.value}
+            value={newValItem == null ? "" : newValItem}
             className="form__field"
             // onClick={(e) => addNewItem()}
-            onChange={(e) => setNewItem(e.target.value)}
+            onChange={(e) => setValNewItem(e.target.value)}
             style={
-              newItemErr
-                ? { outline: "2px solid #f00" }
-                : { outline: "none" }
+              newItemErr ? { outline: "2px solid #f00" } : { outline: "none" }
             }
           />
           <button
             className="btn btn--primary btn--inside uppercase"
-            onClick={() => addNewItem(newItem)}
-            type='button'>button</button>
+            onClick={() => addNewItem(newValItem)}
+            type="button"
+          >
+            button
+          </button>
         </form>
         {/* ДОСКИ */}
-        <div
-          className="boards"
-        >
+        <div className="boards">
           {/* перебор внешнего масс. с отрисовкой.  */}
           {boards.map((board) => (
             <div
-              // onClick={() => removeItem(board.id)}
+              // onClick={() => removeItem3(board.id)}
               key={board.id}
               className="board"
               // слуш-ли на доске
@@ -347,14 +457,14 @@ export function UlbiTV_DrADr() {
               onDrop={(e) => dropCardHandler(e, board)}
               onDragLeave={(e) => dragLeaveHandler(e)}
             >
-              <div className="board__title">
-                {board.title}
-              </div>
+              <div className="board__title">{board.title}</div>
               {/* по эл.(items) из внешн. масс.(board), перебор внутр. масс. с отрис. */}
               <div className="items">
                 {board.items.map((item) => (
                   <div
-                    // onClick={() => removeItem(item.id)}
+                    onDoubleClick={() =>
+                      removeItem(board.id, item.id, board, item)
+                    }
                     key={item.id}
                     className="item"
                     // ЛОГИКА. Вешаем слушатели с вызов. fn приним. событ. В слуш-ли Start и Drop ещё принима карты
