@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
+import React /* , { useState, useRef } */ from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 // аним ч/з react-transition-group
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
 // аним ч/з react-spring. выбор изза возможности в родителе откр. стр.дочки
 import { useTransition, animated } from "react-spring";
 
@@ -30,6 +30,7 @@ import { UlbiTV_DrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_DrADr";
 // import { Layout } from "./layout.jsx";
 
 export function Router() {
+  // анимация страниц
   const location = useLocation();
   const transitions = useTransition(location, {
     from: {

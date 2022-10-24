@@ -101,6 +101,7 @@ export function UlbiTV_DrADr() {
       removeNode(it.children, id);
     });
   }
+  // removeNode([db], 4);
 
   // по логам видно что нажатая задача не возвращается. не понятно ка теперь вывести
   const removeItem = (boardId, itemId, board, item) => {

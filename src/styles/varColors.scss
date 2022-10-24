@@ -1,9 +1,14 @@
+// ??? не раб - цвета не обрабатываются в css. В браузер прилетают названия
+$TrafficRed: #cd0000; // Транспортный красный
 $DarkRed: #8b0000; // темно-красный
 $CrimsonBrown: #4b0000; // коричнево-малиновый
+$VeryDeepRed: #320a18; // Очень глубокий красный
 $WhiteAlum: #a3a3a3; // бело-алюминиевый
 $DullGray: #707070; // тусклый серый
 $WetAsphalt: #555555; // мокрый асфальта
 $SignalBlack: #333333; // cигнальный черный
+$AlmostBlack: #131313; // Почти черный
+$BlackAmber: #0a0a0a; // Черный янтарь
 $red: #ff0000;
 $yellow: #ffff00;
 $orange: #ffa500;
@@ -11,3 +16,33 @@ $green: #008000;
 $golub: #42aaff;
 $blue: #0000ff;
 $fiol: #8b00ff;
+
+// пробы Тёмной/Светлой/Средней темя на атрибутах
+html[data-theme="dark"] {
+  // --background-color: $SignalBlack;
+  --background-color: #333333;
+  --background-color2: #4b0000;
+  // --background-color2: $CrimsonBrown;
+  --text-color: #000;
+}
+html[data-theme="light"] {
+  // --background-color: $WhiteAlum;
+  --background-color: #a3a3a3;
+  // --background-color2: $TrafficRed;
+  --background-color2: #cd0000;
+  // --text-color: $AlmostBlack;
+  --text-color: #131313;
+}
+html[data-theme="natural"] {
+  // --background-color: $DullGray;
+  --background-color: #707070;
+  // --background-color2: $DarkRed;
+  --background-color2: #8b0000;
+  // --text-color: $BlackAmber;
+  --text-color: #0a0a0a;
+}
+
+.header,
+.footer {
+  background-color: var(--background-color);
+}

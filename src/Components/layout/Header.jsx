@@ -1,23 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 
-// хук AllKey для вывода доп.меню через опред.кнп.
+// хук для вывода Доп.Меню ч/з Опред.Кобин.Клвш.
 import { useAllKeysPress } from "../../scripts/hooks/useAllKeysPress";
 
+// хук для Цветовых Тем (Тёмная/Сетлая/Средняя)
+import { useTheme } from "../../scripts/hooks/useTheme";
+// переключатель для тем
+import { Switcher3btnTheme } from "../ui/Switcher3btnTheme";
+
 export function Header() {
-  const [dopCombinePress, setDopCombinePress] = useState(false);
+  // ЛОГИКА Опред.Кобин.Клвш. для вывода Доп.Меню
+  // стат. показа Доп.Меню
+  const [dopCombinePress, setDopCombinePress] = useState(true);
   // массив букв после хука (возвращ true е/и переданные и нажатые равны)
   const combinePress = useAllKeysPress({
     userKeys: ["d", "o", "p", "m", "n"],
     order: true,
   });
-
   useEffect(() => {
     if (combinePress === true) {
       setDopCombinePress(true);
     }
     console.log("combinePress : " + combinePress);
   }, [combinePress, dopCombinePress]);
+
+  // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
+  // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
+  const { theme, setTheme } = useTheme();
+  const handleDarkTheme = () => {
+    setTheme("dark");
+  };
+  const handleLightTheme = () => {
+    setTheme("light");
+  };
+  const handleNaturalTheme = () => {
+    setTheme("natural");
+  };
 
   return (
     <>
@@ -126,6 +145,13 @@ export function Header() {
                   <a className="m-b-items__navlink" href="/#">
                     3
                   </a>
+                </span>
+                <span className="menu-bottom__items m-b-items">
+                  <Switcher3btnTheme
+                    handleDarkTheme={handleDarkTheme}
+                    handleLightTheme={handleLightTheme}
+                    handleNaturalTheme={handleNaturalTheme}
+                  />
                 </span>
                 {/* <MultiKeysPressed
                   keys={["Alt", "a"]}
