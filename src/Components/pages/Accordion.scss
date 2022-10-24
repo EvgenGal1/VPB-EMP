@@ -1,5 +1,6 @@
 .section {
   h1 {
+    cursor: pointer;
     &:after {
       content: "";
       width: 100%;
