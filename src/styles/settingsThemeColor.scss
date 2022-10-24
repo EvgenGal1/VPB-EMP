@@ -1,0 +1,52 @@
+// ??? не раб - SCSS перем.цвета не обрабат. в CSS. В браузер прилетают названия SCSS. Все перем на CSS
+
+// временно, для наглядности цвета
+:root {
+  --TrafficRed: #cd0000; // Транспортный красный
+  --DarkRed: #8b0000; // темно-красный
+  --CrimsonBrown: #4b0000; // коричнево-малиновый
+  --VeryDeepRed: #320a18; // Очень глубокий красный
+  --WhiteAlum: #a3a3a3; // бело-алюминиевый
+  --DullGray: #707070; // тусклый серый
+  --WetAsphalt: #555555; // мокрый асфальта
+  --SignalBlack: #333333; // cигнальный черный
+  --AlmostBlack: #131313; // Почти черный
+  --BlackAmber: #0a0a0a; // Черный янтарь
+}
+
+// Цветовые переменные для Цв.Тем (Тёмной/Светлой/Средней) на атрибутах
+body[data-theme="dark"] {
+  --background-color: var(--SignalBlack);
+  --bg-fon: var(--CrimsonBrown);
+  --text-color: #000;
+}
+body[data-theme="light"] {
+  --background-color: var(--WhiteAlum);
+  --bg-fon: var(--TrafficRed);
+  --text-color: var(--AlmostBlack);
+}
+body[data-theme="natural"] {
+  --background-color: var(--DullGray);
+  --bg-fon: var(--DarkRed);
+  --text-color: var(--BlackAmber);
+}
+
+:root {
+  body {
+    --baz-bkg-color: var(--dark, #140f0b) var(--neutral, #333)
+      var(--light, #858585);
+  }
+  .header,
+  .footer {
+    background-color: var(--background-color);
+    // анимация перехода
+    transition: background-color 900ms linear;
+    // transition: color 200ms linear; // для color
+  }
+
+  .main {
+    background-color: var(--bg-fon);
+    transition: background-color 300ms linear;
+    // transition: background-color 500ms linear,color 200ms linear; // для груп эл-ов
+  }
+}

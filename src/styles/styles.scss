@@ -166,9 +166,11 @@ $md5NoErr: 576px;
 // @import "forms.scss";
 // сбор готовых и вспомогательных классов (ibg, video, заголовки, зеркало, серый стиль)
 // @import "./ui.scss";
-// изменения стилей Темы и Размеров (--theme, --size) при нажате на кнопки под меню
+// изменения стилей Темы и Размеров (--theme, --size) при нажате на кнопки под меню (старое)
 // @import "./themeModesSettingsBtns.scss";
 // @import "./themeModesSettingsVars.scss";
+// изменения стилей Темы (theme) при нажате на переключатели в Доп.Меню (новое)
+@import "./settingsThemeColor.scss";
 // крупные визуальные эффекты CSS
 // @import "visual.scss";
 // не большие анимации, трансформации, эффекты CSS на всех страницах
