@@ -1,6 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useLayoutEffect, useEffect } from "react";
 
 export function UlbiTV_MiniDrADr() {
+  const [theme, setTheme] = useState(localStorage.getItem("--theme"));
+  const [colorTheme, setСolorTheme] = useState("");
+  // console.log("theme ", theme);
+  // const selColorTheme = () => {
+  //   // var colorTheme;
+  //   if (theme === "dark") {
+  //     // colorTheme = "#f0f";
+  //     setСolorTheme("#f0f");
+  //     console.log("colorTheme 1 ", colorTheme);
+  //   }
+  //   if (theme === "natural") {
+  //     // colorTheme = "#0f0";
+  //     setСolorTheme("#0f0");
+  //     console.log("colorTheme 2 ", colorTheme);
+  //   }
+  //   if (theme === "light") {
+  //     // colorTheme = "#00f";
+  //     setСolorTheme("#00f");
+  //     console.log("colorTheme 3 ", colorTheme);
+  //   }
+  // };
+  // console.log("colorTheme ", colorTheme);
+  // useLayoutEffect(() => {
+  useEffect(() => {
+    // document.body.setAttribute("data-theme", theme);
+    // localStorage.setItem("--theme", theme);
+    if (theme === "dark") {
+      // colorTheme = "#f0f";
+      setTheme("dark");
+      setСolorTheme("#f0f");
+      // setСolorTheme("--YellowBrown");
+      // console.log("colorTheme 1 ", colorTheme);
+    }
+    if (theme === "natural") {
+      // colorTheme = "#0f0";
+      setTheme("natural");
+      setСolorTheme("#0f0");
+      // console.log("colorTheme 2 ", colorTheme);
+    }
+    if (theme === "light") {
+      // colorTheme = "#00f";
+      setTheme("light");
+      setСolorTheme("#00f");
+      // console.log("colorTheme 3 ", colorTheme);
+    }
+    // }, [theme, colorTheme]);
+    // localStorage.setItem("--theme", theme);
+  }, [theme, colorTheme]);
+  // }
+  // return { theme, setTheme };
+  // useEffect(() => {
+  //   localStorage.getItem("--theme");
+
+  //   // return () => {
+  //   //   second
+  //   // }
+  // }, [theme]);
+
   // список карт с сост. по умолч. масс. с объми
   const [cardList, setCardList] = useState([
     { id: 1, order: 3, text: "КАРТОЧКА 3" },
@@ -26,15 +84,18 @@ export function UlbiTV_MiniDrADr() {
   // отпустили карту (слуш-ли onDragLeave и onDragEnd)
   function dragEndHandler(e) {
     // возвращ. цвет карты после опуска
-    e.target.style.background = "white";
-    // e.target.style.background = {'{--DarkRed} ? {--DarkRed} : "white"'};
+    e.target.style.backgroundColor = "white";
+    // e.target.style.backgroundColor = {'{--DarkRed} ? {--DarkRed} : "white"'};
   }
   // висит над др. картой
   function dragOverHandler(e) {
     // откл. действ. по умолч.
     e.preventDefault();
     // подсветка карты приёма
-    e.target.style.background = "lightgray";
+    e.target.style.backgroundColor = "lightgray";
+    e.target.style.backgroundColor = colorTheme ? colorTheme : "gray";
+    // e.target.style.setProperty("backgroundColor", "--footer-color");
+    // e.target.style.setProperty("--footer-color", "backgroundColor");
   }
   // действ. после опуска (изменение порядка)
   function dropHandler(e, card) {
@@ -58,7 +119,7 @@ export function UlbiTV_MiniDrADr() {
       })
     );
     // возврат цвета по умолч.
-    e.target.style.background = "white";
+    e.target.style.backgroundColor = "white";
   }
 
   // fn сортировки приним 2 объ
