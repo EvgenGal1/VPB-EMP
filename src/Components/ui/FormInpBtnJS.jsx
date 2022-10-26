@@ -29,7 +29,9 @@ export const FormInpBtnJS = ({
           className="form__field"
           // onClick={(e) => addNewItem()}
           onChange={(e) => onChanInp(e.target.value)}
-          style={styleInp ? { outline: "2px solid #f00" } : { outline: "none" }}
+          style={
+            styleInp ? { outline: "2px solid #8b0000" } : { outline: "none" }
+          }
         />
         <button
           className="btn btn--primary btn--inside uppercase"

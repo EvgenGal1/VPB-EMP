@@ -57,7 +57,8 @@
 
       &:hover {
         font-weight: bold;
-        background: gold !important;
+        // background: gold !important;
+        background: gold;
         // увелич. важность т.к. в коде использ.цвета
         box-shadow: 5px 5px 10px 3px #555 !important;
         box-shadow: 5px 5px 10px 3px #000 !important;

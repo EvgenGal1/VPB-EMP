@@ -28,20 +28,17 @@ export function UlbiTV_MiniDrADr() {
     // document.body.setAttribute("data-theme", theme);
     // localStorage.setItem("--theme", theme);
     if (theme === "dark") {
-      // colorTheme = "#f0f";
       setTheme("dark");
-      setСolorTheme("#f0f");
+      setСolorTheme("#555");
       // setСolorTheme("--YellowBrown");
       // console.log("colorTheme 1 ", colorTheme);
     }
     if (theme === "natural") {
-      // colorTheme = "#0f0";
       setTheme("natural");
       setСolorTheme("#0f0");
       // console.log("colorTheme 2 ", colorTheme);
     }
     if (theme === "light") {
-      // colorTheme = "#00f";
       setTheme("light");
       setСolorTheme("#00f");
       // console.log("colorTheme 3 ", colorTheme);
@@ -66,6 +63,7 @@ export function UlbiTV_MiniDrADr() {
     { id: 3, order: 2, text: "КАРТОЧКА 2" },
     { id: 7, order: 7, text: "КАРТОЧКА 7" },
     { id: 4, order: 4, text: "КАРТОЧКА 4" },
+    { id: 9, order: 9, text: "КАРТОЧКА 9" },
     { id: 5, order: 5, text: "КАРТОЧКА 5" },
     { id: 6, order: 6, text: "КАРТОЧКА 6" },
     { id: 2, order: 1, text: "КАРТОЧКА 1" },
@@ -84,7 +82,7 @@ export function UlbiTV_MiniDrADr() {
   // отпустили карту (слуш-ли onDragLeave и onDragEnd)
   function dragEndHandler(e) {
     // возвращ. цвет карты после опуска
-    e.target.style.backgroundColor = "white";
+    e.target.style.backgroundColor = "#333";
     // e.target.style.backgroundColor = {'{--DarkRed} ? {--DarkRed} : "white"'};
   }
   // висит над др. картой
@@ -120,6 +118,7 @@ export function UlbiTV_MiniDrADr() {
     );
     // возврат цвета по умолч.
     e.target.style.backgroundColor = "white";
+    e.target.style.backgroundColor = "#333";
   }
 
   // fn сортировки приним 2 объ
