@@ -21,7 +21,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #fff !important;
+      background-color: #fff;
       border: 5px solid darkred;
       border-radius: 12px;
       cursor: pointer;
@@ -44,12 +44,13 @@
       padding: 10px;
       margin: 5px 0px;
       text-align: center;
-      transition: 0.1s;
+      transition: 0.2s;
       cursor: pointer;
       // background: #ff0;
       border-radius: 5px;
       border: 2px solid darkred;
       box-shadow: 3px 3px 7px 0px #555;
+      box-shadow: 3px 3px 7px 0px #000;
       &:last-child {
         // margin: 5px 0px 0px;
       }
@@ -59,7 +60,9 @@
         background: gold !important;
         // увелич. важность т.к. в коде использ.цвета
         box-shadow: 5px 5px 10px 3px #555 !important;
+        box-shadow: 5px 5px 10px 3px #000 !important;
         transform: scale(1.1);
+        transition: 0.2s;
       }
     }
   }

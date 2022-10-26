@@ -27,6 +27,7 @@ export function UlbiTV_MiniDrADr() {
   function dragEndHandler(e) {
     // возвращ. цвет карты после опуска
     e.target.style.background = "white";
+    // e.target.style.background = {'{--DarkRed} ? {--DarkRed} : "white"'};
   }
   // висит над др. картой
   function dragOverHandler(e) {

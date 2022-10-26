@@ -132,7 +132,11 @@
 body[data-theme="dark"] {
   --bg-fon: var(--Coffee);
   --bg-col-el: var(--SignalBlack);
-  --activ-col: var(--MelonYellow);
+  --activ-col-Yel: var(--MelonYellow);
+  --activ-col-RdBr: var(--CrimsonBrown);
+  --activ-col-RdBr: #4b0000;
+  --activ-col-RdBr: #6b0000;
+  --activ-col-RdBr: #8b0000;
   --activ-bg: var(--WetAsphalt);
   --bg-col-inpt: var(--YellowBrown);
   --text-color: #000;
@@ -164,29 +168,56 @@ body[data-theme="light"] {
       background-color: var(--bg-col-el);
       transition: background-color 900ms linear;
     }
-    div nav a.active {
-      color: var(--activ-col) !important;
-      background-color: var(--activ-bg) !important;
-      transition: background-color 500ms linear, color 200ms linear; // для груп эл-ов
+    div nav {
+      & a {
+        // color: var(--activ-col) !important;
+        // background-color: var(--activ-bg) !important;
+      }
+      & a.active {
+        color: var(--activ-col-RdBr) !important;
+        background-color: var(--activ-bg) !important;
+        transition: background-color 500ms linear, color 200ms linear;
+      }
+      & a:hover {
+        color: var(--activ-col-Yel) !important;
+        background-color: var(--activ-bg) !important;
+        transition: background-color 500ms linear, color 200ms linear;
+      }
     }
 
     .main {
       background-color: var(--bg-fon);
       transition: background-color 300ms linear;
-      & > div nav a.active {
-        background-color: var(--activ-col);
-      }
+      // & > div nav {
+      //   & a.active {
+      //     background-color: var(--activ-col);
+      //   }
+      // }
       input,
-      button {
+      button:not([class*="btn--primary"]) {
         background-color: var(--bg-col-inpt);
         transition: background-color 300ms linear;
       }
     }
+    // div:hover {
+    //   color: var(--activ-col) !important;
+    //   background-color: var(--activ-bg) !important;
+    // }
   }
 }
 
 // СТИЛИ ПРОЕКТА
 :root {
   body {
+    .UlbiTV {
+      transition: background-color 300ms linear;
+      &_DrADr .boards .board {
+        background-color: var(--bg-col-inpt);
+      }
+      .card {
+        // background: var(--bg-col-inpt) !important;
+        background: var(--bg-col-inpt);
+      }
+    }
   }
 }

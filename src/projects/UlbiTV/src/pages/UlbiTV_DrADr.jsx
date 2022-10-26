@@ -310,10 +310,12 @@ export function UlbiTV_DrADr() {
     e.preventDefault();
     // тень на задачу с низу е/и над ней др. задача
     if (e.target.className === "board") {
-      e.target.style.boxShadow = "5px 5px 10px 3px #555";
+      // e.target.style.boxShadow = "5px 5px 10px 3px #555";
+      e.target.style.boxShadow = "5px 5px 10px 3px #000";
     }
     if (e.target.className === "item") {
-      e.target.style.boxShadow = "5px 5px 10px 3px #555";
+      // e.target.style.boxShadow = "5px 5px 10px 3px #555";
+      e.target.style.boxShadow = "5px 5px 10px 3px #000";
       e.target.style.background = "lightgreen";
       e.target.style.fontWeight = "bold";
     }
@@ -328,7 +330,8 @@ export function UlbiTV_DrADr() {
     }
     if (e.target.className === "item") {
       // console.log("e.target item ", e.target);
-      e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      // e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      e.target.style.boxShadow = "3px 3px 7px 0px #000";
       e.target.style.background = "none";
       e.target.style.fontWeight = "normal";
     }
@@ -341,7 +344,8 @@ export function UlbiTV_DrADr() {
       e.target.style.boxShadow = "none";
     }
     if (e.target.className === "item") {
-      e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      // e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      e.target.style.boxShadow = "3px 3px 7px 0px #000";
       e.target.style.background = "none";
       e.target.style.fontWeight = "normal";
     }
@@ -409,11 +413,13 @@ export function UlbiTV_DrADr() {
       );
     }
     if (e.target.className === "board") {
-      e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      // e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      e.target.style.boxShadow = "3px 3px 7px 0px #000";
       e.target.style.boxShadow = "none";
     }
     if (e.target.className === "item") {
-      e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      // e.target.style.boxShadow = "3px 3px 7px 0px #555";
+      e.target.style.boxShadow = "3px 3px 7px 0px #000";
       e.target.style.background = "none";
       e.target.style.fontWeight = "normal";
     }

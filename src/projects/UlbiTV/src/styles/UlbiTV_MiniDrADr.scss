@@ -18,10 +18,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.1s;
+  transition: 0.2s;
   border: 5px solid darkred;
   background: #fff;
   box-shadow: 5px 5px 10px 3px #555;
+  box-shadow: 5px 5px 10px 3px #000;
   border-radius: 12px;
   margin: 10px 15px;
   cursor: pointer;
@@ -30,6 +31,8 @@
     // увелич. важность т.к. в коде использ.цвета
     background: #ff0 !important;
     box-shadow: 3px 3px 7px 0px #555;
+    box-shadow: 3px 3px 7px 0px #000;
+    transition: 0.2s;
     transform: scale(1.1);
   }
 }
