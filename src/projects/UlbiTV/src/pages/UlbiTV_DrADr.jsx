@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// ??? не раб - не подкл TS файл - Модуль не найден: Ошибка: Не удается разрешить
+// import { FormInpBtnTS } from "../../../../Components/ui/FormInpBtnTS";
+import { FormInpBtnJS } from "../../../../Components/ui/FormInpBtnJS";
+
 export function UlbiTV_DrADr() {
   // набор досок с задачами в сост. по умолч. Масс. с объ-ми (доски) с массивом объ-ов (задачи)
   const [boards, setBoards] = useState([
@@ -46,7 +50,7 @@ export function UlbiTV_DrADr() {
   ]);
 
   // стат. добавления эл.
-  const [newValItem, setValNewItem] = useState("");
+  const [newItemVal, setNewItemVal] = useState("");
   // стат. ошибки ввода
   const [newItemErr, setNewItemErr] = useState(false);
 
@@ -57,15 +61,15 @@ export function UlbiTV_DrADr() {
       const newItem = {
         key: Date.now(),
         id: new Date().getMilliseconds(),
-        text: newValItem,
+        text: newItemVal,
       };
       setCurrentBoard([...boards, boards[0].items.push(newItem)]);
-      setValNewItem("");
+      setNewItemVal("");
     } else {
-      setValNewItem("Заполни поле!!!");
+      setNewItemVal("Заполни поле!!!");
       setNewItemErr(true);
       setTimeout(() => {
-        setValNewItem("");
+        setNewItemVal("");
         setNewItemErr(false);
       }, 500);
     }
@@ -422,29 +426,36 @@ export function UlbiTV_DrADr() {
       </div>
       <div className="DrADr__content">
         {/* ФОРМА */}
-        <form className="form">
+        <FormInpBtnJS
+          val={newItemVal}
+          styleInp={newItemErr}
+          onChanInp={setNewItemVal}
+          onClikBtn={addNewItem}
+        />
+        <br />
+        {/* <form className="form">
           <input
             type="text"
             // name={newItem}
             name="description"
             // value={newItem}
             // value={e.target.value}
-            value={newValItem == null ? "" : newValItem}
+            value={newItemVal == null ? "" : newItemVal}
             className="form__field"
             // onClick={(e) => addNewItem()}
-            onChange={(e) => setValNewItem(e.target.value)}
+            onChange={(e) => setNewItemVal(e.target.value)}
             style={
               newItemErr ? { outline: "2px solid #f00" } : { outline: "none" }
             }
           />
           <button
             className="btn btn--primary btn--inside uppercase"
-            onClick={() => addNewItem(newValItem)}
+            onClick={() => addNewItem(newItemVal)}
             type="button"
           >
             button
           </button>
-        </form>
+        </form> */}
         {/* ДОСКИ */}
         <div className="boards">
           {/* перебор внешнего масс. с отрисовкой.  */}
