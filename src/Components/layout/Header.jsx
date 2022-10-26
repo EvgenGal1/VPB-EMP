@@ -22,7 +22,8 @@ export function Header() {
     if (combinePress === true) {
       setDopCombinePress(true);
     }
-    console.log("combinePress : " + combinePress);
+    // ??? не раб - перерендер
+    // console.log("combinePress : " + combinePress);
   }, [combinePress, dopCombinePress]);
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
@@ -42,6 +43,7 @@ export function Header() {
     <>
       <header className="header">
         <div className="header-container">
+          {/* ЛОГО */}
           <div className="header__logo">
             <Link to="/" className="header__link">
               <img
@@ -52,7 +54,9 @@ export function Header() {
               <h3>НОВ.ПРОЕКТ</h3>
             </Link>
           </div>
+          {/* ОБЩ. МЕНЮ */}
           <div className="header__menu">
+            {/* ВЕРХНЕЕ МЕНЮ */}
             <nav className="header__menu-top menu-top flex flex-wrap justify-between items-center text-white">
               <span className="menu-top__items m-t-items">
                 <NavLink to="/NewPro" className="m-t-items__navlink activ-prob">
@@ -124,6 +128,7 @@ export function Header() {
                 </NavLink>
               </span>
             </nav>
+            {/* НИЖНЕЕ/ДОП.МЕНЮ */}
             {dopCombinePress && (
               <nav className="header__menu-bottom menu-bottom flex flex-wrap justify-between items-center mt-4">
                 <span

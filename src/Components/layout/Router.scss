@@ -61,58 +61,24 @@
     }
     .menu-top__items {
       position: relative;
-      margin-left: 15px;
+      // margin-left: 15px;
       margin-bottom: 5px;
 
-      // НАВЕДЕНИЕ на дочерние эл-ты
-      &:hover {
-        // ссылки
-        .m-t-items__navlink {
-          font-weight: bold;
-          color: #000;
-          box-shadow: 1px 1px 10px #000 inset, 1px 1px 2px black !important;
-        }
-        // подменю при неведении
-        .m-t-items__ul {
-          opacity: 1;
-          visibility: visible;
-          transform: translate(0px, 0px);
-          pointer-events: all;
-        }
-      }
       // видимые ссылки в header --------------------------------------------------------------------
-      // NavLink (на родителя) - видимый эл. header (е/и в родителе есть <а> с .active) (сложн.)
+      // NavLink (на родителя) - видимый эл. header (е/и в родителе есть <а> с .active) (сложн. перенесено на NavLink свой класс)
       // &:has(a[class$="active"]) {
-      //   background: #474b4e;
       // }
-      // NavLink (свой клас на ссылку) - видимый эл. header
-      .m-t-items__navlink {
-        &.active {
-          background: #474747;
-          background: #474b4e;
-          color: black;
-          color: gold;
-          box-shadow: 1px 1px 3px #000 inset, 1px 1px 3px black;
-          box-shadow: 2px 2px 2px #000 inset, 0px 0px 0px black;
-          // font-weight: bold;
-        }
-        // position: relative;
-        width: 150px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #000;
-        box-shadow: -1px -1px 1px #000 inset, 1px 1px 1px black;
-      }
-      // NavLink (из док на ссылку) - видимый эл. header
-      > a.active {
-        color: #7a7a7a;
-        font-weight: bold;
-        // font-weight: bold;
-        // background-color: #000000;
-        // cursor: default;
-      }
+      // NavLink (свой клас на ссылку) - видимый эл. header (перенесено в projects.scss(общ.стили проекта) к ссылкам)
+      // .m-t-items__navlink {
+      //   &.active {
+      //   }
+      //   &:hover {
+      //   }
+      // подменю при неведении
+      //   .m-t-items__ul {
+      //   }
+      // }
+
       // ПОДМЕНЮ
       .m-t-items__ul {
         // частично из ЕжеСвет
@@ -151,39 +117,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 2%;
+    margin-top: 1%;
     &:hover span:not(:hover) {
       opacity: 0.5;
     }
-    .menu-bottom__items {
-      position: relative;
-      margin-left: 15px;
-      margin-bottom: 5px;
-      &:hover {
-        .m-b-items__navlink {
-          font-weight: bold;
-          color: #000;
-          box-shadow: 1px 1px 10px #000 inset, 1px 1px 2px black !important;
-        }
-      }
-      .m-b-items__navlink {
-        &.active {
-          color: black;
-          color: gold;
-          box-shadow: 1px 1px 3px #000 inset, 1px 1px 3px black;
-          box-shadow: 2px 2px 2px #000 inset, 0px 0px 0px black;
-          // font-weight: bold;
-        }
-        // position: relative;
-        width: 150px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #000;
-        box-shadow: -1px -1px 1px #000 inset, 1px 1px 1px black;
-      }
-    }
+    // перенесено в projects.scss(общ.стили проекта) к ссылкам
+    // .menu-bottom__items {
+    //   &:hover {
+    //     .m-b-items__navlink {
+    //     }
+    //   }
+    //   .m-b-items__navlink {
+    //     &.active {
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -357,39 +305,4 @@
     opacity: 0;
     transform: translateX(100%);
   }
-}
-
-// https://stackblitz.com/edit/react-49vg63?file=App.js,components%2FMenu.js,components%2FHome.js,components%2FWorks.js,styles%2FaboutStyle.css
-.about {
-  color: red;
-}
-
-.aboutTransition-appear {
-  opacity: 0;
-}
-
-.aboutTransition-appear.aboutTransition-appear-active {
-  opacity: 1;
-  color: red;
-  transition: all 0.4s ease-in-out;
-}
-
-.homeTransition-appear {
-  opacity: 0;
-}
-
-.homeTransition-appear.homeTransition-appear-active {
-  opacity: 1;
-  transition: all 0.4s ease-in-out;
-}
-
-.worksTransition-appear {
-  opacity: 0;
-  transform: translateX(-100px);
-}
-
-.worksTransition-appear.worksTransition-appear-active {
-  opacity: 1;
-  transform: translateX(0px);
-  transition: all 0.4s ease-in-out;
 }
