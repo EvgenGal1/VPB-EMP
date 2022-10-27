@@ -11,24 +11,25 @@
   --WhiteAlum: #a3a3a3; // бело-алюминиевый
   --Gray: #808080; // серый
   --DullGray: #777777; // серый
+  --DullGray: #696969; // Тусклый Серый
   --WetAsphalt: #555555; // мокрый асфальта
+  --WetAsphalt: #505050; // Мокрый Асфальта
+  --BlueGray: #474b4e; // Синий серый
+  --DarkBlueGray: #373737; // Тёмно синий серый
   --SignalBlack: #333333; // cигнальный черный
   --AlmostBlack: #131313; // Почти черный
   --BlackAmber: #0a0a0a; // Черный янтарь
   --Coffee: #442d25; // Кофейный
   --NavajoWhite: #ffdead; // Белый навахо
-  --YellowBrown: #d2b48c; // Цвет загара (Желто-коричневый)
   --MelonYellow: #f4a900; // Дынно-желтый
   --Gold: #ffd700; // золотой
   --Yellow: #ffff00; // жёлтый
-  --BlueGray: #474b4e; // Синий серый
-  --DarkBlueGray: #373737; // Тёмно синий серый
-  --WetAsphalt: #505050; // Мокрый Асфальта
   --DeerBrown: #59351f; // Олень коричневый
   --BrownBeige: #8a6642; // Коричнево-Бежевый
   --BeigeBrown: #79553d; // Бежево-Коричневый
-  --YellowBrown: #d2b48c; // Желто-Коричневый
   --DeepYellow: #b57900; // Глубокий Желтый
+  --YellowBrown: #d2b48c; // Желто-Коричневый
+  --ModYelBrown: #7d512d; // Умеренный Желтый Коричневый
   --probCol: antiquewhite;
   --probCol: bisque;
   --probCol: moccasin;
@@ -161,6 +162,7 @@ body[data-theme="dark"] {
   --bg-col-el: var(--SignalBlack);
   --bg-col-ui: var(--DeerBrown);
   --activ-col-ui: var(--DeepYellow);
+  --activ-bg-ui: var(--ModYelBrown);
   --activ-col-light: var(--MelonYellow);
   --activ-col-dark: var(--PinkForest);
   --activ-bg: var(--WetAsphalt);
@@ -170,26 +172,32 @@ body[data-theme="dark"] {
 body[data-theme="natural"] {
   --bg-fon: var(--BrownBeige);
   --bg-col-el: var(--WetAsphalt);
-  --bg-col-ui: var(--BeigeBrown);
+  --bg-col-ui: var(--YellowBrown);
+  --activ-col-ui: var(--Gold);
+  --activ-bg-ui: var(--NavajoWhite);
   --activ-col-light: var(--Gold);
-  --activ-col-dark: var(--PinkForest);
-  --activ-bg: var(--DarkBlueGray);
+  --activ-col-dark: var(--DarkRed);
+  --activ-bg: var(--DullGray);
   --text-color: var(--BlackAmber);
+  --col-bord-hr: var(--PinkForest);
 }
 body[data-theme="light"] {
   --bg-fon: var(--YellowBrown);
   --bg-col-el: var(--WhiteAlum);
   --bg-col-ui: #fff;
+  --activ-col-ui: var(--Yellow);
+  --activ-bg-ui: var(--NavajoWhite);
   --activ-col-light: var(--Yellow);
-  --activ-col-dark: var(--PinkForest);
-  --activ-bg: var(--WetAsphalt);
-  // --bg-col-ui: var(#fff);
+  --activ-col-dark: var(--TrafficRed);
+  --activ-bg: var(--Gray);
   --text-color: var(--AlmostBlack);
+  --col-bord-hr: var(--DarkRed);
 }
 
 // ОБЩИЕ СТИЛИ
 :root {
   body {
+    background-color: var(--bg-fon);
     hr {
       border-color: var(--col-bord-hr) !important;
     }
@@ -235,7 +243,7 @@ body[data-theme="light"] {
       form {
         input {
           &:hover {
-            background-color: #5b3a29;
+            background-color: var(--activ-bg-ui) !important;
           }
         }
         button {
@@ -284,8 +292,11 @@ body[data-theme="light"] {
       }
     }
     //
-    .sw3btn-slider {
+    .sw3btn-radio__dark:checked ~ .sw3btn-slider {
       background-color: var(--activ-col-dark);
+    }
+    .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
+      background-color: var(--MelonYellow);
     }
   }
 }

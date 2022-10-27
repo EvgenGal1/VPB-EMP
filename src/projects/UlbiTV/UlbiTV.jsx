@@ -11,7 +11,7 @@ export function UlbiTV(props) {
   return (
     <div className="UlbiTV">
       <div className="UlbiTV__descript">
-        <h1>НОВ.ПРОЕКТЫ UlbiTV</h1>
+        <h1>НОВ.ПРОЕКТЫ UlbiTV и не только</h1>
         <ul>
           <li>
             <a
@@ -42,6 +42,17 @@ export function UlbiTV(props) {
               style={{ textDecoration: "underline" }}
             >
               НЕ ДЕЛАЛ - Drag and drop загрузка файла на сервер REACT
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=C2ZCD_RFlPQ&list=RDLVFgvJH91a5K0"
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "underline" }}
+            >
+              НЕ ДЕЛАЛ - Изменение порядка элементов списка в React-компонентах
+              (Михаил Непомнящий)
             </a>
           </li>
         </ul>
