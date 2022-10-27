@@ -46,7 +46,7 @@ function Footer(props) {
       </div>
       <div className="footer__copyright">
         <div className="copyright-container">
-          © 2022 EvGen Gal
+          <span>© 2022 EvGen Gal</span>
           <a className="" href="#!">
             Всем Добра Дзыы))
           </a>

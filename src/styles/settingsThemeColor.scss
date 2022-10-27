@@ -12,24 +12,24 @@
   --Gray: #808080; // серый
   --DullGray: #777777; // серый
   --DullGray: #696969; // Тусклый Серый
-  --WetAsphalt: #555555; // мокрый асфальта
   --WetAsphalt: #505050; // Мокрый Асфальта
   --BlueGray: #474b4e; // Синий серый
   --DarkBlueGray: #373737; // Тёмно синий серый
   --SignalBlack: #333333; // cигнальный черный
+  --BlackBrown: #212121; // Черно Коричневый
   --AlmostBlack: #131313; // Почти черный
   --BlackAmber: #0a0a0a; // Черный янтарь
-  --Coffee: #442d25; // Кофейный
   --NavajoWhite: #ffdead; // Белый навахо
   --MelonYellow: #f4a900; // Дынно-желтый
   --Gold: #ffd700; // золотой
   --Yellow: #ffff00; // жёлтый
+  --Coffee: #442d25; // Кофейный
   --DeerBrown: #59351f; // Олень коричневый
   --BrownBeige: #8a6642; // Коричнево-Бежевый
   --BeigeBrown: #79553d; // Бежево-Коричневый
+  --ModYelBrown: #7d512d; // Умеренный Желтый Коричневый
   --DeepYellow: #b57900; // Глубокий Желтый
   --YellowBrown: #d2b48c; // Желто-Коричневый
-  --ModYelBrown: #7d512d; // Умеренный Желтый Коричневый
   --probCol: antiquewhite;
   --probCol: bisque;
   --probCol: moccasin;
@@ -160,6 +160,7 @@
 body[data-theme="dark"] {
   --bg-fon: var(--Coffee);
   --bg-col-el: var(--SignalBlack);
+  --bg-col-el-dark: var(--BlackBrown);
   --bg-col-ui: var(--DeerBrown);
   --activ-col-ui: var(--DeepYellow);
   --activ-bg-ui: var(--ModYelBrown);
@@ -172,6 +173,7 @@ body[data-theme="dark"] {
 body[data-theme="natural"] {
   --bg-fon: var(--BrownBeige);
   --bg-col-el: var(--WetAsphalt);
+  --bg-col-el-dark: var(--SignalBlack);
   --bg-col-ui: var(--YellowBrown);
   --activ-col-ui: var(--Gold);
   --activ-bg-ui: var(--NavajoWhite);
@@ -184,6 +186,7 @@ body[data-theme="natural"] {
 body[data-theme="light"] {
   --bg-fon: var(--YellowBrown);
   --bg-col-el: var(--WhiteAlum);
+  --bg-col-el-dark: var(--WetAsphalt);
   --bg-col-ui: #fff;
   --activ-col-ui: var(--Yellow);
   --activ-bg-ui: var(--NavajoWhite);
@@ -199,7 +202,7 @@ body[data-theme="light"] {
   body {
     background-color: var(--bg-fon);
     hr {
-      border-color: var(--col-bord-hr) !important;
+      border-color: var(--col-bord-hr);
     }
     .header,
     .footer {
@@ -207,20 +210,32 @@ body[data-theme="light"] {
       background-color: var(--bg-col-el);
       transition: background-color 900ms linear;
     }
+    .footer {
+      .copyright-container {
+        background-color: var(--bg-col-el-dark);
+      }
+    }
     div nav {
       & a {
-        // color: var(--activ-col) !important;
-        // background-color: var(--activ-bg) !important;
-      }
-      & a.active {
-        color: var(--activ-col-dark) !important;
-        background-color: var(--activ-bg) !important;
-        transition: background-color 500ms linear, color 200ms linear;
-      }
-      & a:hover {
-        color: var(--activ-col-light) !important;
-        background-color: var(--activ-bg) !important;
-        transition: background-color 500ms linear, color 200ms linear;
+        // color: var(--activ-col) ;
+        // background-color: var(--activ-bg) ;
+        &.active {
+          color: var(--activ-col-dark);
+          background-color: var(--activ-bg);
+          transition: background-color 500ms linear, color 200ms linear;
+        }
+        &:hover {
+          color: var(--activ-col-light);
+          background-color: var(--activ-bg);
+          transition: background-color 500ms linear, color 200ms linear;
+        }
+        & + ul {
+          background-color: var(--activ-bg) !important;
+          a {
+            color: var(--activ-col-light) !important;
+            background-color: var(--activ-col-dark) !important;
+          }
+        }
       }
     }
 
@@ -243,18 +258,18 @@ body[data-theme="light"] {
       form {
         input {
           &:hover {
-            background-color: var(--activ-bg-ui) !important;
+            background-color: var(--activ-bg-ui);
           }
         }
         button {
-          color: var(--activ-col-light) !important;
-          background-color: var(--activ-col-dark) !important;
+          color: var(--activ-col-light);
+          background-color: var(--activ-col-dark);
         }
       }
     }
     // div:hover {
-    //   color: var(--activ-col) !important;
-    //   background-color: var(--activ-bg) !important;
+    //   color: var(--activ-col) ;
+    //   background-color: var(--activ-bg) ;
     // }
   }
 }
@@ -265,10 +280,10 @@ body[data-theme="light"] {
     //
     .UlbiTV {
       &_DrADr .boards .board,
-      .item,
+      &_DrADr .item,
       .card {
         background-color: var(--bg-col-ui);
-        border-color: var(--col-bord-hr) !important;
+        border-color: var(--col-bord-hr);
       }
       .item,
       .card {

@@ -56,13 +56,27 @@
     }
     // затемняет сосед. эл. при наведении (подменю)
     &:hover li:not(:hover) {
-      opacity: 0.5;
+      opacity: 0.3;
       color: white !important;
     }
     .menu-top__items {
       position: relative;
-      // margin-left: 15px;
+      margin-left: 15px;
       margin-bottom: 5px;
+
+      // НАВЕДЕНИЕ на дочерние эл-ты
+      &:hover {
+        // ссылки
+        // .m-t-items__navlink {
+        // }
+        // подменю при неведении
+        .m-t-items__ul {
+          opacity: 1;
+          visibility: visible;
+          transform: translate(0px, 0px);
+          pointer-events: all;
+        }
+      }
 
       // видимые ссылки в header --------------------------------------------------------------------
       // NavLink (на родителя) - видимый эл. header (е/и в родителе есть <а> с .active) (сложн. перенесено на NavLink свой класс)
@@ -233,7 +247,7 @@
   .footer__copyright {
     .copyright-container {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       background: #555;
     }
   }
