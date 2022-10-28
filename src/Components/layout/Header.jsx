@@ -58,11 +58,11 @@ export function Header() {
           <div className="header__menu">
             {/* ВЕРХНЕЕ МЕНЮ */}
             <nav className="header__menu-top menu-top flex flex-wrap justify-between items-center text-white">
-              <span className="menu-top__items m-t-items">
+              {/* <span className="menu-top__items m-t-items">
                 <NavLink to="/NewPro" className="m-t-items__navlink activ-prob">
                   NewPro
                 </NavLink>
-              </span>
+              </span> */}
               {/* ПРОЕКТЫ ExpsMiniProjs */}
               {/* ПРОЕКТЫ BeginrProjts */}
               <span className="menu-top__items m-t-items">
@@ -76,12 +76,17 @@ export function Header() {
                 <ul className="m-t-items__ul m-t-its-ul">
                   <li className="m-t-its-ul__li">
                     <Link to="/BegPrj_Modal" className="">
-                      BegPrj_Modal
+                      Modal
                     </Link>
                   </li>
                   <li className="m-t-its-ul__li">
                     <Link to="/BegPrj_Quiz" className="">
-                      BegPrj_Quiz
+                      Quiz
+                    </Link>
+                  </li>
+                  <li className="m-t-its-ul__li">
+                    <Link to="/BegPrj_Users" className="">
+                      Users
                     </Link>
                   </li>
                 </ul>

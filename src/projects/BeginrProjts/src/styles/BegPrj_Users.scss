@@ -1,0 +1,193 @@
+.BegPrj_Users {
+  div[class*="__content"] {
+    width: 350px;
+    // height: 600px;
+    margin: 0px auto;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+
+    .search {
+      position: relative;
+      width: 100%;
+      input {
+        width: 100%;
+        padding: 15px;
+        padding-left: 50px;
+        font-size: 16px;
+        border-radius: 15px;
+        border: 3px solid rgba(0, 0, 0, 0.08);
+        &:hover {
+          background-color: #333;
+        }
+      }
+      svg {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 17px;
+        left: 20px;
+        opacity: 0.3;
+      }
+    }
+
+    .users-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow: auto;
+      height: calc(100% - 130px);
+      margin-top: 20px;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        border: 2px solid #444;
+        border-radius: 30px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        transition: all 0.3s ease;
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+        &:hover {
+          background-color: #555;
+          transition: all 0.3s ease;
+        }
+
+        & > div {
+          display: flex;
+          margin-right: 10px;
+        }
+
+        img.avatar {
+          border-radius: 30px;
+          width: 50px;
+          height: 50px;
+          margin-right: 10px;
+          transition: all 0.1s ease;
+          &:hover {
+            transform: scale(1.2);
+          }
+        }
+
+        .action {
+          width: 28px;
+          height: 28px;
+          opacity: 0.3;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+
+        h3 {
+          margin: 0;
+          font-weight: 900;
+          font-family: "Merriweather", serif;
+          margin-left: 15px;
+          margin-top: 5px;
+          margin-left: 0;
+          color: #182170;
+        }
+
+        p {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          margin: 0;
+          color: rgba(0, 0, 0, 0.5);
+          margin-top: 3px;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 4px;
+
+            path {
+              fill: rgba(0, 0, 0, 0.5);
+            }
+          }
+        }
+      }
+    }
+
+    .send-invite-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px 15px;
+      font-size: 16px;
+      color: #fff;
+      border: 0;
+      outline: none;
+      border-radius: 15px;
+      background-color: #555;
+      box-shadow: 0 7px 10px #212121;
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        background-color: #333;
+      }
+
+      &:active {
+        transform: translateY(2px);
+        box-shadow: none;
+      }
+    }
+
+    .success-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+      animation: success-show 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
+
+      img {
+        width: 120px;
+        height: 120px;
+      }
+
+      h3 {
+        font-size: 24px;
+        margin-bottom: 0;
+        margin-top: 10px;
+      }
+
+      p {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      button {
+        width: 200px;
+      }
+    }
+
+    .skeleton-list {
+      height: calc(100% - 130px);
+      margin-top: 30px;
+
+      svg {
+        margin-bottom: 15px;
+      }
+    }
+
+    @keyframes success-show {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}

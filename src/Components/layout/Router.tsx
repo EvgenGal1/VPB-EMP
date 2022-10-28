@@ -20,6 +20,7 @@ import { NewPro } from "../../projects/NewPro/NewPro";
 import { BeginrProjts } from "../../projects/BeginrProjts/BeginrProjts";
 import { BegPrj_Modal } from "../../projects/BeginrProjts/src/pages/BegPrj_Modal";
 import { BegPrj_Quiz } from "../../projects/BeginrProjts/src/pages/BegPrj_Quiz";
+import { BegPrj_Users } from "../../projects/BeginrProjts/src/pages/BegPrj_Users";
 // НОВ.ПРОЕКТЫ UlbiTV
 import { UlbiTV } from "../../projects/UlbiTV/UlbiTV";
 import { UlbiTV_MiniDrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_MiniDrADr";
@@ -80,6 +81,7 @@ export function Router() {
             <Route path="BeginrProjts/*" element={<BeginrProjts />} />
             <Route path="BegPrj_Modal" element={<BegPrj_Modal />} />
             <Route path="BegPrj_Quiz" element={<BegPrj_Quiz />} />
+            <Route path="BegPrj_Users" element={<BegPrj_Users />} />
             {/* UlbiTV */}
             <Route path="UlbiTV/*" element={<UlbiTV />} />
             <Route path="UlbiTV_MiniDrADr" element={<UlbiTV_MiniDrADr />} />
