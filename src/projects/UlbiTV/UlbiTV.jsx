@@ -19,7 +19,6 @@ export function UlbiTV(props) {
               target="_blank"
               rel="noreferrer"
               // style={{ textDecoration: "lineThrough" }} // ??? не раб
-              style={{ textDecoration: "underline" }}
             >
               Mini Drag and Drop (`Перетаскивать`)
             </a>
@@ -29,7 +28,6 @@ export function UlbiTV(props) {
               href="https://www.youtube.com/watch?v=RPtDuVba1XQ&list=RDLVFgvJH91a5K0"
               target="_blank"
               rel="noreferrer"
-              style={{ textDecoration: "underline" }}
             >
               Drag and Drop (по видео + свой допы)
             </a>
@@ -39,7 +37,6 @@ export function UlbiTV(props) {
               href="https://www.youtube.com/watch?v=7F1w63ZfgDY"
               target="_blank"
               rel="noreferrer"
-              style={{ textDecoration: "underline" }}
             >
               НЕ ДЕЛАЛ - Drag and drop загрузка файла на сервер REACT
             </a>
@@ -49,7 +46,6 @@ export function UlbiTV(props) {
               href="https://www.youtube.com/watch?v=C2ZCD_RFlPQ&list=RDLVFgvJH91a5K0"
               target="_blank"
               rel="noreferrer"
-              style={{ textDecoration: "underline" }}
             >
               НЕ ДЕЛАЛ - Изменение порядка элементов списка в React-компонентах
               (Михаил Непомнящий)

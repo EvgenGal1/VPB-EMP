@@ -3,12 +3,14 @@
 // @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap");
 
 .BegPrj_Quiz {
-  width: 500px;
-  border-radius: 30px;
-  padding: 20px;
-  background-color: #fff;
-  // position: relative;
-  margin: 0 auto;
+  div[class*="__content"] {
+    width: 500px;
+    border-radius: 30px;
+    padding: 20px;
+    background-color: #fff;
+    // position: relative;
+    margin: 0 auto;
+  }
 
   .result {
     text-align: center;
@@ -36,6 +38,7 @@
   }
 
   .progress {
+    width: 100%;
     height: 10px;
     padding: 0px;
     border-radius: 30px;
@@ -46,35 +49,30 @@
       height: 100%;
       border-radius: 30px;
       width: 80%;
-      background: rgb(18, 231, 48);
+      background: #d8c415;
       transition: all 0.3s ease-in-out;
-      background: linear-gradient(
-        90deg,
-        rgba(18, 231, 48, 1) 0%,
-        rgba(0, 212, 255, 1) 100%
-      );
+      background: linear-gradient(90deg, #f1cd00 0%, #a10303 100%);
     }
   }
 
-  h1 {
-    margin: 0;
-  }
-
   ul {
+    width: 100%;
     list-style: none;
     padding: 0;
 
     li {
-      padding: 15px;
-      border: 2px solid rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
       margin-bottom: 10px;
+      padding: 15px;
+      border-radius: 15px;
+      background-color: #555;
+      border: 2px solid rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: all 0.1s ease-in-out;
 
       &:hover {
-        border: 2px solid rgba(0, 0, 0, 0.3);
         font-weight: bold;
+        background-color: #444 !important;
+        border: 2px solid rgba(0, 0, 0, 0.3);
       }
     }
   }

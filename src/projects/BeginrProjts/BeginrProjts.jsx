@@ -15,8 +15,35 @@ export function BeginrProjts(props) {
     <div className="BeginrProjts">
       <div className="BeginrProjts__descript">
         <h1>НОВ.ПРОЕКТЫ BeginrProjts</h1>
-        <p>BegPrj_Modal</p>
-        <p>BegPrj_Quiz</p>
+        <ul>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=eS0GL73tkmw&t=614s"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Modal - Модальное окно
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=eS0GL73tkmw&t=1356s"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Quiz - опросник
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.youtube.com/watch?v=eS0GL73tkmw&t=2242s"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Users - список пользователей
+            </a>
+          </li>
+        </ul>
       </div>
       <hr />
       <div className="BeginrProjts__nav">

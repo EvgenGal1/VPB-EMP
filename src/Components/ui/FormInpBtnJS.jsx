@@ -30,7 +30,10 @@ export const FormInpBtnJS = ({
           // onClick={(e) => addNewItem()}
           onChange={(e) => onChanInp(e.target.value)}
           style={
-            styleInp ? { outline: "2px solid #8b0000" } : { outline: "none" }
+            styleInp
+              ? { outline: "2px solid #8b0000" }
+              : // { outline: "inherit" }
+                {}
           }
         />
         <button

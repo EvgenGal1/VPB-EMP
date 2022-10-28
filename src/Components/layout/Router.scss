@@ -130,22 +130,23 @@
   &__menu-bottom {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     margin-top: 1%;
     &:hover span:not(:hover) {
       opacity: 0.5;
     }
     // перенесено в projects.scss(общ.стили проекта) к ссылкам
-    // .menu-bottom__items {
-    //   &:hover {
-    //     .m-b-items__navlink {
-    //     }
-    //   }
-    //   .m-b-items__navlink {
-    //     &.active {
-    //     }
-    //   }
-    // }
+    .menu-bottom__items {
+      margin-left: 15px;
+      //   &:hover {
+      //     .m-b-items__navlink {
+      //     }
+      //   }
+      //   .m-b-items__navlink {
+      //     &.active {
+      //     }
+      //   }
+    }
   }
 }
 
@@ -265,58 +266,58 @@
   left: 15px;
   right: 15px;
   overflow: hidden;
-}
 
-/* 1 способ прописать анимацию (.page - на каждое дейтвие 4шт) */
-.page-enter {
-  opacity: 0;
-  transform: scale(1.1);
-  /* transform: translateX(-100%); */
-}
-.page-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  /* transform: translateX(0); */
-  transition: opacity 500ms, transform 500ms;
-}
-.page-exit {
-  opacity: 1;
-  transform: scale(1);
-  /* transform: translateX(0); */
-}
-.page-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  /* transform: translateX(100%); */
-  transition: opacity 500ms, transform 500ms;
-}
+  /* 1 способ прописать анимацию (.page - на каждое дейтвие 4шт) */
+  .page-enter {
+    opacity: 0;
+    transform: scale(1.1);
+    /* transform: translateX(-100%); */
+  }
+  .page-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    /* transform: translateX(0); */
+    transition: opacity 500ms, transform 500ms;
+  }
+  .page-exit {
+    opacity: 1;
+    transform: scale(1);
+    /* transform: translateX(0); */
+  }
+  .page-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    /* transform: translateX(100%); */
+    transition: opacity 500ms, transform 500ms;
+  }
 
-/* 2 способ прописать анимацию (.pages - на два дейтвие. всего 4шт) */
-.pages-enter-active {
-  /* .pages-enter { */
-  animation: fade-in 500ms forwards;
-}
-.pages-exit-active {
-  /* .pages-exit { */
-  animation: fade-out 500ms forwards;
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
+  /* 2 способ прописать анимацию (.pages - на два дейтвие. всего 4шт) */
+  .pages-enter-active {
+    /* .pages-enter { */
+    animation: fade-in 500ms forwards;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+  .pages-exit-active {
+    /* .pages-exit { */
+    animation: fade-out 500ms forwards;
   }
-}
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
-  100% {
-    opacity: 0;
-    transform: translateX(100%);
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
   }
 }

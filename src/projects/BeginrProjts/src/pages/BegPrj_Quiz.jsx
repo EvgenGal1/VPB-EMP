@@ -63,16 +63,20 @@ function Result({ correct }) {
         src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png"
       />
       {/* кол-во верных из общего */}
-      <h2>Вы отгадали {correct} ответа из {questions.length}</h2>
+      <h2>
+        Вы отгадали {correct} ответа из {questions.length}
+      </h2>
       {/* перезагрузка на те же стр. */}
-      <a href="/BeginrProjts"><button>Попробовать снова</button></a>
+      <a href="/BeginrProjts">
+        <button>Попробовать снова</button>
+      </a>
     </div>
   );
 }
 
 function Game({ question, onClickVar, step }) {
   // вычисляем % прогруса ч/з шаг, кол-во вопросов и округление
-  const percentTage = Math.round(step / questions.length * 100)
+  const percentTage = Math.round((step / questions.length) * 100);
   // console.log('percentTage : ' + percentTage);
 
   return (
@@ -81,7 +85,8 @@ function Game({ question, onClickVar, step }) {
         <div
           // отраж прогрес бар в %
           style={{ width: `${percentTage}%` }}
-          className="progress__inner"></div>
+          className="progress__inner"
+        ></div>
       </div>
       {/* отражаем вопрос */}
       <h1>{question.title}</h1>
@@ -92,7 +97,10 @@ function Game({ question, onClickVar, step }) {
           <li
             // onClick={onClickVar}
             onClick={() => onClickVar(id)}
-            key={id}>{varik}</li>
+            key={id}
+          >
+            {varik}
+          </li>
         ))}
       </ul>
     </>
@@ -103,7 +111,7 @@ export function BegPrj_Quiz() {
   // сохран шаг/index вопроса
   const [step, setStep] = useState(0);
   // берём объ.вопрос из масс. вопросов по step
-  const question = questions[step]
+  const question = questions[step];
   // сост. для проверка верных ответов
   const [correct, setCorrect] = useState(0);
 
@@ -117,21 +125,25 @@ export function BegPrj_Quiz() {
     if (id === question.correct) {
       setCorrect(correct + 1);
     }
-  }
+  };
 
   return (
     <div className="BegPrj_Quiz">
-      {/* передаём индексированый вопрос в Игру */}
-      {/* fn перекл. вопросов по клик передали в Игру */}
-      {/* передаём шаг для прогрес бара */}
-      {/* проверка равности шагов и кол-ва вопросов. е/и не равны, то играем */}
-      {step !== questions.length
-        ?
-        <Game question={question} onClickVar={onClickVar} step={step} />
-        :
-        // передаем кол-во прав.вар.
-        <Result correct={correct} />
-      }
+      <div className="Quiz__descript">
+        <h1>BegPrj_Quiz</h1>
+      </div>
+      <div className="Quiz__content">
+        {/* передаём индексированый вопрос в Игру */}
+        {/* fn перекл. вопросов по клик передали в Игру */}
+        {/* передаём шаг для прогрес бара */}
+        {/* проверка равности шагов и кол-ва вопросов. е/и не равны, то играем */}
+        {step !== questions.length ? (
+          <Game question={question} onClickVar={onClickVar} step={step} />
+        ) : (
+          // передаем кол-во прав.вар.
+          <Result correct={correct} />
+        )}
+      </div>
     </div>
   );
 }

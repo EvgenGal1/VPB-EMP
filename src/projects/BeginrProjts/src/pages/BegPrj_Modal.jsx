@@ -26,19 +26,24 @@ export function BegPrj_Modal() {
   const [open, setOpen] = useState(false);
   return (
     <div className="BegPrj_Modal">
-      <button onClick={() => setOpen(true)} className="open-modal-btn">
-        ✨ Открыть окно
-      </button>
-      {/* способ без аним (усл.ренд. не знает что аним.) */}
-      {/* {open && (<div className="overlay">.....</div>)} */}
-      {/* способ с аним (ч/з класс анимации и по условию классса показа) */}
-      {/* <div className={`overlay animated ${open ? "show" : ""}`}>.....</div> */}
+      <div className="Modal__descript">
+        <h1>BegPrj_Modal</h1>
+      </div>
+      <div className="Modal__content">
+        <button onClick={() => setOpen(true)} className="open-modal-btn">
+          ✨ Открыть окно
+        </button>
+        {/* способ без аним (усл.ренд. не знает что аним.) */}
+        {/* {open && (<div className="overlay">.....</div>)} */}
+        {/* способ с аним (ч/з класс анимации и по условию классса показа) */}
+        {/* <div className={`overlay animated ${open ? "show" : ""}`}>.....</div> */}
 
-      {/* аналогично в отдельном компоненте */}
-      {/* {open && <Modal open={open} setOpen={setOpen} />} */}
-      <Modal open={open} setOpen={setOpen}>
-        <p>Ну Привет!)</p>
-      </Modal>
+        {/* аналогично в отдельном компоненте */}
+        {/* {open && <Modal open={open} setOpen={setOpen} />} */}
+        <Modal open={open} setOpen={setOpen}>
+          <p>Ну Привет!)</p>
+        </Modal>
+      </div>
     </div>
   );
 }

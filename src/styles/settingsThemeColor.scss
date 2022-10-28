@@ -19,7 +19,8 @@
   --BlackBrown: #212121; // Черно Коричневый
   --AlmostBlack: #131313; // Почти черный
   --BlackAmber: #0a0a0a; // Черный янтарь
-  --NavajoWhite: #ffdead; // Белый навахо
+  --Black: #000000; // Черный
+  --DeepYellow: #b57900; // Глубокий Желтый
   --MelonYellow: #f4a900; // Дынно-желтый
   --Gold: #ffd700; // золотой
   --Yellow: #ffff00; // жёлтый
@@ -28,8 +29,10 @@
   --BrownBeige: #8a6642; // Коричнево-Бежевый
   --BeigeBrown: #79553d; // Бежево-Коричневый
   --ModYelBrown: #7d512d; // Умеренный Желтый Коричневый
-  --DeepYellow: #b57900; // Глубокий Желтый
   --YellowBrown: #d2b48c; // Желто-Коричневый
+  --NavajoWhite: #ffdead; // Белый навахо
+  //
+  //
   --probCol: antiquewhite;
   --probCol: bisque;
   --probCol: moccasin;
@@ -112,14 +115,14 @@
   --probCol: #464451; // Антрацитовый
   --probCol: #5b3a29; //   Орехово-коричневый
   //
-  // --bg-col-ui dark
+  // --ui-bg dark
   // --probCol: #6c3b2a;
   // --probCol: #5b3a29;
   // --probCol: #59351f;
   // --probCol: #321414;
   // --probCol: #371f1c;
   //
-  // --bg-col-ui natur
+  // --ui-bg natur
   // --probCol: #6c3b2a;
   // --probCol: #45322e;
   // --probCol: #714b23;
@@ -158,89 +161,106 @@
 
 // Цветовые переменные для Цв.Тем (Тёмной/Светлой/Средней) на атрибутах
 body[data-theme="dark"] {
-  --bg-fon: var(--Coffee);
-  --bg-col-el: var(--SignalBlack);
-  --bg-col-el-dark: var(--BlackBrown);
-  --bg-col-ui: var(--DeerBrown);
-  --activ-col-ui: var(--DeepYellow);
-  --activ-bg-ui: var(--ModYelBrown);
-  --activ-col-light: var(--MelonYellow);
-  --activ-col-dark: var(--PinkForest);
-  --activ-bg: var(--WetAsphalt);
-  --text-color: #000;
-  --col-bord-hr: var(--DeepRedBrown);
+  --fon-dark: var(--Coffee);
+  --el-dark: var(--BlackBrown);
+  --el-light: var(--SignalBlack);
+  --ui-bg: var(--DeerBrown);
+  // --ui-col: var(--DeerBrown);
+  --ui-act-col: var(--DeepYellow);
+  --ui-act-bg: var(--ModYelBrown);
+  --act-light: var(--MelonYellow);
+  --act-dark: var(--PinkForest);
+  --act-bg: var(--WetAsphalt);
+  // --act-col: var(--WetAsphalt);
+  --txt-col: var(--Black);
+  // --txt-dark: var(--Black);
+  // --txt-leght: var(--Black);
+  --bord-hr: var(--DeepRedBrown);
 }
 body[data-theme="natural"] {
-  --bg-fon: var(--BrownBeige);
-  --bg-col-el: var(--WetAsphalt);
-  --bg-col-el-dark: var(--SignalBlack);
-  --bg-col-ui: var(--YellowBrown);
-  --activ-col-ui: var(--Gold);
-  --activ-bg-ui: var(--NavajoWhite);
-  --activ-col-light: var(--Gold);
-  --activ-col-dark: var(--DarkRed);
-  --activ-bg: var(--DullGray);
-  --text-color: var(--BlackAmber);
-  --col-bord-hr: var(--PinkForest);
+  --fon-dark: var(--BrownBeige);
+  --el-light: var(--WetAsphalt);
+  --el-dark: var(--SignalBlack);
+  --ui-bg: var(--YellowBrown);
+  // --ui-col: var(--YellowBrown);
+  --ui-act-col: var(--Gold);
+  --ui-act-col: DarkRed;
+  --ui-act-bg: var(--NavajoWhite);
+  --act-light: var(--Gold);
+  --act-dark: var(--DarkRed);
+  --act-bg: var(--DullGray);
+  // --act-col: var(--DullGray);
+  --txt-col: var(--BlackAmber);
+  // --txt-dark: var(--BlackAmber);
+  // --txt-leght: var(--BlackAmber);
+  --bord-hr: var(--PinkForest);
 }
 body[data-theme="light"] {
-  --bg-fon: var(--YellowBrown);
-  --bg-col-el: var(--WhiteAlum);
-  --bg-col-el-dark: var(--WetAsphalt);
-  --bg-col-ui: #fff;
-  --activ-col-ui: var(--Yellow);
-  --activ-bg-ui: var(--NavajoWhite);
-  --activ-col-light: var(--Yellow);
-  --activ-col-dark: var(--TrafficRed);
-  --activ-bg: var(--Gray);
-  --text-color: var(--AlmostBlack);
-  --col-bord-hr: var(--DarkRed);
+  --fon-dark: var(--YellowBrown);
+  --el-light: var(--WhiteAlum);
+  --el-dark: var(--WetAsphalt);
+  --ui-bg: #fff;
+  // --ui-col: #fff;
+  --ui-act-col: var(--Yellow);
+  --ui-act-bg: var(--NavajoWhite);
+  --act-light: var(--Yellow);
+  --act-dark: var(--TrafficRed);
+  --act-bg: var(--Gray);
+  // --act-col: var(--Gray);
+  --txt-col: var(--AlmostBlack);
+  // --txt-dark: var(--AlmostBlack);
+  // --txt-leght: var(--AlmostBlack);
+  --bord-hr: var(--DarkRed);
 }
 
 // ОБЩИЕ СТИЛИ
 :root {
   body {
-    background-color: var(--bg-fon);
+    // цвет рамки для всех кроме ссылок и списков
+    *:not(a):not(ul) {
+      border-color: var(--bord-hr) !important;
+    }
+    background-color: var(--fon-dark);
     hr {
-      border-color: var(--col-bord-hr);
+      border-color: var(--bord-hr);
     }
     .header,
     .footer {
       // анимация перехода
-      background-color: var(--bg-col-el);
+      background-color: var(--el-light);
       transition: background-color 900ms linear;
     }
     .footer {
       .copyright-container {
-        background-color: var(--bg-col-el-dark);
+        background-color: var(--el-dark);
       }
     }
     div nav {
       & a {
         // color: var(--activ-col) ;
-        // background-color: var(--activ-bg) ;
+        // background-color: var(--act-bg) ;
         &.active {
-          color: var(--activ-col-dark);
-          background-color: var(--activ-bg);
+          color: var(--act-dark);
+          background-color: var(--act-bg);
           transition: background-color 500ms linear, color 200ms linear;
         }
         &:hover {
-          color: var(--activ-col-light);
-          background-color: var(--activ-bg);
+          color: var(--act-light);
+          background-color: var(--act-bg);
           transition: background-color 500ms linear, color 200ms linear;
         }
         & + ul {
-          background-color: var(--activ-bg) !important;
+          background-color: var(--act-bg) !important;
           a {
-            color: var(--activ-col-light) !important;
-            background-color: var(--activ-col-dark) !important;
+            color: var(--act-light) !important;
+            background-color: var(--act-dark) !important;
           }
         }
       }
     }
 
     .main {
-      background-color: var(--bg-fon);
+      background-color: var(--fon-dark);
       transition: background-color 300ms linear;
       // & > div nav {
       //   & a.active {
@@ -249,27 +269,28 @@ body[data-theme="light"] {
       // }
       input,
       button:not([class*="btn--primary"]) {
-        background-color: var(--bg-col-ui);
+        background-color: var(--ui-bg);
+        background-color: var(--act-bg);
         transition: background-color 300ms linear;
         &:hover {
-          // background-color: darken(var(--bg-col-ui), 25%);
+          // background-color: darken(var(--ui-bg), 25%);
         }
       }
       form {
         input {
           &:hover {
-            background-color: var(--activ-bg-ui);
+            background-color: var(--ui-act-bg);
           }
         }
         button {
-          color: var(--activ-col-light);
-          background-color: var(--activ-col-dark);
+          color: var(--act-light);
+          background-color: var(--act-dark);
         }
       }
     }
     // div:hover {
     //   color: var(--activ-col) ;
-    //   background-color: var(--activ-bg) ;
+    //   background-color: var(--act-bg) ;
     // }
   }
 }
@@ -277,38 +298,73 @@ body[data-theme="light"] {
 // СТИЛИ ПРОЕКТJD
 :root {
   body {
-    //
-    .UlbiTV {
-      &_DrADr .boards .board,
-      &_DrADr .item,
+    // выбор по атребуту для примен. стилей когда стран. откр. не в родителе (по общ. имени класса)
+    div[class^="UlbiTV"] {
+      /* &_DrADr */
+      .boards .board,
+      /* &_DrADr  */.item,
       .card {
-        background-color: var(--bg-col-ui);
-        border-color: var(--col-bord-hr);
+        background-color: var(--ui-bg);
+        border-color: var(--bord-hr);
       }
+      // &_DrADr {
       .item,
       .card {
         &:hover {
-          background-color: var(--activ-col-ui);
+          background-color: var(--ui-act-col);
         }
       }
+      // }
     }
     //
-    .BeginrProjts {
-      .BegPrj_Quiz {
-        background-color: var(--bg-col-ui);
+    .BegPrj {
+      &_Modal {
+        .modal {
+          background-color: var(--ui-bg);
+        }
       }
-      .progress,
-      ul li {
-        background-color: var(--activ-bg);
+      &_Quiz {
+        div[class$="__content"] {
+          background-color: var(--ui-bg);
+          .progress,
+          ul li {
+            background-color: var(--act-bg);
+          }
+          ul li {
+            // border-color: var(--act-bg);
+            // border-color: #000;
+            // border: 2px solid var(--bord-hr);
+          }
+        }
       }
-      ul li {
-        // border-color: var(--activ-bg);
-        border-color: #000;
+      &_Users div[class*="__content"] {
+        background-color: var(--act-bg);
+        background-color: var(--ui-bg);
+        .users-list {
+          li {
+            p {
+              color: var(--txt-col);
+            }
+            h3 {
+              color: var(--ui-act-col);
+            }
+            &:hover {
+              background-color: var(--ui-act-bg);
+              h3 {
+                color: var(--act-light);
+              }
+            }
+          }
+        }
+        button {
+          color: var(--txt-col);
+        }
       }
+      // }
     }
     //
     .sw3btn-radio__dark:checked ~ .sw3btn-slider {
-      background-color: var(--activ-col-dark);
+      background-color: var(--act-dark);
     }
     .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
       background-color: var(--MelonYellow);
