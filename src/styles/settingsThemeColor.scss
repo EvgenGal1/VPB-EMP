@@ -11,7 +11,6 @@
   --VeryDeepRed: #320a18; // Очень глубокий красный
   --WhiteAlum: #a3a3a3; // бело-алюминиевый
   --Gray: #808080; // серый
-  --DullGray: #777777; // серый
   --DullGray: #696969; // Тусклый Серый
   --WetAsphalt: #505050; // Мокрый Асфальта
   --BlueGray: #474b4e; // Синий серый
@@ -32,6 +31,229 @@
   --ModYelBrown: #7d512d; // Умеренный Желтый Коричневый
   --YellowBrown: #d2b48c; // Желто-Коричневый
   --NavajoWhite: #ffdead; // Белый навахо
+}
+
+// Цветовые переменные для Цв.Тем (Тёмной/Светлой/Средней) на атрибутах
+body[data-theme="dark"] {
+  --fon-dark: var(--Coffee);
+  --el-dark: var(--BlackBrown);
+  --el-light: var(--SignalBlack);
+  --ui-bg: var(--DeerBrown);
+  // --ui-col: var(--DeerBrown);
+  --ui-act-col: var(--DeepYellow);
+  --ui-act-bg: var(--ModYelBrown);
+  --act-light: var(--MelonYellow);
+  --act-dark: var(--PinkForest);
+  --act-bg: var(--WetAsphalt);
+  --act-bg-hov: var(--BlueGray);
+  --act-bg-hov: var(--DarkBlueGray);
+  --txt-col: var(--Black);
+  --txt-leght: var(--DeepYellow);
+  --txt-dark: var(--MelonYellow);
+  --bord-hr: var(--DeepRedBrown);
+}
+body[data-theme="natural"] {
+  --fon-dark: var(--BrownBeige);
+  --el-light: var(--WetAsphalt);
+  --el-dark: var(--SignalBlack);
+  --ui-bg: var(--YellowBrown);
+  // --ui-col: var(--YellowBrown);
+  --ui-act-col: var(--Gold);
+  // --ui-act-col: DarkRed;
+  --ui-act-bg: var(--NavajoWhite);
+  --act-light: var(--Gold);
+  --act-dark: var(--DarkRed);
+  --act-bg: var(--DullGray);
+  --act-bg-hov: var(--WetAsphalt);
+  --txt-col: var(--BlackAmber);
+  --txt-leght: var(--DarkRed);
+  --txt-dark: var(--TrafficRed);
+  --bord-hr: var(--PinkForest);
+}
+body[data-theme="light"] {
+  --fon-dark: var(--YellowBrown);
+  --el-light: var(--WhiteAlum);
+  --el-dark: var(--WetAsphalt);
+  --ui-bg: #fff;
+  // --ui-col: #fff;
+  --ui-act-col: var(--Yellow);
+  // --ui-act-col: var(--TrafficRed);
+  --ui-act-bg: var(--NavajoWhite);
+  --act-light: var(--Yellow);
+  --act-dark: var(--TrafficRed);
+  --act-bg: var(--Gray);
+  --act-bg-hov: var(--DullGray);
+  --txt-col: var(--AlmostBlack);
+  --txt-leght: var(--TrafficRed);
+  --txt-dark: var(--Red);
+  --bord-hr: var(--DarkRed);
+}
+
+// ОБЩИЕ СТИЛИ
+:root {
+  body {
+    // цвет рамки для всех кроме ссылок и списков
+    *:not(a):not(ul) {
+      border-color: var(--bord-hr) !important;
+    }
+    background-color: var(--fon-dark);
+    hr {
+      border-color: var(--bord-hr);
+    }
+    .header,
+    .footer {
+      // анимация перехода
+      background-color: var(--el-light);
+      transition: background-color 900ms linear;
+    }
+    .footer {
+      .copyright-container {
+        background-color: var(--el-dark);
+      }
+    }
+    div nav {
+      & a {
+        // color: var(--activ-col) ;
+        // background-color: var(--act-bg) ;
+        &.active {
+          color: var(--act-dark);
+          background-color: var(--act-bg);
+          transition: background-color 500ms linear, color 200ms linear;
+        }
+        &:hover {
+          color: var(--act-light);
+          background-color: var(--act-bg);
+          transition: background-color 500ms linear, color 200ms linear;
+        }
+        & + ul {
+          background-color: var(--act-bg) !important;
+          a {
+            color: var(--act-light) !important;
+            background-color: var(--act-dark) !important;
+          }
+        }
+      }
+    }
+
+    .main {
+      background-color: var(--fon-dark);
+      transition: background-color 300ms linear;
+      // & > div nav {
+      //   & a.active {
+      //     background-color: var(--activ-col);
+      //   }
+      // }
+      input,
+      button:not([class*="btn--primary"]) {
+        background-color: var(--act-bg);
+        transition: background-color 200ms linear;
+        &:hover {
+          background-color: var(--act-bg-hov) !important;
+        }
+      }
+      form {
+        input {
+          &:hover {
+            background-color: var(--act-bg-hov);
+          }
+        }
+        button {
+          color: var(--act-light);
+          background-color: var(--act-dark);
+          &:hover {
+            background-color: var(--act-bg-hov);
+          }
+        }
+      }
+    }
+    // div:hover {
+    //   color: var(--activ-col) ;
+    //   background-color: var(--act-bg) ;
+    // }
+  }
+}
+
+// СТИЛИ ПРОЕКТJD
+:root {
+  body {
+    // выбор по атребуту для примен. стилей когда стран. откр. не в родителе (по общ. имени класса)
+    div[class^="UlbiTV"] {
+      /* &_DrADr */
+      .boards .board,
+      /* &_DrADr  */.item,
+      .card {
+        background-color: var(--ui-bg);
+        border-color: var(--bord-hr);
+      }
+      // &_DrADr {
+      .item,
+      .card {
+        &:hover {
+          background-color: var(--ui-act-col);
+        }
+      }
+      // }
+    }
+    //
+    .BegPrj {
+      &_Modal {
+        .modal {
+          background-color: var(--ui-bg);
+        }
+      }
+      &_Quiz {
+        div[class$="__content"] {
+          background-color: var(--ui-bg);
+          .progress,
+          ul li {
+            background-color: var(--act-bg);
+          }
+          ul li {
+            // border-color: var(--act-bg);
+            // border-color: #000;
+            // border: 2px solid var(--bord-hr);
+          }
+        }
+      }
+      &_Users div[class*="__content"] {
+        background-color: var(--act-bg);
+        background-color: var(--ui-bg);
+        .users-list {
+          li {
+            p {
+              color: var(--txt-col);
+            }
+            h3 {
+              color: var(--txt-leght);
+            }
+            &:hover {
+              background-color: var(--act-bg-hov);
+              h3 {
+                color: var(--txt-dark);
+              }
+            }
+          }
+        }
+        button {
+          color: var(--txt-col);
+          &:hover {
+            // background-color: var(--el-dark);
+          }
+        }
+      }
+      // }
+    }
+    //
+    .sw3btn-radio__dark:checked ~ .sw3btn-slider {
+      background-color: var(--act-dark);
+    }
+    .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
+      background-color: var(--MelonYellow);
+    }
+  }
+}
+
+:root {
   //
   //
   --probCol: antiquewhite;
@@ -158,218 +380,4 @@
   // background-color: #660066; //   Сливовый
   // background-color: #8e4585; // Сливовый Крайола
   // background-color: #1d1e33; //   Сапфирово-синий
-}
-
-// Цветовые переменные для Цв.Тем (Тёмной/Светлой/Средней) на атрибутах
-body[data-theme="dark"] {
-  --fon-dark: var(--Coffee);
-  --el-dark: var(--BlackBrown);
-  --el-light: var(--SignalBlack);
-  --ui-bg: var(--DeerBrown);
-  // --ui-col: var(--DeerBrown);
-  --ui-act-col: var(--DeepYellow);
-  --ui-act-bg: var(--ModYelBrown);
-  --act-light: var(--MelonYellow);
-  --act-dark: var(--PinkForest);
-  --act-bg: var(--WetAsphalt);
-  // --act-col: var(--WetAsphalt);
-  --txt-col: var(--Black);
-  --txt-leght: var(--DeepYellow);
-  --txt-dark: var(--MelonYellow);
-  --bord-hr: var(--DeepRedBrown);
-}
-body[data-theme="natural"] {
-  --fon-dark: var(--BrownBeige);
-  --el-light: var(--WetAsphalt);
-  --el-dark: var(--SignalBlack);
-  --ui-bg: var(--YellowBrown);
-  // --ui-col: var(--YellowBrown);
-  --ui-act-col: var(--Gold);
-  // --ui-act-col: DarkRed;
-  --ui-act-bg: var(--NavajoWhite);
-  --act-light: var(--Gold);
-  --act-dark: var(--DarkRed);
-  --act-bg: var(--DullGray);
-  // --act-col: var(--DullGray);
-  --txt-col: var(--BlackAmber);
-  --txt-leght: var(--DarkRed);
-  --txt-dark: var(--TrafficRed);
-  --bord-hr: var(--PinkForest);
-}
-body[data-theme="light"] {
-  --fon-dark: var(--YellowBrown);
-  --el-light: var(--WhiteAlum);
-  --el-dark: var(--WetAsphalt);
-  --ui-bg: #fff;
-  // --ui-col: #fff;
-  --ui-act-col: var(--Yellow);
-  // --ui-act-col: var(--TrafficRed);
-  --ui-act-bg: var(--NavajoWhite);
-  --act-light: var(--Yellow);
-  --act-dark: var(--TrafficRed);
-  --act-bg: var(--Gray);
-  // --act-col: var(--Gray);
-  --txt-col: var(--AlmostBlack);
-  --txt-leght: var(--TrafficRed);
-  --txt-dark: var(--Red);
-  --bord-hr: var(--DarkRed);
-}
-
-// ОБЩИЕ СТИЛИ
-:root {
-  body {
-    // цвет рамки для всех кроме ссылок и списков
-    *:not(a):not(ul) {
-      border-color: var(--bord-hr) !important;
-    }
-    background-color: var(--fon-dark);
-    hr {
-      border-color: var(--bord-hr);
-    }
-    .header,
-    .footer {
-      // анимация перехода
-      background-color: var(--el-light);
-      transition: background-color 900ms linear;
-    }
-    .footer {
-      .copyright-container {
-        background-color: var(--el-dark);
-      }
-    }
-    div nav {
-      & a {
-        // color: var(--activ-col) ;
-        // background-color: var(--act-bg) ;
-        &.active {
-          color: var(--act-dark);
-          background-color: var(--act-bg);
-          transition: background-color 500ms linear, color 200ms linear;
-        }
-        &:hover {
-          color: var(--act-light);
-          background-color: var(--act-bg);
-          transition: background-color 500ms linear, color 200ms linear;
-        }
-        & + ul {
-          background-color: var(--act-bg) !important;
-          a {
-            color: var(--act-light) !important;
-            background-color: var(--act-dark) !important;
-          }
-        }
-      }
-    }
-
-    .main {
-      background-color: var(--fon-dark);
-      transition: background-color 300ms linear;
-      // & > div nav {
-      //   & a.active {
-      //     background-color: var(--activ-col);
-      //   }
-      // }
-      input,
-      button:not([class*="btn--primary"]) {
-        background-color: var(--ui-bg);
-        background-color: var(--act-bg);
-        transition: background-color 300ms linear;
-        &:hover {
-          // background-color: darken(var(--ui-bg), 25%);
-        }
-      }
-      form {
-        input {
-          &:hover {
-            background-color: var(--ui-act-bg);
-          }
-        }
-        button {
-          color: var(--act-light);
-          background-color: var(--act-dark);
-        }
-      }
-    }
-    // div:hover {
-    //   color: var(--activ-col) ;
-    //   background-color: var(--act-bg) ;
-    // }
-  }
-}
-
-// СТИЛИ ПРОЕКТJD
-:root {
-  body {
-    // выбор по атребуту для примен. стилей когда стран. откр. не в родителе (по общ. имени класса)
-    div[class^="UlbiTV"] {
-      /* &_DrADr */
-      .boards .board,
-      /* &_DrADr  */.item,
-      .card {
-        background-color: var(--ui-bg);
-        border-color: var(--bord-hr);
-      }
-      // &_DrADr {
-      .item,
-      .card {
-        &:hover {
-          background-color: var(--ui-act-col);
-        }
-      }
-      // }
-    }
-    //
-    .BegPrj {
-      &_Modal {
-        .modal {
-          background-color: var(--ui-bg);
-        }
-      }
-      &_Quiz {
-        div[class$="__content"] {
-          background-color: var(--ui-bg);
-          .progress,
-          ul li {
-            background-color: var(--act-bg);
-          }
-          ul li {
-            // border-color: var(--act-bg);
-            // border-color: #000;
-            // border: 2px solid var(--bord-hr);
-          }
-        }
-      }
-      &_Users div[class*="__content"] {
-        background-color: var(--act-bg);
-        background-color: var(--ui-bg);
-        .users-list {
-          li {
-            p {
-              color: var(--txt-col);
-            }
-            h3 {
-              color: var(--txt-leght);
-            }
-            &:hover {
-              background-color: var(--ui-act-bg);
-              h3 {
-                color: var(--txt-dark);
-              }
-            }
-          }
-        }
-        button {
-          color: var(--txt-col);
-        }
-      }
-      // }
-    }
-    //
-    .sw3btn-radio__dark:checked ~ .sw3btn-slider {
-      background-color: var(--act-dark);
-    }
-    .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
-      background-color: var(--MelonYellow);
-    }
-  }
 }
