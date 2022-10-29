@@ -2,6 +2,7 @@
 
 // временно, для наглядности цвета
 :root {
+  --Red: #ff0000;
   --TrafficRed: #cd0000; // Транспортный красный
   --DarkRed: #8b0000; // темно-красный
   --PinkForest: #65000b; // Розовый Лес
@@ -173,8 +174,8 @@ body[data-theme="dark"] {
   --act-bg: var(--WetAsphalt);
   // --act-col: var(--WetAsphalt);
   --txt-col: var(--Black);
-  // --txt-dark: var(--Black);
-  // --txt-leght: var(--Black);
+  --txt-leght: var(--DeepYellow);
+  --txt-dark: var(--MelonYellow);
   --bord-hr: var(--DeepRedBrown);
 }
 body[data-theme="natural"] {
@@ -184,15 +185,15 @@ body[data-theme="natural"] {
   --ui-bg: var(--YellowBrown);
   // --ui-col: var(--YellowBrown);
   --ui-act-col: var(--Gold);
-  --ui-act-col: DarkRed;
+  // --ui-act-col: DarkRed;
   --ui-act-bg: var(--NavajoWhite);
   --act-light: var(--Gold);
   --act-dark: var(--DarkRed);
   --act-bg: var(--DullGray);
   // --act-col: var(--DullGray);
   --txt-col: var(--BlackAmber);
-  // --txt-dark: var(--BlackAmber);
-  // --txt-leght: var(--BlackAmber);
+  --txt-leght: var(--DarkRed);
+  --txt-dark: var(--TrafficRed);
   --bord-hr: var(--PinkForest);
 }
 body[data-theme="light"] {
@@ -202,14 +203,15 @@ body[data-theme="light"] {
   --ui-bg: #fff;
   // --ui-col: #fff;
   --ui-act-col: var(--Yellow);
+  // --ui-act-col: var(--TrafficRed);
   --ui-act-bg: var(--NavajoWhite);
   --act-light: var(--Yellow);
   --act-dark: var(--TrafficRed);
   --act-bg: var(--Gray);
   // --act-col: var(--Gray);
   --txt-col: var(--AlmostBlack);
-  // --txt-dark: var(--AlmostBlack);
-  // --txt-leght: var(--AlmostBlack);
+  --txt-leght: var(--TrafficRed);
+  --txt-dark: var(--Red);
   --bord-hr: var(--DarkRed);
 }
 
@@ -346,12 +348,12 @@ body[data-theme="light"] {
               color: var(--txt-col);
             }
             h3 {
-              color: var(--ui-act-col);
+              color: var(--txt-leght);
             }
             &:hover {
               background-color: var(--ui-act-bg);
               h3 {
-                color: var(--act-light);
+                color: var(--txt-dark);
               }
             }
           }
