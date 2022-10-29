@@ -1,23 +1,44 @@
 import React, { useState, useEffect } from "react";
-// import { Users } from "./BegPrj_Users/User";
 import { Users } from "./BegPrj_Users/Users";
 import { User } from "./BegPrj_Users/User";
+import { Success } from "./BegPrj_Users/Success";
 
 // Тут список пользователей: https://reqres.in/api/users
 
 export function BegPrj_Users() {
-  // стат.масс.польз-ей
+  // сост.масс.польз-ей
   const [users, setUsers] = useState([]);
-  // стат.загр.польз-ей (изначально загрузка есть)
+  // сост.загр.польз-ей (изначально загрузка есть)
   const [isLoading, setIsLoading] = useState(true);
-  // стат. для поиска
+  // сост.поиска
   const [searchValue, setSearchValue] = useState("");
-  // стат. для приглашённых userов
+  // сост.масс. для приглашённых userов
   const [invites, setInvites] = useState([]);
+  // сотс.отправки/успеха
+  const [success, setSuccess] = useState(false);
 
-  // fn для измен стат.поиска
+  // fn для измен сост.поиска (запись value из input)
   const onChangeSeacrchValue = (e) => {
     setSearchValue(e.target.value);
+  };
+
+  // fn добавл./удал user в масс. приглашённых (клик из User plus/minus)
+  const onClickInvite = (id) => {
+    // е/и id есть в масс.приглаш. - удал. его
+    if (invites.includes(id)) {
+      // проверка масс.приглаш. сравн. _id(масс.) и id(принят.) - оставл.разные, удал.одинак.
+      setInvites((prev) => prev.filter((_id) => _id !== id));
+    }
+    // е/и id нет в масс.приглаш. - добавл. ко всем
+    else {
+      setInvites((prev) => [...prev, id]);
+    }
+  };
+
+  // fn подтвержд. отправки/успеха
+  const onClickSendInvites = () => {
+    // setSuccess(true);
+    setSuccess((prev) => !prev);
   };
 
   // при 1ом рендер запрос на бэкэнд
@@ -48,14 +69,25 @@ export function BegPrj_Users() {
         <h1>BegPrj_Users</h1>
       </div>
       <div className="Users__content">
-        {/* в Польз-ей отправ. стат.масс. как items, стат.загрузки, стат.поиска+fn для измен. */}
-        <Users
-          items={users}
-          isLoading={isLoading}
-          searchValue={searchValue}
-          onChangeSeacrchValue={onChangeSeacrchValue}
-        />
-        {/* <Success /> */}
+        {/* рендер по условию */}
+        {success ? (
+          // передача кол-ва приглаш., fn подтвержд.отправки
+          <Success
+            count={invites.length}
+            onClickSendInvites={onClickSendInvites}
+          />
+        ) : (
+          // {/* в Польз-ей отправ. масс.userов как items, сост.загрузки, сост.поиска + fn()измен., масс.приглаш. + fn()добав./удал., fn подтвержд. отправки */}
+          <Users
+            items={users}
+            isLoading={isLoading}
+            searchValue={searchValue}
+            onChangeSeacrchValue={onChangeSeacrchValue}
+            invites={invites}
+            onClickInvite={onClickInvite}
+            onClickSendInvites={onClickSendInvites}
+          />
+        )}
       </div>
     </div>
   );

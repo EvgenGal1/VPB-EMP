@@ -7,10 +7,11 @@
     border-radius: 30px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     padding: 30px;
-
+    // поиск
     .search {
       position: relative;
       width: 100%;
+      animation: ShowElem 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
       input {
         width: 100%;
         padding: 15px;
@@ -19,7 +20,7 @@
         border-radius: 15px;
         border: 3px solid rgba(0, 0, 0, 0.08);
         &:hover {
-          background-color: #333;
+          background-color: #555;
         }
       }
       svg {
@@ -31,7 +32,7 @@
         opacity: 0.3;
       }
     }
-
+    // список пользователей
     .users-list {
       list-style: none;
       padding: 0;
@@ -51,11 +52,14 @@
         border-top-right-radius: 20px;
         transition: all 0.3s ease;
         &:not(:last-child) {
-          margin-bottom: 10px;
+          margin-bottom: 5px;
         }
         &:hover {
           background-color: #555;
           transition: all 0.3s ease;
+          .action {
+            opacity: 1;
+          }
         }
         & > div {
           display: flex;
@@ -76,9 +80,9 @@
           height: 28px;
           opacity: 0.3;
           cursor: pointer;
-          &:hover {
-            opacity: 0.8;
-          }
+          // &:hover {
+          //   opacity: 0.8;
+          // }
         }
         h3 {
           margin: 0;
@@ -107,7 +111,7 @@
         }
       }
     }
-
+    // кнп.отправки
     .send-invite-btn {
       width: 100%;
       margin-top: 20px;
@@ -121,6 +125,7 @@
       box-shadow: 0 7px 10px #212121;
       cursor: pointer;
       transition: all 0.1s ease-in-out;
+      animation: ShowElem 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
       &:hover {
         background-color: #333;
       }
@@ -129,14 +134,14 @@
         box-shadow: none;
       }
     }
-
+    // блок отправлен/успех
     .success-block {
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100%;
       flex-direction: column;
-      animation: success-show 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
+      animation: ShowElem 0.5s cubic-bezier(0.25, 0.75, 0.5, 1.25);
       img {
         width: 120px;
         height: 120px;
@@ -154,7 +159,7 @@
         width: 200px;
       }
     }
-
+    // шаблон перед загрузкой
     .skeleton-list {
       height: calc(100% - 130px);
       margin-top: 30px;
@@ -162,15 +167,26 @@
         margin-bottom: 15px;
       }
     }
-
-    @keyframes success-show {
+    // аним.появления
+    @keyframes ShowElem {
       0% {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.4);
       }
+      // 50% {
+      //   opacity: 0;
+      //   transform: scale(0.8);
+      // }
       100% {
         opacity: 1;
         transform: scale(1);
+      }
+    }
+    // Код цикла Sass для анимации эл с задержкой (использовать чаще!)
+    @for $i from 2 through 10 {
+      ul li:nth-child(#{$i}) {
+        // animation: ShowElem #{$i * 0.2}s cubic-bezier(0.9, 0.03, 0.69, 0.22);
+        animation: ShowElem #{$i * 0.1}s ease-in;
       }
     }
   }

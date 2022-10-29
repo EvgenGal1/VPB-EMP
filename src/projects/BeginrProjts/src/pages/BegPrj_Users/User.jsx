@@ -1,16 +1,22 @@
 import React from "react";
 
 // const Users = () => (
-// export const User = ({ id, name, year, color, pantone_value }) => (
-// export const User = ({ id, name, username, email, address }) => {
-export const User = ({ id, email, first_name, last_name, avatar }) => {
+// export const User = ({ id, name, year, color, pantone_value, username, email, address }) => (
+export const User = ({
+  id,
+  email,
+  first_name,
+  last_name,
+  avatar,
+  onClickInvite,
+  isInvited,
+}) => {
   return (
     <>
       <li>
         <div>
           <img
             className="avatar"
-            // src={require("../../../../../img/vr/catalog/anonim1.jpg")}
             src={avatar}
             width="150"
             height="150"
@@ -37,10 +43,14 @@ export const User = ({ id, email, first_name, last_name, avatar }) => {
           </div>
         </div>
         <img
-          className="action"
-          // src={require("../../../../../img/vr/minElem/qw_bl-trsp.png")}
-          src={require("../../../../../img/vr/minElem/plus.png")}
           alt="Action"
+          className="action"
+          // выбор изо от наличия user в списке приглашённых по флагу isInvited
+          src={require(`../../../../../img/vr/minElem/${
+            isInvited ? "minus" : "plus"
+          }.png`)}
+          // fn()добав./удал. user в масс.приглаш
+          onClick={() => onClickInvite(id)}
         />
       </li>
     </>

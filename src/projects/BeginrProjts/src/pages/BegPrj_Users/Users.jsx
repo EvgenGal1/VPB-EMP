@@ -7,6 +7,9 @@ export const Users = ({
   isLoading,
   searchValue,
   onChangeSeacrchValue,
+  invites,
+  onClickInvite,
+  onClickSendInvites,
 }) => {
   return (
     <>
@@ -32,9 +35,9 @@ export const Users = ({
       ) : (
         // либо один Usera
         <ul className="users-list">
-          {/* перебор масс. и передача эл. в User. Можно передать поштучно(name={item.name},...) или целый объ.({...item}) */}
-          {/* перед map + фильтр для поиска(сравн. name+email и ввод) и + превращ.строк в един.регистр (toLowerCase) */}
+          {/* перебор масс. и передача эл. в User. */}
           {items
+            // {/* перед map + фильтр для поиска(сравн. name+email и ввод) и + превращ.строк в един.регистр (toLowerCase) */}
             .filter((item) => {
               const fullName = (item.first_name + item.last_name).toLowerCase();
               return (
@@ -43,11 +46,24 @@ export const Users = ({
               );
             })
             .map((item) => (
-              <User {...item} key={item.id} />
+              // Можно передать поштучно(name={item.name},...) или целый объ.({...item})
+              <User
+                key={item.id}
+                {...item}
+                // проверка в масс.приглаш передаваемого item.id
+                isInvited={invites.includes(item.id)}
+                // fn()добав./удал. user в масс.приглаш
+                onClickInvite={onClickInvite}
+              />
             ))}
         </ul>
       )}
-      <button className="send-invite-btn">Отправить приглашение</button>
+      {/* отрисовка если кто-то выбран */}
+      {invites.length > 0 && (
+        <button className="send-invite-btn" onClick={onClickSendInvites}>
+          Отправить приглашение
+        </button>
+      )}
     </>
   );
 };
