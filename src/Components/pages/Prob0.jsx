@@ -4,8 +4,6 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import { Prob1 } from "./Prob1";
 import { Prob2 } from "./Prob2";
 
-import "./Accordion.scss";
-
 export function Prob0() {
   return (
     // ~ испробовать <SwitchTransition mode={mode}> <CSSTransition key={toggle} из R|A

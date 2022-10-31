@@ -16,7 +16,7 @@ div {
     text-align: center;
   }
   // отступ е/и рядом в h1 есть эл.(братские P, UL)
-  h1:has(+ p, + ul) {
+  h1:has(+ p, + ul, + div, + section, + spans) {
     margin-bottom: 20px;
   }
   h2 {
@@ -90,9 +90,16 @@ div {
   & > ul li {
     list-style: inside;
   }
-  // div кл. на конце __descript
-  div[class$="__descript"] {
-    margin-bottom: 10px;
+  // для div в которых есть параграф|h1 и братский div
+  div:has(p):has(+ div),
+  div:has(h1):has(+ div) {
+    line-height: 22px;
+    @include adaptiv-val("margin-top", 10, 2);
+  }
+  // для div.__descript где есть параграф|h1 и братский div
+  div[class$="__descript"]:has(h1):has(+ div),
+  div[class$="__descript"]:has(p):has(+ div) {
+    @include adaptiv-value-all("margin", 0, 0, 0, 0, 10, 2);
     ul li {
       text-decoration: underline;
       &:hover {

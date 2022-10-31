@@ -1,87 +1,6 @@
-// миксин - комплект свойств, с разными префиксами(для разных браузеров), в которые можно передаватть переменные
+// миксин - комплект свойств, с разными префиксами(для разных браузеров), в которые можно передаватть переменные (МНОГО mixinов удалил за невостребованостью)
 
 // ФриПоЖизн ==================================================================================
-
-// mixin ----------------------------------------------------------------------------------
-@mixin anim($time, $delay) {
-  -webkit-transition: all $time ease $delay;
-  -moz-transition: all $time ease $delay;
-  -ms-transition: all $time ease $delay;
-  -o-transition: all $time ease $delay;
-  transition: all $time ease $delay;
-}
-@mixin anim_cubic($time, $delay) {
-  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
-  -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
-  -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
-  -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
-  transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
-}
-@mixin animate($name, $time, $infinite, $type) {
-  -webkit-animation: $name $time + s $infinite $type;
-  -moz-animation: $name $time + s $infinite $type;
-  -o-animation: $name $time + s $infinite $type;
-  animation: $name $time + s $infinite $type;
-}
-@mixin rotate($deg) {
-  -moz-transform: rotate($deg);
-  -ms-transform: rotate($deg);
-  -webkit-transform: rotate($deg);
-  -o-transform: rotate($deg);
-  transform: rotate($deg);
-}
-@mixin scale($num) {
-  -moz-transform: scale($num);
-  -ms-transform: scale($num);
-  -webkit-transform: scale($num);
-  -o-transform: scale($num);
-  transform: scale($num);
-}
-@mixin skew($num) {
-  -webkit-transform: skewX($num);
-  -moz-transform: skewX($num);
-  -ms-transform: skewX($num);
-  -o-transform: skewX($num);
-  transform: skewX($num);
-}
-@mixin cnt($h) {
-  display: flex;
-  flex-direction: column;
-  height: $h;
-  text-align: center;
-  align-items: stretch;
-  justify-content: center;
-}
-@mixin tr($x, $y, $z) {
-  transform: translate3d($x, $y, $z);
-  -webkit-transform: translate3d($x, $y, $z);
-  -ms-transform: translate3d($x, $y, $z);
-  -o-transform: translate3d($x, $y, $z);
-  -moz-transform: translate3d($x, $y, $z);
-}
-@mixin flexbox() {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  font-size: 0;
-}
-@mixin flexboxinline() {
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  display: -ms-inline-flex;
-  display: -o-inline-flex;
-  display: inline-flex;
-}
-@mixin flexorder($val) {
-  -webkit-box-ordinal-group: $val;
-  -moz-box-ordinal-group: $val;
-  -ms-flex-order: $val;
-  -webkit-order: $val;
-  order: $val;
-}
-
 // АДАПТИВНЫЕ СВОЙСТВА ----------------------------------------------------------------------------------
 // Подключение шрифта
 @mixin font($font_name, $file_name, $weight, $style) {
@@ -94,84 +13,17 @@
     font-style: #{$style};
   }
 }
-// Адаптивное свойство(сво-во, нач,сер,конеч значн). @include adaptiv-value("padding-right", 32, 15, 1);
-@mixin adaptiv-value($property, $startSize, $minSize, $type) {
-  $addSize: $startSize - $minSize;
-  @if $type==1 {
-    //Только если меньше контейнера
-    #{$property}: $startSize + px;
-    @media (max-width: #{$maxWidthContainer + px}) {
-      // @media (max-width: #{$maxWidthContainer}) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} *
-          ((100vw - 320px) / #{$maxWidthContainer - 320})
-      );
-    }
-  } @else if $type==2 {
-    //Только если больше контейнера
-    #{$property}: $startSize + px;
-    @media (min-width: #{$maxWidthContainer + px}) {
-      // @media (min-width: #{$maxWidthContainer}) {
-      #{$property}: calc(
-        #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-      );
-    }
-  } @else {
-    //Всегда
-    #{$property}: calc(
-      #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
-    );
-  }
-}
-// Адаптивное свойство До
-@mixin adaptiv-value-to($property, $startSize, $minSize, $minWidth) {
-  $addSize: $startSize - $minSize;
-  //#{$property}: $minSize + px;
-  @media (min-width: #{$minWidth + px}) {
-    #{$property}: calc(
-      #{$minSize + px} + #{$addSize} *
-        (((100vw - #{$minWidth + px})) / ((#{$maxWidth - $minWidth})))
-    );
-  }
-}
 // Размер в одну строку. @include size(80px, 50px);
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
 }
-
 // Адаптивный шрифт. @include adaptiv-font(24, 12);
 @mixin adaptiv-font($pcSize, $mobSize) {
   $addSize: $pcSize - $mobSize;
   $maxWidth: $maxWidth - 320;
   font-size: calc(
     #{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth})
-  );
-}
-
-// СВОЁ. Адаптивное свойство для неск значений. @include adaptiv-value-all("padding", 30, 10, 60, 25);
-// сво-во, нач и конечное значение для верикальных параметров, начальное и конеч значен для горинтольных парам
-@mixin adaptiv-value-all(
-  $property,
-  $startSizeH,
-  $minSizeH,
-  $startSizeW,
-  $minSizeW
-) {
-  $addSizeH: $startSizeH - $minSizeH;
-  $addSizeW: $startSizeW - $minSizeW;
-
-  #{$property}-top: calc(
-    #{$minSizeH + px} + #{$addSizeH} * ((100vw - 320px) / #{$maxWidth - 320})
-  );
-  #{$property}-bottom: calc(
-    #{$minSizeH + px} + #{$addSizeH} * ((100vw - 320px) / #{$maxWidth - 320})
-  );
-  #{$property}-left: calc(
-    #{$minSizeW + px} + #{$addSizeW} * ((100vw - 320px) / #{$maxWidth - 320})
-  );
-  #{$property}-right: calc(
-    #{$minSizeW + px} + #{$addSizeW} * ((100vw - 320px) / #{$maxWidth - 320})
   );
 }
 
@@ -192,219 +44,42 @@
   @return math($pixels, $context * 1);
 }
 
-// СВОЁ =======================================================================================
-
-// сокращение для меню в меню.
-@mixin ulliul {
-  width: 50px;
-  a,
-  .items__sub {
-    width: 50px;
-  }
-  .link__last-bykv,
-  .li-a__last-bykv {
-    display: none;
-  }
-  .sub__li-a:hover {
-    text-decoration: underline;
-    &::before,
-    &::after {
-      content: "" !important;
-    }
-  }
-}
-// градиенты ----------------------------------------------------------------------------------
-// * градиент красно-чёрный фон
-@mixin bgr_r-b {
-  background: repeating-radial-gradient(circle, #f00, #000 135px);
-}
-
-// * градиент серо белые. разм до крестика круги из чентра с сероватым ободком
-@mixin bgr_g-w-k {
-  background: repeating-radial-gradient(circle, #eee 24px, #fff 5px, #ccc 25px);
-}
-
-// * градиент серо белые. круги из чентра с сероватым ободком
-@mixin bgr_g-w-c {
-  background: repeating-radial-gradient(circle, #eee, #fff 1px, #ccc 25px);
-}
-
-// * градиент с лево на право
-@mixin bgl_l-r {
-  background: linear-gradient(to right, #43b1d2 0%, #37c3a8 100%);
-}
-
-// * градиент размытые красн., желт., синий фон
-@mixin bgl_r-y-b {
-  background: linear-gradient(red, transparent),
-    linear-gradient(to top left, yellow, transparent),
-    linear-gradient(to top right, blue, transparent);
-}
-
-// * градиент желт. круг на красном с чёрной тенью
-@mixin bgr_y-r-b {
-  background: repeating-radial-gradient(yellow 0px, black 55px, red 120px);
-}
-
-// * градиент красн. желт. круги из центра с чёрн ободком
-@mixin bgr_r-y-b {
-  background: repeating-radial-gradient(
-    yellow,
-    red 25px,
-    black 26px /* определяет размер */
+//  СВОЁ ===================================================================================
+// Адаптивное свойство(сво-во, нач,сер,конеч значн). @include adaptiv-val("padding-right", 32, 15);
+@mixin adaptiv-val($property, $startSize, $minSize) {
+  $addSize: $startSize - $minSize;
+  #{$property}: calc(
+    #{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320})
   );
 }
+// Адаптивное свойство для неск значений. @include adaptiv-value-all("padding", 10, 5, 30, 10, 60, 25);
+// 1ое - сво-во, две первые цифры - начальное и конечное значение для верхн.парам., 2е по середине - нач./конеч.знач. для горинт.парам, 2е послед.цифры - нач./конеч.знач. для низа
+@mixin adaptiv-value-all(
+  $property,
+  $startSizeH,
+  $minSizeH,
+  $startSizeW,
+  $minSizeW,
+  $startSizeHBott,
+  $minSizeHBott
+) {
+  // @if $type==1 {
+  $addSizeHTop: $startSizeH - $minSizeH;
+  $addSizeW: $startSizeW - $minSizeW;
+  $addSizeHBott: $startSizeHBott - $minSizeHBott;
 
-// * градиент красн. желт. наклонные линии с синим ободком
-@mixin bgl_r-y-b {
-  background: repeating-linear-gradient(
-    45deg,
-    yellow,
-    red 25px,
-    blue 26px /* определяет размер */
+  #{$property}-top: calc(
+    #{$minSizeH + px} + #{$addSizeHTop} * ((100vw - 320px) / #{$maxWidth - 320})
   );
-}
-
-// * градиент чёрно серый шар с белым фоном
-@mixin bgr_b-g-w {
-  background: repeating-radial-gradient(circle, #fff 0px, #000 82px, #ccc 25px);
-}
-
-// Для React.Prob =======================================================================================
-// Боковые Рамки (.__frame) ----------------------------------------------------------------------------------
-// Общие стили Боковых Рамок
-@mixin afterbefore {
-  z-index: 1;
-  height: calc(100% - 20px);
-  // дергается при hover. либо при hover увелич размер на px рамки, либо убирать ширину
-  // width: 30px;
-  margin: 10px 0;
-  position: absolute;
-  top: 0;
-  text-align: center;
-  font-weight: bold;
-  color: #8b0000;
-  background: none !important;
-  overflow: hidden;
-  // opacity: 0;
-  transition: 0.1s linear;
-  // вертикал текст
-  writing-mode: vertical-lr;
-  text-orientation: upright;
-  &:hover {
-    // opacity: 1;
-    transition: 0.1s linear;
-    // margin: 10px 0;
-    // left: 0;
-    border: 2px solid #8b0000;
-  }
-  @media (max-width: $md2NoErr) {
-    height: calc(100% - 10px);
-    // width: 25px;
-    // border: 1px solid #8b0000;
-    // margin: 5px;
-    // font-size: 0.7em;
-  }
-  @media (max-width: $md3NoErr) {
-    height: calc(100% - 10px);
-    // width: 20px;
-    border: 1px solid #8b0000;
-    // margin: 5px;
-    // font-size: 0.7em;
-    margin: 5px 0px;
-  }
-  @media (max-width: $md4NoErr) {
-    height: calc(100% - 10px);
-    // width: 0px;
-    margin: 5px 0px;
-    border: 0px solid #8b0000;
-    // font-size: 0.5em;
-    // margin: 5px 0px;
-    // margin: 5px 0;
-  }
-}
-// РАМКА С ЛЕВА
-@mixin before {
-  // left: -27px;
-  @include adaptiv-value("left", -27, -17, 3);
-  border-right: 2px solid #8b0000;
-  // margin-left: -20px;
-  &:hover {
-    // opacity: 1;
-    left: 0px;
-    // transition: 0.1s linear;
-    // margin: 10px 0;
-    // border: 2px solid #8b0000;
-  }
-  @media (max-width: $md2NoErr) {
-    // margin: 5px 00px;
-  }
-  @media (max-width: $md3NoErr) {
-    // left: -17px;
-    border-right: 1px solid #8b0000;
-    &:hover {
-      border: 1px solid #8b0000;
-      // right: 0px;
-    }
-    // height: calc(100vh - 10px);
-    // height: calc(100% - 10px);
-    // font-size: 1.5em;
-    // margin: 5px 0px;
-  }
-  @media (max-width: $md4NoErr) {
-    // font-size: 1em;
-    // border-right: 1px solid #8b0000;
-    left: -15px;
-    // margin: 5px 0px;
-  }
-}
-// РАМКА С ПРАВА
-@mixin after {
-  right: -27px;
-  @include adaptiv-value("right", -27, -17, 3);
-  border-left: 2px solid #8b0000;
-  &:hover {
-    right: 0px;
-  }
-  @media (max-width: $md2NoErr) {
-    // margin: 5px 0px;
-  }
-  @media (max-width: $md3NoErr) {
-    border-left: 1px solid #8b0000;
-    &:hover {
-      border: 1px solid #8b0000;
-      right: 0px;
-    }
-    // height: 25%;
-    // height: calc(100vh / 2 - 10px);
-    // height: calc(100% / 2 - 10px);
-
-    // font-size: 1.5em;@mixin
-    // font-size: 1em;
-    // margin: 5px 0px;
-  }
-  @media (max-width: $md4NoErr) {
-    border-left: 1px solid #8b0000;
-    right: -15px;
-    // margin: 5px;
-    // margin: 5px 0;
-    // top: 0;
-    // height: calc(100% - 10px);
-
-    // font-size: 0.7em;
-  }
-}
-
-// прописанные padding. не адаптивно
-@mixin padding {
-  @media (max-width: $md2NoErr) {
-    padding: 10px 40px;
-  }
-  @media (max-width: $md3NoErr) {
-    padding: 10px 35px;
-  }
-  @media (max-width: $md4NoErr) {
-    display: block;
-    padding: 10px 25px;
-  }
+  #{$property}-bottom: calc(
+    #{$minSizeHBott + px} + #{$addSizeHBott} *
+      ((100vw - 320px) / #{$maxWidth - 320})
+  );
+  #{$property}-left: calc(
+    #{$minSizeW + px} + #{$addSizeW} * ((100vw - 320px) / #{$maxWidth - 320})
+  );
+  #{$property}-right: calc(
+    #{$minSizeW + px} + #{$addSizeW} * ((100vw - 320px) / #{$maxWidth - 320})
+  );
+  // ??? не раб - попытка неск. условий в ошб. -  @if $startSizeHBott {} @else {} - отсутствует аргументы
 }

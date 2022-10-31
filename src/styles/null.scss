@@ -62,6 +62,9 @@ textarea {
 input::-ms-clear {
   display: none;
 }
+input::placeholder {
+  color: #000000;
+}
 button {
   cursor: pointer;
 }
