@@ -11,23 +11,31 @@ import { Switcher3btnTheme } from "../ui/Switcher3btnTheme";
 
 export function Header() {
   // ЛОГИКА Опред.Кобин.Клвш. для вывода Доп.Меню
-  // стат. показа Доп.Меню
-  const [dopCombinePress, setDopCombinePress] = useState(true);
+  // стат. показа Доп.Меню из LS
+  const [pressCombine, setPressCombine] = useState(() => {
+    const saved = localStorage.getItem("--dopMenu");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
   // массив букв после хука (возвращ true е/и переданные и нажатые равны)
   const combinePress = useAllKeysPress({
     userKeys: ["d", "o", "p", "m", "n"],
     order: true,
   });
+  // отслеж. измен.с записью в LS
   useEffect(() => {
-    if (combinePress === true) {
-      setDopCombinePress(true);
+    if ((combinePress || pressCombine) === true) {
+      setPressCombine(true);
+      localStorage.setItem("--dopMenu", JSON.stringify(true));
+    } else if ((combinePress || pressCombine) === false) {
+      setPressCombine(false);
+      localStorage.setItem("--dopMenu", JSON.stringify(false));
     }
-    // ??? не раб - перерендер
-    // console.log("combinePress : " + combinePress);
-  }, [combinePress, dopCombinePress]);
+  }, [combinePress, pressCombine]);
 
   // ЛОГИКА переключателя Цветовых Тем (dark/light/natural)
   // стат./fn Цветовых Тем (Тёмная/Сетлая/Средняя)
+  // eslint-disable-next-line no-unused-vars
   const { theme, setTheme } = useTheme();
   const handleDarkTheme = () => {
     setTheme("dark");
@@ -109,6 +117,25 @@ export function Header() {
                   </li>
                 </ul>
               </span>
+              {/* ПРОЕКТЫ с ФОРМАМИ */}
+              <span className="menu-top__items m-t-items">
+                <NavLink to="/FORMS" className="m-t-items__navlink activ-prob">
+                  FORMS
+                </NavLink>
+                <ul className="m-t-items__ul m-t-its-ul">
+                  <li className="m-t-its-ul__li">
+                    <Link to="/Form" className="">
+                      Form
+                    </Link>
+                  </li>
+                  {/* <li className="m-t-its-ul__li">
+                    <Link to="/Form" className="">
+                    Form
+                    </Link>
+                  </li> */}
+                </ul>
+              </span>
+              {/* Prob0 */}
               <span className="menu-top__items m-t-items">
                 <NavLink to="/Prob0" className="m-t-items__navlink activ-prob">
                   Prob0
@@ -134,11 +161,11 @@ export function Header() {
               </span>
             </nav>
             {/* НИЖНЕЕ/ДОП.МЕНЮ */}
-            {dopCombinePress && (
+            {pressCombine && (
               <nav className="header__menu-bottom menu-bottom flex flex-wrap justify-between items-center mt-4">
                 <span
                   onClick={() => {
-                    setDopCombinePress(false);
+                    setPressCombine(false);
                   }}
                   className="menu-bottom__items m-b-items"
                 >
