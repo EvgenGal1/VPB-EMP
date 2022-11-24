@@ -159,9 +159,9 @@ body[data-theme="light"] {
         }
         button {
           color: var(--act-light);
-          background-color: var(--act-dark);
+          background-color: var(--act-dark) !important;
           &:hover {
-            background-color: var(--act-bg-hov);
+            // background-color: var(--act-bg-hov);
           }
         }
       }
