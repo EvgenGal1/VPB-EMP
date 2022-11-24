@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Router } from "../Components/layout/Router.tsx";
+import { Router } from "../Components/layout/Router.jsx";
 
 import "../styles/styles.scss";
 

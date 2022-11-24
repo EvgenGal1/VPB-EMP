@@ -75,36 +75,36 @@ export function UlbiTV_DrADr() {
     }
   };
 
-  const removeItem9 = (item) => {
-    // if (item === "Заполни поле!!!") return;
-    if (item !== "") {
-      // const newItem1 = {
-      //   key: Date.now(),
-      //   id: new Date().getMilliseconds(),
-      //   text: newItem,
-      // };
-      // setCurrentBoard([...boards, boards[0].items.push(newItem1)]);
-      setCurrentBoard([...boards, boards.splice(item, item)]);
-      // setNewItem("");
-    }
-    // else {
-    //   setNewItem("Заполни поле!!!");
-    //   setNewItemErr(true);
-    //   setTimeout(() => {
-    //     setNewItem("");
-    //     setNewItemErr(false);
-    //   }, 500);
-    // }
-  };
+  // const removeItem9 = (item) => {
+  //   // if (item === "Заполни поле!!!") return;
+  //   if (item !== "") {
+  //     // const newItem1 = {
+  //     //   key: Date.now(),
+  //     //   id: new Date().getMilliseconds(),
+  //     //   text: newItem,
+  //     // };
+  //     // setCurrentBoard([...boards, boards[0].items.push(newItem1)]);
+  //     setCurrentBoard([...boards, boards.splice(item, item)]);
+  //     // setNewItem("");
+  //   }
+  //   // else {
+  //   //   setNewItem("Заполни поле!!!");
+  //   //   setNewItemErr(true);
+  //   //   setTimeout(() => {
+  //   //     setNewItem("");
+  //   //     setNewItemErr(false);
+  //   //   }, 500);
+  //   // }
+  // };
 
-  function removeNode(arr, id) {
-    arr.forEach((it, index) => {
-      if (it.id === id) {
-        arr.splice(index, 1);
-      }
-      removeNode(it.children, id);
-    });
-  }
+  // function removeNode(arr, id) {
+  //   arr.forEach((it, index) => {
+  //     if (it.id === id) {
+  //       arr.splice(index, 1);
+  //     }
+  //     removeNode(it.children, id);
+  //   });
+  // }
   // removeNode([db], 4);
 
   // по логам видно что нажатая задача не возвращается. не понятно ка теперь вывести
