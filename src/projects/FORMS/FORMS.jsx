@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
-import { Form } from "./src/pages/Form";
+import { FormMN } from "./src/pages/FormMN";
 
 const FORMS = () => {
   return (
@@ -11,14 +11,14 @@ const FORMS = () => {
       <hr />
       <div className="FORMS__nav">
         <nav>
-          <NavLink to="Form">Form</NavLink>
+          <NavLink to="FormMN">FormMN</NavLink>
           {/* <NavLink to="Form">Form</NavLink> */}
         </nav>
       </div>
       <hr />
       <div className="FORMS__pages">
         <Routes>
-          <Route path="Form" element={<Form />} />
+          <Route path="FormMN" element={<FormMN />} />
           {/* <Route path="Form" element={<Form />} /> */}
         </Routes>
       </div>

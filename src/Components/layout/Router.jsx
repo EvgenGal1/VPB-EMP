@@ -27,7 +27,7 @@ import { UlbiTV_MiniDrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_MiniDrA
 import { UlbiTV_DrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_DrADr";
 // НОВ.ПРОЕКТЫ с ФОРМАМИ
 import { FORMS } from "../../projects/FORMS/FORMS";
-import { Form } from "../../projects/FORMS/src/pages/Form";
+import { FormMN } from "../../projects/FORMS/src/pages/FormMN";
 // import { Form } from "../../projects/FORMS/src/pages/Form";
 
 // для аним ч/з react-transition-group
@@ -92,7 +92,7 @@ export function Router() {
             <Route path="UlbiTV_DrADr" element={<UlbiTV_DrADr />} />
             {/* FORMS */}
             <Route path="FORMS/*" element={<FORMS />} />
-            <Route path="Form" element={<Form />} />
+            <Route path="FormMN" element={<FormMN />} />
             {/* <Route path="Form" element={<Form />} /> */}
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
