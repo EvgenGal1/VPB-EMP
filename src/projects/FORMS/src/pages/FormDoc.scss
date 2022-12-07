@@ -19,9 +19,43 @@
 // }
 
 .FormDoc {
+  max-width: 600px;
+  margin: 0 auto;
+
   .FormDoc__content {
     display: block;
   }
+
+  pre {
+    color: white;
+  }
+
+  hr {
+    margin-top: 30px;
+  }
+
+  button {
+    display: block;
+    appearance: none;
+    margin-top: 40px;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+
+  button[type="button"] {
+    display: block;
+    appearance: none;
+    background: #333;
+    color: white;
+    border: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+
   form {
     max-width: 550px;
     margin: 0 auto;
@@ -69,6 +103,7 @@
     font-size: 16px;
     font-weight: 100;
     letter-spacing: 10px;
+    border: 1px solid var(--bord-hr);
   }
 
   button[type="submit"]:hover,
@@ -79,8 +114,8 @@
   button[type="submit"]:active,
   input[type="button"]:active,
   input[type="submit"]:active {
-    transition: 0.3s all;
-    transform: translateY(3px);
+    // transition: 0.3s all;
+    // transform: translateY(3px);
     border: 1px solid transparent;
     opacity: 0.8;
   }
@@ -97,40 +132,5 @@
   input[type="button"],
   input[type="submit"] {
     -webkit-appearance: none;
-  }
-
-  .App {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  button[type="button"] {
-    display: block;
-    appearance: none;
-    background: #333;
-    color: white;
-    border: none;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 4px;
-  }
-
-  pre {
-    color: white;
-  }
-
-  hr {
-    margin-top: 30px;
-  }
-
-  button {
-    display: block;
-    appearance: none;
-    margin-top: 40px;
-    border: 1px solid #333;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 4px;
   }
 }

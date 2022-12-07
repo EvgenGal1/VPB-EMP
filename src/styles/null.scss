@@ -68,6 +68,19 @@ input::placeholder {
 button {
   cursor: pointer;
 }
+button.primary,
+input.primary {
+  box-shadow: 0 3px 5px black;
+  &:hover {
+    transition: all 200ms linear;
+    box-shadow: 0 8px 10px #000000;
+    transform: translateY(-2px);
+  }
+  &:active {
+    box-shadow: 0 1px 1px black;
+    transform: translateY(0);
+  }
+}
 button::-moz-focus-inner {
   padding: 0;
   border: 0;

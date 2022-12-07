@@ -14,7 +14,7 @@ function FormDoc() {
     alert(JSON.stringify(data));
   };
   const intialValues = {
-    firstName: "Введите Имя",
+    firstName: "Введите Имя0",
     lastName: "Введите фамилию",
     // email: "bluebill1049@hotmail.com",
     email: "Введите эл.адрес",
@@ -30,7 +30,7 @@ function FormDoc() {
           <label htmlFor="firstName">Имя</label>
           <input
             defaultValue={intialValues.firstName}
-            placeholder="Введите Имя"
+            placeholder="Введите Имя1"
             {...register("firstName", {
               validate: (value) => value !== "Введите Имя",
             })}
@@ -73,7 +73,7 @@ function FormDoc() {
             <p>Ваш возраст не должен быть более 200</p>
           )}
 
-          <input type="submit" />
+          <input type="submit" className="primary" />
         </form>
       </div>
     </div>
