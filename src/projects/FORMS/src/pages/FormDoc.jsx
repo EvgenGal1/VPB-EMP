@@ -4,7 +4,38 @@ import { useForm } from "react-hook-form";
 
 import "./FormDoc.scss";
 
-function FormDoc() {
+// Базовый пример
+function BasicExampl() {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+
+  console.log(watch("example")); // watch input value by passing the name of it
+
+  return (
+    <>
+      <div className="BasicExampl">
+        <div className="BasicExampl__descript"><h1>Базовый пример</h1></div>
+        <div className="BasicExampl__content">
+          {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* register your input into the hook by invoking the "register" function */}
+            <input defaultValue="test" {...register("example")} />
+
+            {/* include validation with required or other standard HTML validation rules */}
+            <input {...register("exampleRequired", { required: true })} />
+            {/* errors will return when field validation fails  */}
+            {errors.exampleRequired && <span>This field is required</span>}
+
+            <input type="submit" />
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// Кастомный пример
+function CustomValidation(props) {
   const {
     register,
     handleSubmit,
@@ -13,6 +44,7 @@ function FormDoc() {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
   };
+
   const intialValues = {
     firstName: "Введите Имя0",
     lastName: "Введите фамилию",
@@ -23,9 +55,9 @@ function FormDoc() {
   };
 
   return (
-    <div className="FormDoc">
-      <div className="FormDoc__descript">Form Desc</div>
-      <div className="FormDoc__content">
+    <div className="CustomValidation">
+      <div className="CustomValidation__descript"><h1>Пользовательская проверка</h1></div>
+      <div className="CustomValidation__content">
         <form onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="firstName">Имя</label>
           <input
@@ -76,6 +108,21 @@ function FormDoc() {
           <input type="submit" className="primary" />
         </form>
       </div>
+    </div>
+  );
+}
+
+function FormDoc() {
+  return (
+    <div className="FormDoc">
+      <div className="FormDoc__descript"></div>
+      <div className="FormDoc__content">
+        <BasicExampl />
+        <hr />
+        <CustomValidation />
+        <hr />
+      </div>
+      <div className="FormDoc__frame">FormDoc</div>
     </div>
   );
 }
