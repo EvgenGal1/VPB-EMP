@@ -66,6 +66,10 @@ input::placeholder {
   color: #000000;
 }
 button {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #bd0000;
+  border-radius: 5px;
   cursor: pointer;
 }
 button.primary,
@@ -117,6 +121,7 @@ h5,
 h6 {
   // font-weight: inherit;
   font-size: inherit;
+  text-align: center;
 }
 p {
   // letter-spacing: normal;

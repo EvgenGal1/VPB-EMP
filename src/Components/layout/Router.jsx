@@ -27,8 +27,8 @@ import { UlbiTV_MiniDrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_MiniDrA
 import { UlbiTV_DrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_DrADr";
 // НОВ.ПРОЕКТЫ с ФОРМАМИ
 import { FORMS } from "../../projects/FORMS/FORMS";
-import { FormMN } from "../../projects/FORMS/src/pages/FormMN";
-import { FormDoc } from "../../projects/FORMS/src/pages/FormDoc";
+import { FormMN } from "../../projects/FORMS/src/pages/FormMN/FormMN";
+import { FormDoc } from "../../projects/FORMS/src/pages/FormDoc/FormDoc";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";

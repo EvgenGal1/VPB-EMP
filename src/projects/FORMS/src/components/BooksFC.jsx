@@ -19,13 +19,13 @@ export function BooksFC(props) {
 
   return (
     <div className="BooksFC">
-      <div className="FormMN__descript">
+      <div className="BooksFC__descript">
         <h1>BooksFC</h1>
       </div>
-      <div className="FormMN__content">
+      <div className="BooksFC__content">
         {/* перебор и передача в дочку */}
-        {items.map((book) => (
-          <Book key={book.id} {...book} />
+        {items.map((books) => (
+          <Book key={books.id} {...books} />
         ))}
       </div>
     </div>

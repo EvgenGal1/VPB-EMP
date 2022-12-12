@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
-import { FormMN } from "./src/pages/FormMN";
-import { FormDoc } from "./src/pages/FormDoc";
+import { FormMN } from "./src/pages/FormMN/FormMN";
+import { FormDoc } from "./src/pages/FormDoc/FormDoc";
 
 const FORMS = () => {
   return (
