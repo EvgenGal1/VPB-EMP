@@ -115,7 +115,7 @@ function CustomValidation(props) {
 function FormDoc() {
   return (
     <div className="FormDoc">
-      <div className="FormDoc__descript"></div>
+      <div className="FormDoc__descript">FormDoc</div>
       <div className="FormDoc__content">
         <BasicExampl />
         <hr />
