@@ -146,7 +146,7 @@ body[data-theme="light"] {
       input,
       button:not([class*="btn--primary"]) {
         background-color: var(--act-bg);
-        transition: background-color 200ms linear;
+        // transition: background-color 200ms linear;
         &:hover {
           background-color: var(--act-bg-hov) !important;
         }

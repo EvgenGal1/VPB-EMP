@@ -72,6 +72,7 @@ input {
   border: 1px solid #bd0000;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 200ms, transform 100ms linear;
 }
 button.primary,
 input.primary {
@@ -79,14 +80,26 @@ input.primary {
   box-shadow: 0 3px 5px black;
   text-transform: uppercase;
   &:hover {
-    transition: all 200ms linear;
+    // transition: transform 100ms linear;
     box-shadow: 0 8px 10px #000000;
     transform: translateY(-3px);
   }
   &:active {
+    // transition: transform 0.2s linear;
     box-shadow: 0 1px 1px black;
     transform: translateY(0);
+    opacity: 0.8;
   }
+}
+button[type="submit"]:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+  // transition: transform 0.3s linear;
+  // transform: translateY(3px);
+  // border: 1px solid transparent;
+  // opacity: 0.8;
+  //
+  transform: translateY(0);
 }
 button::-moz-focus-inner {
   padding: 0;
