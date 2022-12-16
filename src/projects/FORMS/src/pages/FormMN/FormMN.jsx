@@ -17,7 +17,7 @@ const FormMN = () => {
 
   // свой handle (обработчик). прием данн. из form ч/з  handleSubmit
   const onSubmit = (data) => {
-    alert(JSON.stringify(data) + " время видео 5:55");
+    alert(JSON.stringify(data) + " время видео 10:01");
   };
 
   return (
@@ -28,7 +28,7 @@ const FormMN = () => {
       <div className="FormMN__content">
         {/* Форма. С методом onSubmit с вызовом встр. handleSubmit */}
         <form onSubmit={handleSubmit(onSubmit)}>
-          {/* ввод текст по умолч*/}
+          {/* input 1. ввод текст по умолч*/}
           <label>
             Имя:
             <input
@@ -39,10 +39,36 @@ const FormMN = () => {
                 "firstName",
                 {
                   // парам валидации (заполнено)
-                  // ! не выводит стили фокуса у input при отправке не заполненого поля
-                  required: true,
+                  // вовод текстом (message) || boolean // ! не выводит стили фокуса у input при отправке не заполненого поля
+                  required: "Поле обязательно к заполнению",
+                  // миним длина. можно объ.
+                  minLength: {
+                    value: 3,
+                    message: "Минимум 3 символа"
+                  }
                 })} />
           </label>
+          <div style={{ height: 40 }}>
+            {errors?.firstName && < p>{errors?.firstName?.message || "Error! В firstName"}</ p>}
+          </div>
+          {/* input 2 */}
+          <label>
+            Фамилия:
+            <input
+              {
+              ...register(
+                "lastName",
+                {
+                  required: "Поле 2 обязательно к заполнению",
+                  minLength: {
+                    value: 3,
+                    message: "Минимум 2. 5 символов"
+                  }
+                })} />
+          </label>
+          <div style={{ height: 40 }}>
+            {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
+          </div>
           {/* кнп. отправки */}
           <input className="primary" type="submit" />
         </form>
