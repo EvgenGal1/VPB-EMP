@@ -71,11 +71,29 @@ const FormMN = () => {
           </div>
           {/* input 3 */}
           <label>
-            Фамилия:
+            input 3:
             <input
               {
               ...register(
-                "lastName",
+                "lastName3",
+                {
+                  required: "Поле 2 обязательно к заполнению",
+                  minLength: {
+                    value: 3,
+                    message: "Минимум 2. 5 символов"
+                  }
+                })} />
+          </label>
+          <div style={{ height: 40 }}>
+            {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
+          </div>
+          {/* input 4 */}
+          <label>
+            input 4:
+            <input
+              {
+              ...register(
+                "lastName4",
                 {
                   required: "Поле 2 обязательно к заполнению",
                   minLength: {
