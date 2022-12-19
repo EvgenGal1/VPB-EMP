@@ -105,6 +105,24 @@ const FormMN = () => {
           <div style={{ height: 40 }}>
             {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
           </div>
+          {/* input 5 */}
+          <label>
+            input 54:
+            <input
+              {
+              ...register(
+                "lastName4",
+                {
+                  required: "Поле 2 обязательно к заполнению",
+                  minLength: {
+                    value: 3,
+                    message: "Минимум 2. 5 символов"
+                  }
+                })} />
+          </label>
+          <div style={{ height: 40 }}>
+            {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
+          </div>
           {/* кнп. отправки */}
           <input className="primary" type="submit" />
         </form>
