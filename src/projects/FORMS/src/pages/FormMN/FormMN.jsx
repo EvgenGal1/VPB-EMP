@@ -32,25 +32,29 @@ const FormMN = () => {
           <label>
             Имя:
             <input
+              placeholder="Имя"
               // метод регистрация (встроены name, value, onChange, ...)
               {
-              // хук useForm возвращ.объ, поэтому разворач. метод. передаём 2 парам - 1ый уник. Имя (name, ключ в data), 2ой валидация объ
+              // хук useForm возвращ.объ, поэтому разворач. метод. передаём 2 парам - 1ый уник. Имя (name, ключ в data), 2ой объ валидации
               ...register(
                 "firstName",
                 {
                   // парам валидации (заполнено)
                   // вовод текстом (message) || boolean // ! не выводит стили фокуса у input при отправке не заполненого поля
                   required: "Поле обязательно к заполнению",
-                  // миним длина. можно объ.
+                  // миним длина. можно объ. с длиной и смс ошб.
                   minLength: {
                     value: 3,
                     message: "Минимум 3 символа"
                   }
                 })} />
+            {/* вывод смс ошб. е/и есть ошб. где есть firstName(из register) то вывод <p> с ошб. Гибкость ошб. в <p> либо смс из massage, либо по умолч. */}
+            {errors?.firstName && <p>{errors?.firstName?.message || "Error! В firstName"}</ p>}
           </label>
-          <div style={{ height: 40 }}>
-            {errors?.firstName && < p>{errors?.firstName?.message || "Error! В firstName"}</ p>}
-          </div>
+          {/* перенёс смс ошб.  внутрь label, убрал обёртку div */}
+          {/* <div style={{ height: 40 }}> */}
+          {/* {errors?.firstName && <p>{errors?.firstName?.message || "Error! В firstName"}</ p>} */}
+          {/* </div> */}
           {/* input 2 */}
           <label>
             Фамилия:
@@ -90,24 +94,6 @@ const FormMN = () => {
           {/* input 4 */}
           <label>
             input 4:
-            <input
-              {
-              ...register(
-                "lastName4",
-                {
-                  required: "Поле 2 обязательно к заполнению",
-                  minLength: {
-                    value: 3,
-                    message: "Минимум 2. 5 символов"
-                  }
-                })} />
-          </label>
-          <div style={{ height: 40 }}>
-            {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
-          </div>
-          {/* input 5 */}
-          <label>
-            input 54:
             <input
               {
               ...register(

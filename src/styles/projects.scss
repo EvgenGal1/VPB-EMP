@@ -14,9 +14,10 @@ div {
     font-size: 20px;
     font-weight: 900;
     text-align: center;
+    letter-spacing: 3px;
   }
   // отступ е/и рядом в h1 есть эл.(братские P, UL)
-  h1:has(+ p, + ul, + div, + section, + spans) {
+  h1:has(+ p, + ul, + div, + section, + span) {
     margin-bottom: 20px;
   }
   h2 {
