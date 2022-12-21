@@ -29,6 +29,8 @@ import { UlbiTV_DrADr } from "../../projects/UlbiTV/src/pages/UlbiTV_DrADr";
 import { FORMS } from "../../projects/FORMS/FORMS";
 import { FormMN } from "../../projects/FORMS/src/pages/FormMN/FormMN";
 import { FormDoc } from "../../projects/FORMS/src/pages/FormDoc/FormDoc";
+// НОВ.ПРОЕКТЫ с ЕЖЕДНЕВНИКОМ
+import { DailyPlanner } from "../../projects/DailyPlanner/DailyPlanner";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -94,6 +96,10 @@ export function Router() {
             <Route path="FORMS/*" element={<FORMS />} />
             <Route path="FormMN" element={<FormMN />} />
             <Route path="FormDoc" element={<FormDoc />} />
+            {/* DailyPlanner */}
+            <Route path="DailyPlanner/*" element={<DailyPlanner />} />
+            {/* <Route path="FormMN" element={<FormMN />} />
+            <Route path="FormDoc" element={<FormDoc />} /> */}
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />
