@@ -69,10 +69,8 @@ const FormMN = () => {
                     message: "Минимум 2. 5 символов"
                   }
                 })} />
-          </label>
-          <div style={{ height: 40 }}>
             {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
-          </div>
+          </label>
           {/* input 3 */}
           <label>
             input 3:
@@ -87,10 +85,8 @@ const FormMN = () => {
                     message: "Минимум 2. 5 символов"
                   }
                 })} />
-          </label>
-          <div style={{ height: 40 }}>
             {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
-          </div>
+          </label>
           {/* input 4 */}
           <label>
             input 4:
@@ -105,10 +101,8 @@ const FormMN = () => {
                     message: "Минимум 2. 5 символов"
                   }
                 })} />
-          </label>
-          <div style={{ height: 40 }}>
             {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
-          </div>
+          </label>
           {/* кнп. отправки */}
           <input className="primary" type="submit" />
         </form>

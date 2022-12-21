@@ -7,8 +7,10 @@ import { FormDoc } from "./src/pages/FormDoc/FormDoc";
 const FORMS = () => {
   return (
     <div className="FORMS">
-      <div className="FORMS__descript">FORMS D</div>
-      <div className="FORMS__content">FORMS C</div>
+      <div className="FORMS__descript">
+        <h1>ПРОЕКТЫ с ФОРМАМИ</h1>
+      </div>
+      {/* <div className="FORMS__content">FORMS C</div> */}
       <hr />
       <div className="FORMS__nav">
         <nav>
