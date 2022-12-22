@@ -1,0 +1,48 @@
+.DayPlanToDo {
+  .DayPlanToDo__content-- {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    h2,
+    h3 {
+      display: block;
+      font-size: 1.25em;
+      margin-block-start: 0.7em;
+      // margin-block-end: 1em;
+      // margin-inline-start: 0px;
+      // margin-inline-end: 0px;
+      // font-weight: bold;
+    }
+    // обёртка TODO и DayPlan
+    .jfyKYf,
+    .hRNwpm {
+      margin-top: 0;
+    }
+    // цвет блоков
+    .dryAHo,
+    .kpPooB {
+      background-color: var(--ui-bg);
+    }
+    // вычёркивание из TODO
+    .strikethrough {
+      text-decoration: line-through;
+    }
+    // кнп.
+    button,
+    input {
+      margin: 0 0 0 5px;
+      padding: 5px;
+      border: 1px solid #bd0000;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 200ms, transform 100ms linear;
+    }
+    button {
+      padding: 5px 10px;
+    }
+    // текст
+    .jfyKYf {
+      font-weight: 500;
+    }
+  }
+}
