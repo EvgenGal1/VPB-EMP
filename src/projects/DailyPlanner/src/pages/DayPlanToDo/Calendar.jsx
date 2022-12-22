@@ -16,7 +16,8 @@ const CalendarSpan = styled.span`
   font-family: "Manrope", sans-serif;
   font-weight: bold;
 
-  @media only screen and (max-width: 700px) {
+  // @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 898px) {
     width: 100%;
   }
 `;
