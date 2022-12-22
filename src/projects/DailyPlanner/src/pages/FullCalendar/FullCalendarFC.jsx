@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
+import { ArrowAccordionFnComp } from "../../../../../Components/ui/accordion/ArrowAccordion.jsx";
+
 // пакеты FullCalendar
 import FullCalendar from "@fullcalendar/react";
 import daygridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { v4 as uuid } from "uuid";
 import { EventItem } from "./EventItem";
-
-import { ArrowAccordionFnComp } from "../../../../../Components/ui/accordion/ArrowAccordion.jsx";
 
 export const FullCalendarFC = () => {
   const [openArrowAccord, setOpenArrowAccord] = useState(false);
