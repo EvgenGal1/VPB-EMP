@@ -2,6 +2,11 @@
 .accordion {
   position: relative;
   transition: all 0.8s cubic-bezier(0.08, 1.09, 0.32, 1.275);
+  h1,
+  h2,
+  h3 {
+    cursor: pointer;
+  }
   // блок стрелки 1-го уровня
   div[class$="__descript"] {
     .arrowAccord {
@@ -277,6 +282,7 @@
       &.openDop {
         width: 100%;
         height: auto;
+        padding: 10px 15px;
         visibility: visible;
         opacity: 1;
         background: #555555;

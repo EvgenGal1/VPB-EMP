@@ -19,7 +19,7 @@ div {
   }
   // отступ е/и рядом в h1 есть эл.(братские P, UL)
   h1:has(+ p, + ul, + div, + section, + span) {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   h2 {
     font-weight: 800;
@@ -89,8 +89,9 @@ div {
       }
     }
   }
-  & > ul li {
-    list-style: inside;
+  & > ul li,
+  & > ol li {
+    list-style: inherit;
   }
   // для div в которых есть параграф|h1 и братский div
   div:has(p):has(+ div),
