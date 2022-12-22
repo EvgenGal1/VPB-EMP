@@ -4,7 +4,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import { ArrowAccordionFnComp } from "../../Components/ui/accordion/ArrowAccordion.jsx";
 
 import { FullCalendarFC } from "./src/pages/FullCalendar/FullCalendarFC.jsx";
-// import { FormDoc } from "./src/pages/FormDoc/FormDoc";
+import { DayPlanToDo } from "./src/pages/DayPlanToDo/DayPlanToDo";
 
 export const DailyPlanner = () => {
   const [openArrowAccord, setOpenArrowAccord] = useState(false);
@@ -30,25 +30,25 @@ export const DailyPlanner = () => {
         />
       </div>
       {/* <div className="DailyPlanner__content">Daily Planner C</div> */}
-      <div
+      {/* <div
         className={`DailyPlanner__content--${
           openArrowAccord ? " openCont" : ""
         }`}
       >
         2
-      </div>
+      </div> */}
       <hr />
       <div className="DailyPlanner__nav">
         <nav>
           <NavLink to="FullCalendar">FullCalendar</NavLink>
-          {/* <NavLink to="FormDoc">FormDoc</NavLink> */}
+          <NavLink to="DayPlanToDo">DayPlanToDo</NavLink>
         </nav>
       </div>
       <hr />
       <div className="DailyPlanner__pages">
         <Routes>
           <Route path="FullCalendar" element={<FullCalendarFC />} />
-          {/* <Route path="FormDoc" element={<FormDoc />} /> */}
+          <Route path="DayPlanToDo" element={<DayPlanToDo />} />
         </Routes>
       </div>
     </div>

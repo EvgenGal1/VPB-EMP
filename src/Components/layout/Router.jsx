@@ -32,6 +32,7 @@ import { FormDoc } from "../../projects/FORMS/src/pages/FormDoc/FormDoc";
 // НОВ.ПРОЕКТЫ с ЕЖЕДНЕВНИКОМ
 import { DailyPlanner } from "../../projects/DailyPlanner/DailyPlanner";
 import { FullCalendarFC } from "../../projects/DailyPlanner/src/pages/FullCalendar/FullCalendarFC";
+import { DayPlanToDo } from "../../projects/DailyPlanner/src/pages/DayPlanToDo/DayPlanToDo";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -100,7 +101,7 @@ export function Router() {
             {/* DailyPlanner */}
             <Route path="DailyPlanner/*" element={<DailyPlanner />} />
             <Route path="FullCalendar" element={<FullCalendarFC />} />
-            {/* <Route path="FormDoc" element={<FormDoc />} /> */}
+            <Route path="DayPlanToDo" element={<DayPlanToDo />} />
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />
