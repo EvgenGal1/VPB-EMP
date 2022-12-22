@@ -143,18 +143,18 @@ export function Header() {
                 >
                   DailyPlanner
                 </NavLink>
-                {/* <ul className="m-t-items__ul m-t-its-ul">
+                <ul className="m-t-items__ul m-t-its-ul">
                   <li className="m-t-its-ul__li">
-                    <Link to="/FormMN" className="">
-                      FormMN
+                    <Link to="/FullCalendarFC" className="">
+                      FullCalendar
                     </Link>
                   </li>
-                  <li className="m-t-its-ul__li">
+                  {/* <li className="m-t-its-ul__li">
                     <Link to="/FormDoc" className="">
                       FormDoc
                     </Link>
-                  </li>
-                </ul> */}
+                  </li> */}
+                </ul>
               </span>
               {/* Prob0 */}
               <span className="menu-top__items m-t-items">

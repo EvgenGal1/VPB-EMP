@@ -3,7 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 import { ArrowAccordionFnComp } from "../../Components/ui/accordion/ArrowAccordion.jsx";
 
-// import { FormMN } from "./src/pages/FormMN/FormMN";
+import { FullCalendarFC } from "./src/pages/FullCalendar/FullCalendarFC.jsx";
 // import { FormDoc } from "./src/pages/FormDoc/FormDoc";
 
 export const DailyPlanner = () => {
@@ -16,7 +16,7 @@ export const DailyPlanner = () => {
     <div className="DailyPlanner accordion">
       <div className="DailyPlanner__descript">
         <h1
-          lassName={openArrowAccord ? "_active" : ""}
+          className={openArrowAccord ? "_active" : ""}
           onClick={() => {
             handleClickRef();
           }}
@@ -40,16 +40,16 @@ export const DailyPlanner = () => {
       <hr />
       <div className="DailyPlanner__nav">
         <nav>
-          {/* <NavLink to="FormMN">FormMN</NavLink>
-        <NavLink to="FormDoc">FormDoc</NavLink> */}
+          <NavLink to="FullCalendar">FullCalendar</NavLink>
+          {/* <NavLink to="FormDoc">FormDoc</NavLink> */}
         </nav>
       </div>
       <hr />
       <div className="DailyPlanner__pages">
-        {/* <Routes>
-        <Route path="FormMN" element={<FormMN />} />
-        <Route path="FormDoc" element={<FormDoc />} />
-      </Routes> */}
+        <Routes>
+          <Route path="FullCalendar" element={<FullCalendarFC />} />
+          {/* <Route path="FormDoc" element={<FormDoc />} /> */}
+        </Routes>
       </div>
     </div>
   );
