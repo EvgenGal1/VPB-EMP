@@ -92,14 +92,17 @@ body[data-theme="light"] {
 // ОБЩИЕ СТИЛИ
 :root {
   body {
+    background-color: var(--fon-dark);
+
     // цвет рамки для всех кроме ссылок и списков
     *:not(a):not(ul) {
       border-color: var(--bord-hr) !important;
     }
-    background-color: var(--fon-dark);
     hr {
       border-color: var(--bord-hr);
     }
+
+    // ШАПКА / ПОДВАЛ
     .header,
     .footer {
       // анимация перехода
@@ -111,6 +114,8 @@ body[data-theme="light"] {
         background-color: var(--el-dark);
       }
     }
+
+    // ссылки
     div nav {
       & a {
         // color: var(--activ-col) ;
@@ -135,14 +140,12 @@ body[data-theme="light"] {
       }
     }
 
+    // ОСНОВНОЙ
     .main {
       background-color: var(--fon-dark);
       transition: background-color 300ms linear;
-      // & > div nav {
-      //   & a.active {
-      //     background-color: var(--activ-col);
-      //   }
-      // }
+
+      // КНП
       input,
       button:not([class*="btn--primary"]) {
         background-color: var(--act-bg);
@@ -165,11 +168,33 @@ body[data-theme="light"] {
           }
         }
       }
+
+      // модальные окна
+      .modal {
+        background-color: var(--ui-bg);
+      }
+
+      // карточки/сетка блоков
+      .card {
+        background-color: var(--ui-bg);
+        border-color: var(--bord-hr);
+      }
+
+      // & > div nav {
+      //   & a.active {
+      //     background-color: var(--activ-col);
+      //   }
+      // }
+
+      // div:hover {
+      //   color: var(--activ-col) ;
+      //   background-color: var(--act-bg) ;
+      // }
     }
-    // div:hover {
-    //   color: var(--activ-col) ;
-    //   background-color: var(--act-bg) ;
-    // }
+    // модальные окна
+    .modal {
+      background-color: var(--ui-bg);
+    }
   }
 }
 

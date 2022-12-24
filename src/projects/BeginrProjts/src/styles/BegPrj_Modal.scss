@@ -39,41 +39,6 @@
   transition: all 0.5s ease-in-out;
 }
 
-.modal {
-  width: 70%;
-  max-width: 500px;
-  max-height: 300px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  padding: 40px 30px;
-  text-align: center;
-  border-radius: 10px;
-  background-color: #fff;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 01);
-  transition: all 0.5s ease-in-out;
-
-  img {
-    border-radius: 5px;
-    // width: 100%;
-  }
-
-  svg {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    height: 24px;
-    width: 24px;
-    opacity: 0.3;
-    cursor: pointer;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}
-
 .overlay.animated {
   opacity: 0;
   visibility: hidden;
