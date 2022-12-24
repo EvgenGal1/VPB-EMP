@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
+// TODO
 const ToDoSpan = styled.span`
   // margin-top: 2rem;
   width: 35%;
@@ -15,10 +16,13 @@ const ToDoSpan = styled.span`
 
 const ToDoWrapper = styled.div`
   width: 94%;
+  width: 98%;
   height: 100%;
-  margin-left: 3%;
-  margin-right: 3%;
-  padding-top: 0.1rem;
+  // margin-left: 3%;
+  margin-right: 2%;
+  // padding-top: 0.1rem;
+  border-radius: 10px;
+  border: 1px solid darkred;
   background-color: rgb(255, 255, 255, 0.7);
 `;
 
@@ -28,12 +32,12 @@ const ToDoHeader = styled.h3`
   margin-bottom: 0.5rem;
 `;
 
-// блок заданий
+// блок ЗАДАНИЙ
 const ToDoList = styled.div`
   width: 100%;
   margin-bottom: 1rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  // padding-right: 1rem;
+  // padding-left: 1rem;
 `;
 
 // строки заданий
@@ -46,7 +50,7 @@ const ToDoItem = styled.div`
   }
 `;
 
-// задание
+// описание ЗАДАНИЯ
 const ToDoText = styled.span`
   padding-right: 1rem;
   padding-left: 1rem;
@@ -73,8 +77,8 @@ const ToDoButtons = styled.span`
 
 const Form = styled.form`
   float: left;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  // padding-left: 1rem;
+  // padding-right: 1rem;
   float: none;
   display: flex;
   flex-wrap: wrap;
@@ -110,7 +114,7 @@ const Input = styled.input`
 
 const Todo = () => {
   // Компонент будет сохранять и извлекать элементы списка дел из локального хранилища.
-  const initialEvents = localStorage.getItem("todo");
+  const initialEvents = localStorage.getItem("ListDPTD");
   const [todo, setTodo] = useState(
     initialEvents ? JSON.parse(initialEvents) : []
   );
@@ -125,7 +129,7 @@ const Todo = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const newTodo = [...todo, { text: newItem, completed: false }];
-    localStorage.setItem("todo", JSON.stringify(newTodo));
+    localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
     setTodo(newTodo);
     setNewItem("");
   };
@@ -134,14 +138,14 @@ const Todo = () => {
   const strikethrough = (index) => {
     let newArray = [...todo];
     newArray[index].completed = !newArray[index].completed;
-    localStorage.setItem("todo", JSON.stringify(newArray));
+    localStorage.setItem("ListDPTD", JSON.stringify(newArray));
     setTodo(newArray);
   };
 
   // удаляет элемент из состояния и локального хранилища, когда пользователь нажимает «удалить»
   const deleteItem = (index) => {
     const newTodo = todo.filter((item, origIndex) => origIndex !== index);
-    localStorage.setItem("todo", JSON.stringify(newTodo));
+    localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
     setTodo(newTodo);
   };
 
