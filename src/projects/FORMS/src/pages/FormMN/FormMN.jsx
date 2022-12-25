@@ -10,20 +10,37 @@ const FormMN = () => {
     // регистрация полей формы
     register,
     // объ со св-ми
-    formState: { errors },
+    formState: { errors,
+      // настр валид. отправки
+      isValid },
     // обёртка на кастом обработчиком
     handleSubmit,
-  } = useForm();
+    // метод очистки
+    reset,
+
+  }
+    = useForm({
+      // режимы moda all/onBlur(фокус)/onCgange/onSubmit/...
+      mode: "onBlur"
+    }
+    )
+  // = useForm();
+  // передача объ в хук при вызове
 
   // свой handle (обработчик). прием данн. из form ч/з  handleSubmit
   const onSubmit = (data) => {
     alert(JSON.stringify(data) + " время видео 10:01");
+    // очистка формы
+    reset()
   };
 
   return (
     <div className="FormMN">
       <div className="FormMN__descript">
         <h1>FormMN</h1>
+        <p style={{ color: "red", backgroundColor: "#111" }}>
+          !!! ОЧЕНЬ много настр./парам./примеров в оф.док - https://react-hook-form.com
+        </p>
       </div>
       <div className="FormMN__content">
         {/* Форма. С методом onSubmit с вызовом встр. handleSubmit */}
@@ -104,7 +121,10 @@ const FormMN = () => {
             {errors?.lastName && < p>{errors?.lastName?.message || "Error! В lastName"}</ p>}
           </label>
           {/* кнп. отправки */}
-          <input className="primary" type="submit" />
+          <input className="primary" type="submit"
+            // выкл при НЕ валид.
+            disabled={!isValid}
+          />
         </form>
       </div>
     </div>

@@ -55,8 +55,14 @@
   // разобрать ----------------------------------------------------------------------------------
 
   form {
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    // придумать общ .cl/вложен
+    height: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid darkred;
   }
 
   h1 {
@@ -64,7 +70,7 @@
     color: white;
     text-align: center;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgb(79, 98, 148);
+    // border-bottom: 1px solid rgb(79, 98, 148);
   }
 
   .form {
