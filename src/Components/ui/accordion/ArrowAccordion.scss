@@ -127,6 +127,9 @@
         span {
           width: 150%;
           height: 150%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           position: absolute;
           top: -25%;
           left: -25%;

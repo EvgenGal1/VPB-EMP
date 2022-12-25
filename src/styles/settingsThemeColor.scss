@@ -219,7 +219,7 @@ body[data-theme="light"] {
       }
       // }
     }
-    //
+    // BegPrj
     .BegPrj {
       &_Modal {
         .modal {
@@ -274,6 +274,27 @@ body[data-theme="light"] {
     }
     .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
       background-color: var(--MelonYellow);
+    }
+    //
+    .DayPlanToDo {
+      &__content-- {
+        span > div {
+          background-color: var(--ui-bg);
+        }
+        // DAYPLAN/Calendar ----------------------------------------------------------------------------------
+        span:last-child > div {
+          .fc-daygrid-day {
+            &:hover {
+              background-color: var(--ui-act-col);
+              transition: background-color 300ms linear;
+            }
+          }
+        }
+      }
+    }
+    //
+    .FormMN form {
+      background-color: var(--ui-bg);
     }
   }
 }
