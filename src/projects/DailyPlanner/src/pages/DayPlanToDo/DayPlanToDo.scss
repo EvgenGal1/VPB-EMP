@@ -1,4 +1,7 @@
 .DayPlanToDo {
+  .DayPlanToDo__descript {
+    position: relative;
+  }
   .DayPlanToDo__content-- {
     // ПЕРВЫЙ БЛОК // ! классы постоянно динамически меняются
     // ^ можно обернуть в свой div/section
@@ -42,7 +45,7 @@
       }
       // цвет блоков
       & > div {
-        background-color: var(--ui-bg);
+        // background-color: var(--ui-bg);
       }
       // кнп.
       button,
@@ -110,7 +113,8 @@
       // .fc-day-future
       .fc-daygrid-day {
         &:hover {
-          background-color: var(--ui-act-col);
+          // background-color: var(--ui-act-col);
+          // background-color: #b57900;
         }
       }
     }

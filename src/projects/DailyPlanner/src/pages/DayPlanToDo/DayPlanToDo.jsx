@@ -25,15 +25,31 @@ export const DayPlanToDo = () => {
           DayPlanToDo
         </h1>
         <div className={openArrowAccord ? "openDop" : ""}>
-          <ul>
-            <li>npm i styled-components @types/styled-components</li>
-            <li>react-modal</li>
-          </ul>
+          <div>Проект на основе Daily Planner (Git repo gjoyner09)</div>
+          <p>https://github.com/gjoyner09/daily-planner</p>
+          <ol>
+            <li>
+              Устан доп.зависимостей
+              <ul>
+                <li>npm i react-modal</li>
+                <li>npm i styled-components @types/styled-components</li>
+              </ul>
+            </li>
+            <li>
+              Созд. 2 Основ Компонента
+              <ul>
+                <li>Todo (Лист заданий на styled-components)</li>
+                <li>
+                  Calendar (Календарб на FullCalendar и styled-components)
+                </li>
+              </ul>
+            </li>
+          </ol>
         </div>
-        {/* <ArrowAccordionFnComp
+        <ArrowAccordionFnComp
           openArrowAccord={openArrowAccord}
           setOpenArrowAccord={setOpenArrowAccord}
-        /> */}
+        />
       </div>
       <div
         className="DayPlanToDo__content-- openCont"

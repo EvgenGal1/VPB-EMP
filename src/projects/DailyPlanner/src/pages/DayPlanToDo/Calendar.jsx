@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import Modal from "react-modal";
-
+// пакеты FullCalendar
 import FullCalendar, { EventApi } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
+// доп зависимости
+import Modal from "react-modal";
 import styled from "styled-components";
 
+// Комп
 import Button from "./Button";
 
 const CalendarSpan = styled.span`
