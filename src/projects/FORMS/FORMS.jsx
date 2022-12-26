@@ -1,16 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
+
+import { ArrowAccordionFnComp } from "../../Components/ui/accordion/ArrowAccordion.jsx";
 
 import { FormMN } from "./src/pages/FormMN/FormMN";
 import { FormDoc } from "./src/pages/FormDoc/FormDoc";
 
-const FORMS = () => {
+export const FORMS = () => {
+  const [openArrowAccord, setOpenArrowAccord] = useState(false);
+  const handleClickRef = () => {
+    setOpenArrowAccord(!openArrowAccord);
+  };
+
   return (
-    <div className="FORMS">
+    <div className="FORMS accordion">
       <div className="FORMS__descript">
-        <h1>ПРОЕКТЫ с ФОРМАМИ</h1>
+        <h1
+        // className={openArrowAccord ? "_active" : ""}
+        // onClick={() => {
+        //   handleClickRef();
+        // }}
+        >
+          ПРОЕКТЫ с ФОРМАМИ
+        </h1>
+        <div
+          // className={openArrowAccord ? "openDop" : ""}
+          className="openDop"
+        >
+          <ul>
+            <li>
+              <a
+                href="https://react-hook-form.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                React Hook Form
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=Jxfun6Jnt5Q"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Валидация форм с react-hook-form в React
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=eS0GL73tkmw&t=2242s"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {/* Users - список пользователей */}
+              </a>
+            </li>
+          </ul>
+        </div>
+        {/* <ArrowAccordionFnComp
+          openArrowAccord={openArrowAccord}
+          setOpenArrowAccord={setOpenArrowAccord}
+        /> */}
       </div>
-      {/* <div className="FORMS__content">FORMS C</div> */}
+      {/* <div className="FORMS__content"></div> */}
       <hr />
       <div className="FORMS__nav">
         <nav>
@@ -28,4 +80,4 @@ const FORMS = () => {
     </div>
   );
 };
-export { FORMS };
+// export { FORMS };
