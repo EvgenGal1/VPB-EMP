@@ -9,7 +9,11 @@
   }
   // блок стрелки 1-го уровня
   div[class$="__descript"] {
+    position: relative;
     .arrowAccord {
+      top: 0;
+    }
+    div[class$="openDop"] + .arrowAccord {
       top: calc(50% - 20px);
     }
   }
@@ -38,11 +42,11 @@
     position: absolute;
     // left: 50%;
     right: 0;
-    right: 4px;
-    top: 0;
-    top: 4px;
-    width: 40px;
-    height: 40px;
+    // right: 4px;
+    // top: 0;
+    // top: 4px;
+    // width: 40px;
+    // height: 40px;
     width: calc(22px + 30 * ((100vw - 320px) / 1600));
     height: calc(22px + 30 * ((100vw - 320px) / 1600));
     // width: calc(2% + 30 * ((100vw - 320px) / 1600));
