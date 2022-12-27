@@ -27,11 +27,11 @@ yarn-error.log*
 vr/
 
 # js
-src/scripts/*
-src/hooks/useKeyPress.js
-src/hooks/useMultiKeyPress.js
-/src/hooks/useMultiKeyPress.js
-useMultiKeyPress.js
+# src/scripts/*
+# src/hooks/useKeyPress.js
+# src/hooks/useMultiKeyPress.js
+# /src/hooks/useMultiKeyPress.js
+# useMultiKeyPress.js
 # hooks/*.js
 # src/hooks/
 
