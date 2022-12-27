@@ -46,7 +46,7 @@ export const User = ({
           alt="Action"
           className="action"
           // выбор изо от наличия user в списке приглашённых по флагу isInvited
-          src={require(`../../../../../img/vr/minElem/${
+          src={require(`../../../../../img/minElem/${
             isInvited ? "minus" : "plus"
           }.png`)}
           // fn()добав./удал. user в масс.приглаш

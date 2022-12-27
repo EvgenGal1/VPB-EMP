@@ -7,7 +7,7 @@ export const Success = ({ count, onClickSendInvites }) => {
       <img
         alt="Success"
         // src="/assets/success.svg"
-        src={require("../../../../../img/vr/minElem/checkMark.png")}
+        src={require("../../../../../img/minElem/checkMark.png")}
       />
       <h3>Успешно!</h3>
       <p>Всем {count} пользователям отправлено приглашение.</p>
