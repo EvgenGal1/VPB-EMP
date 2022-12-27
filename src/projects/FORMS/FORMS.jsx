@@ -46,13 +46,32 @@ export const FORMS = () => {
                 Валидация форм с react-hook-form в React
               </a>
             </li>
+            НЕ сделано
             <li>
               <a
-                href="https://www.youtube.com/watch?v=eS0GL73tkmw&t=2242s"
+                href="https://www.youtube.com/watch?v=QJYh2EgPum8"
                 target="_blank"
                 rel="noreferrer"
               >
-                {/* Users - список пользователей */}
+                Типизация неуправляемой формы в React
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=yYq0rWESsNY"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Делаем форму на React. Все самые сложные фичи
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.youtube.com/watch?v=1_4yH0C9iq0"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Быстрый курс по React Hook Form
               </a>
             </li>
           </ul>
