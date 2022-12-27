@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Vars-Proj-Builds-Exps-Mini-Projs/static/css/main.4bd72b4a.css",
+    "main.js": "/Vars-Proj-Builds-Exps-Mini-Projs/static/js/main.ca4de5b0.js",
+    "static/media/ЕжеСветRedBlackWhiteEff.png": "/Vars-Proj-Builds-Exps-Mini-Projs/static/media/ЕжеСветRedBlackWhiteEff.f14c9baba8502e41eeab.png",
+    "static/media/Head.png": "/Vars-Proj-Builds-Exps-Mini-Projs/static/media/Head.036a2e0f148fdf95df1b.png",
+    "index.html": "/Vars-Proj-Builds-Exps-Mini-Projs/index.html",
+    "main.4bd72b4a.css.map": "/Vars-Proj-Builds-Exps-Mini-Projs/static/css/main.4bd72b4a.css.map",
+    "main.ca4de5b0.js.map": "/Vars-Proj-Builds-Exps-Mini-Projs/static/js/main.ca4de5b0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4bd72b4a.css",
+    "static/js/main.ca4de5b0.js"
+  ]
+}
