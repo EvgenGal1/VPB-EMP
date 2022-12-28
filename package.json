@@ -5,11 +5,6 @@
   "main": "index.js",
   "description": "Различные Сборки Проектов + Примеры Мини Проектов",
   "author": "Evgen Gal",
-  "homepage": "http://EvgenGal1.github.io/Vars-Proj-Builds-Exps-Mini-Projs",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/EvgenGal1/Vars-Proj-Builds-Exps-Mini-Projs.git"
-  },
   "license": "ISC",
   "dependencies": {
     "@fullcalendar/daygrid": "^6.0.1",
@@ -20,7 +15,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react": "^18.0.25",
     "@types/styled-components": "^5.1.26",
-    "gh-pages": "^4.0.0",
     "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.0",
@@ -39,9 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
