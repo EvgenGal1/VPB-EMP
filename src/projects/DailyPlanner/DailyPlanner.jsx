@@ -5,6 +5,7 @@ import { ArrowAccordionFnComp } from "../../Components/ui/accordion/ArrowAccordi
 
 import { FullCalendarFC } from "./src/pages/FullCalendar/FullCalendarFC.jsx";
 import { DayPlanToDo } from "./src/pages/DayPlanToDo/DayPlanToDo";
+import { MyDPTD } from "./src/pages/MyDPTD/MyDPTD.jsx";
 
 export const DailyPlanner = () => {
   const [openArrowAccord, setOpenArrowAccord] = useState(false);
@@ -42,6 +43,7 @@ export const DailyPlanner = () => {
         <nav>
           <NavLink to="FullCalendar">FullCalendar</NavLink>
           <NavLink to="DayPlanToDo">DayPlanToDo</NavLink>
+          <NavLink to="MyDPTD">MyDPTD</NavLink>
         </nav>
       </div>
       <hr />
@@ -49,6 +51,7 @@ export const DailyPlanner = () => {
         <Routes>
           <Route path="FullCalendar" element={<FullCalendarFC />} />
           <Route path="DayPlanToDo" element={<DayPlanToDo />} />
+          <Route path="MyDPTD" element={<MyDPTD />} />
         </Routes>
       </div>
     </div>

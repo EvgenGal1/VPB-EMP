@@ -275,8 +275,9 @@ body[data-theme="light"] {
     .sw3btn-radio__neutral:checked ~ .sw3btn-slider {
       background-color: var(--MelonYellow);
     }
-    //
-    .DayPlanToDo {
+    // DayPlanToDo
+    .DayPlanToDo,
+    .MyDPTD {
       &__content-- {
         span > div {
           background-color: var(--ui-bg);
@@ -292,7 +293,7 @@ body[data-theme="light"] {
         }
       }
     }
-    //
+    // FormMN
     .FormMN form {
       background-color: var(--ui-bg);
     }

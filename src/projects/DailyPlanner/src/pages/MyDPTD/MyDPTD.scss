@@ -1,0 +1,124 @@
+.MyDPTD {
+  .MyDPTD__descript {
+    // position: relative;
+  }
+  .MyDPTD__content-- {
+    // ПЕРВЫЙ БЛОК // ! классы постоянно динамически меняются
+    // ^ можно обернуть в свой div/section
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    // ОБЩИЕ для TODO и DayPlan
+    span {
+      margin-top: 0;
+      font-weight: 500;
+      @media only screen and (max-width: 898px) {
+        width: 100%;
+        margin-bottom: 1%;
+      }
+
+      // обёртка TODO и DayPlan
+      &:first-child,
+      &:last-child {
+        & > div {
+          width: 99%;
+          height: 100%;
+          padding: 1rem;
+          border-radius: 10px;
+          border: 1px solid darkred;
+          @media only screen and (max-width: 898px) {
+            width: 100%;
+            margin-right: 0% !important;
+            margin-left: 0% !important;
+          }
+        }
+      }
+      h2,
+      h3 {
+        display: block;
+        font-size: 1.25em;
+        // margin-block-start: 0.7em;
+        // margin-block-end: 1em;
+        // margin-inline-start: 0px;
+        // margin-inline-end: 0px;
+        // font-weight: bold;
+      }
+      // цвет блоков
+      & > div {
+        // background-color: var(--ui-bg);
+      }
+      // кнп.
+      button,
+      input {
+        margin: 0 0 0 5px;
+        padding: 5px;
+        border: 1px solid #bd0000;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 200ms, transform 100ms linear;
+      }
+      button {
+        padding: 5px 10px;
+      }
+    }
+
+    // TODO ----------------------------------------------------------------------------------
+    span:first-child > div {
+      margin-right: 1%;
+      // border-radius: 10px;
+      // border: 1px solid darkred;
+
+      // вычёркивание из TODO
+      .strikethrough {
+        text-decoration: line-through;
+      }
+      // forma в TODO
+      form {
+        // float: left;
+        // padding-left: 1rem;
+        // padding-right: 1rem;
+        float: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      // блок заданий
+      & > div {
+        // width: 100%;
+        // margin-bottom: 1rem;
+        // padding-left: 1rem;
+        // padding-right: 1rem;
+        // строки заданий
+        & > div {
+          // кроме 1ой строки
+          &:not(:first-child) {
+            padding: 5px 0 0;
+          }
+          // задание
+          & > span:first-child {
+            padding-left: 0;
+          }
+          // кнп. задания
+          & > span:last-child {
+            padding-right: 0rem;
+          }
+        }
+      }
+    }
+
+    // DAYPLAN/Calendar ----------------------------------------------------------------------------------
+    span:last-child > div {
+      // background: #0f0;
+      margin-left: 1%;
+
+      // .fc-day-past,
+      // .fc-day-future
+      .fc-daygrid-day {
+        &:hover {
+          // background-color: var(--ui-act-col);
+          // background-color: #b57900;
+        }
+      }
+    }
+  }
+}
