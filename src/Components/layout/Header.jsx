@@ -154,6 +154,11 @@ export function Header() {
                       DayPlanToDo
                     </Link>
                   </li>
+                  <li className="m-t-its-ul__li">
+                    <Link to="/MyDPTD" className="">
+                      MyDPTD
+                    </Link>
+                  </li>
                 </ul>
               </span>
               {/* Prob0 */}

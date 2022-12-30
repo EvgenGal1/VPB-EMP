@@ -25,10 +25,41 @@ export const DailyPlanner = () => {
           ПРОЕКТЫ с ЕЖЕДНЕВНИКОМ
         </h1>
         {/* <div className={openArrowAccord ? "openDop" : ""}>1</div> */}
-        <ArrowAccordionFnComp
-          openArrowAccord={openArrowAccord}
-          setOpenArrowAccord={setOpenArrowAccord}
-        />
+        <div
+          // className={openArrowAccord ? "openDop" : ""}
+          className="openDop"
+        >
+          СДЕЛАНЫ на основе:
+          <ul>
+            <li>
+              <a
+                href="https://isamatov.com/react-fullcalendar-tutorial/#fromHistory"
+                target="_blank"
+                rel="noreferrer"
+              >
+                FullCalendar
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/gjoyner09/daily-planner"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Daily Planner App
+              </a>
+            </li>
+            <li>
+              <a
+                href="/DailyPlanner/DayPlanToDo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                MyDPTD
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       {/* <div className="DailyPlanner__content">Daily Planner C</div> */}
       {/* <div

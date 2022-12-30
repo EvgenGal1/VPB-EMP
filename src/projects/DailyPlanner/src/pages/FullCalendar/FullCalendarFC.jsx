@@ -9,6 +9,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { v4 as uuid } from "uuid";
 import { EventItem } from "./EventItem";
 
+// !!! https://isamatov.com/react-fullcalendar-tutorial/#fromHistory
 export const FullCalendarFC = () => {
   const [openArrowAccord, setOpenArrowAccord] = useState(false);
   const handleClickRef = () => {

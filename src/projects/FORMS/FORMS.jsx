@@ -27,6 +27,7 @@ export const FORMS = () => {
           // className={openArrowAccord ? "openDop" : ""}
           className="openDop"
         >
+          ГОТОВО
           <ul>
             <li>
               <a
@@ -46,7 +47,10 @@ export const FORMS = () => {
                 Валидация форм с react-hook-form в React
               </a>
             </li>
-            НЕ сделано
+          </ul>
+          <br />
+          НЕ сделано
+          <ul>
             <li>
               <a
                 href="https://www.youtube.com/watch?v=QJYh2EgPum8"

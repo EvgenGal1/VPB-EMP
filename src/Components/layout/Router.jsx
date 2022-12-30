@@ -33,6 +33,7 @@ import { FormDoc } from "../../projects/FORMS/src/pages/FormDoc/FormDoc";
 import { DailyPlanner } from "../../projects/DailyPlanner/DailyPlanner";
 import { FullCalendarFC } from "../../projects/DailyPlanner/src/pages/FullCalendar/FullCalendarFC";
 import { DayPlanToDo } from "../../projects/DailyPlanner/src/pages/DayPlanToDo/DayPlanToDo";
+import { MyDPTD } from "../../projects/DailyPlanner/src/pages/MyDPTD/MyDPTD";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -102,6 +103,7 @@ export function Router() {
             <Route path="DailyPlanner/*" element={<DailyPlanner />} />
             <Route path="FullCalendar" element={<FullCalendarFC />} />
             <Route path="DayPlanToDo" element={<DayPlanToDo />} />
+            <Route path="MyDPTD" element={<MyDPTD />} />
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />

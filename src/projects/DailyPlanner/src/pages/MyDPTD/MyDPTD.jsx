@@ -27,11 +27,19 @@ export const MyDPTD = () => {
         </h1>
         <div className={openArrowAccord ? "openDop" : ""}>
           <div>
-            Проект на основе Daily Planner{" "}
-            <span>ЧИСТО КОПИЯ с DayPlanToDo</span> (Git repo gjoyner09)
+            Проект на основе{" "}
+            <span>
+              <a
+                href="/DailyPlanner/DayPlanToDo"
+                target="_blank"
+                rel="noreferrer"
+              >
+                DayPlanToDo
+              </a>
+            </span>
+            . Установка такая же.
           </div>
-          <p>https://github.com/gjoyner09/daily-planner</p>
-          <ol>
+          {/* <ol>
             <li>
               Устан доп.зависимостей
               <ul>
@@ -48,7 +56,9 @@ export const MyDPTD = () => {
                 </li>
               </ul>
             </li>
-          </ol>
+          </ol> */}
+          <br />
+          Добавлено Редактирование Списка Дел
         </div>
         <ArrowAccordionFnComp
           openArrowAccord={openArrowAccord}

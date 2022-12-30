@@ -25,8 +25,19 @@ export const DayPlanToDo = () => {
           DayPlanToDo
         </h1>
         <div className={openArrowAccord ? "openDop" : ""}>
-          <div>Проект на основе Daily Planner (Git repo gjoyner09)</div>
-          <p>https://github.com/gjoyner09/daily-planner</p>
+          <div>
+            Проект на основе{" "}
+            <span>
+              <a
+                href="https://github.com/gjoyner09/daily-planner"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Daily Planner{" "}
+              </a>
+            </span>
+          </div>
+          <p></p>
           <ol>
             <li>
               Устан доп.зависимостей
