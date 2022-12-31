@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-// import { ArrowAccordionFnComp } from "../../../../../Components/ui/accordion/ArrowAccordion.js";
 import { ArrowAccordionFnComp } from "../../../../../Components/ui/accordion/ArrowAccordion.jsx";
 
 import Todo from "./ToDo.jsx";

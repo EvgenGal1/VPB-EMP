@@ -191,6 +191,10 @@ const Todo = () => {
     // event.preventDefault();
     let editTodos;
     if (editItem === "Заполни поле!!!") return;
+    // ^ проверка поля на пробелы.
+    // !!! вроде срез
+    // const CheckSpaces = (str) => str.trim() !== '';
+    // console.log(CheckSpaces('     '));
     if (editItem === "") {
       setEditItem("Заполни поле!!!");
       setEditItemErr(true);
