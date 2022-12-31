@@ -1,0 +1,162 @@
+.ToDoReactIcon {
+  .ToDoReactIcon__descript {
+    // position: relative;
+  }
+  .ToDoReactIcon__content-- {
+    // width: 800px;
+    width: 80%;
+    max-width: 100%;
+    margin: auto;
+    // padding: 0.5rem;
+    color: black;
+  }
+
+  .grey_text {
+    color: grey;
+  }
+  .red_text {
+    color: red;
+  }
+  .blue_text {
+    color: blue;
+  }
+  .green_text {
+    color: green;
+  }
+
+  h2 {
+    margin: 0 0 10px 0px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+  }
+
+  textarea {
+    height: 10rem;
+  }
+
+  button {
+    padding: 0.5rem 1.5rem;
+    background: white;
+    border: 1px solid black;
+  }
+
+  &__Search {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__Search input {
+    border: 1px solid black;
+  }
+
+  /* @ Список дел Макет */
+
+  .ToDoList {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .ToDoList__action {
+    width: 100%;
+  }
+
+  /* @Макет карты Todo */
+
+  .ToDoCard {
+    width: 900px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 1rem;
+    line-height: 1;
+    border: 1px solid DarkRed;
+  }
+
+  .ToDoCard div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .ToDoCard .ToDoCard__left {
+    flex: 0 2.5rem;
+  }
+
+  .ToDoCard .ToDoCard__center {
+    flex: 3;
+    // ? вроде не нужно. сбивает h2 вверх
+    // display: inline-block;
+  }
+
+  .ToDoCard .ToDoCard__right {
+    flex: 0 2.5rem;
+    gap: 0.5rem;
+  }
+
+  .ToDoCard h2 {
+    font-size: larger;
+  }
+
+  .ToDoCard__icon {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 900px) {
+    .ToDoCard {
+      width: 100%;
+      flex-direction: column;
+    }
+    .ToDoCard div {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+  }
+
+  /* @ToDo Form Layout */
+  .ToDoForm {
+    padding: 0.5rem;
+    border: 1px solid black;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: space-around;
+    position: relative;
+  }
+  .ToDoForm .close-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+  .ToDoForm__field,
+  .ToDoForm__action {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .ToDoForm__field label {
+    flex: 0 0 6rem;
+    font-size: 1rem;
+  }
+  .ToDoForm__action button {
+    margin-left: auto;
+  }
+}

@@ -6,6 +6,7 @@ import { ArrowAccordionFnComp } from "../../Components/ui/accordion/ArrowAccordi
 import { FullCalendarFC } from "./src/pages/FullCalendar/FullCalendarFC.jsx";
 import { DayPlanToDo } from "./src/pages/DayPlanToDo/DayPlanToDo";
 import { MyDPTD } from "./src/pages/MyDPTD/MyDPTD.jsx";
+import { ToDoReactIcon } from "./src/pages/ToDoReactIcon/ToDoReactIcon.jsx";
 
 export const DailyPlanner = () => {
   const [openArrowAccord, setOpenArrowAccord] = useState(false);
@@ -58,6 +59,15 @@ export const DailyPlanner = () => {
                 MyDPTD
               </a>
             </li>
+            <li>
+              <a
+                href="https://dev.to/shivishbrahma/building-a-todo-app-in-react-51c8#fromHistory"
+                target="_blank"
+                rel="noreferrer"
+              >
+                ToDo на React с Icon
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -75,6 +85,7 @@ export const DailyPlanner = () => {
           <NavLink to="FullCalendar">FullCalendar</NavLink>
           <NavLink to="DayPlanToDo">DayPlanToDo</NavLink>
           <NavLink to="MyDPTD">MyDPTD</NavLink>
+          <NavLink to="ToDoReactIcon">ToDoReactIcon</NavLink>
         </nav>
       </div>
       <hr />
@@ -83,6 +94,7 @@ export const DailyPlanner = () => {
           <Route path="FullCalendar" element={<FullCalendarFC />} />
           <Route path="DayPlanToDo" element={<DayPlanToDo />} />
           <Route path="MyDPTD" element={<MyDPTD />} />
+          <Route path="ToDoReactIcon" element={<ToDoReactIcon />} />
         </Routes>
       </div>
     </div>

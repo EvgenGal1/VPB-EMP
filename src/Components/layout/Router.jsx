@@ -34,6 +34,7 @@ import { DailyPlanner } from "../../projects/DailyPlanner/DailyPlanner";
 import { FullCalendarFC } from "../../projects/DailyPlanner/src/pages/FullCalendar/FullCalendarFC";
 import { DayPlanToDo } from "../../projects/DailyPlanner/src/pages/DayPlanToDo/DayPlanToDo";
 import { MyDPTD } from "../../projects/DailyPlanner/src/pages/MyDPTD/MyDPTD";
+import { ToDoReactIcon } from "../../projects/DailyPlanner/src/pages/ToDoReactIcon/ToDoReactIcon";
 
 // для аним ч/з react-transition-group
 // import "./Router.scss";
@@ -104,6 +105,7 @@ export function Router() {
             <Route path="FullCalendar" element={<FullCalendarFC />} />
             <Route path="DayPlanToDo" element={<DayPlanToDo />} />
             <Route path="MyDPTD" element={<MyDPTD />} />
+            <Route path="ToDoReactIcon" element={<ToDoReactIcon />} />
             {/* default */}
             <Route path="Prob0/*" element={<Prob0 />} />
             <Route path="Prob1" element={<Prob1 />} />
