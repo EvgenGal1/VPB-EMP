@@ -10,13 +10,18 @@ import { useTheme } from "../../scripts/hooks/useTheme";
 import { Switcher3btnTheme } from "../ui/Switcher3btnTheme";
 
 export function Header() {
-  // ЛОГИКА Опред.Кобин.Клвш. для вывода Доп.Меню
+  // ЛОГИКА Опред.Комбин.Клвш. для вывода Доп.Меню
   // стат. показа Доп.Меню из LS
-  const [pressCombine, setPressCombine] = useState(() => {
-    const saved = localStorage.getItem("--dopMenu");
-    const initialValue = JSON.parse(saved);
-    return initialValue || "";
-  });
+  // const [pressCombine, setPressCombine] = useState(() => {
+  // const initialValue = JSON.parse(saved);
+  // return initialValue || "";
+  // saved ? JSON.parse(saved) : []
+  // })
+  // ^ нов.версия
+  const saved = localStorage.getItem("--dopMenu");
+  const [pressCombine, setPressCombine] = useState(
+    saved ? JSON.parse(saved) : ""
+  );
   // массив букв после хука (возвращ true е/и переданные и нажатые равны)
   const combinePress = useAllKeysPress({
     userKeys: ["d", "o", "p", "m", "n"],
