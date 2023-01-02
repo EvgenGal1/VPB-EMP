@@ -201,10 +201,10 @@ export const ToDoReactIcon = () => {
         </h1>
         <div className={openArrowAccord ? "openDop" : ""}>
           <div>
-            Проект на основе
+            Проект на основе{" "}
             <span>
               <a
-                href="/DailyPlanner/DayPlanToDo"
+                href="https://dev.to/shivishbrahma/building-a-todo-app-in-react-51c8#fromHistory"
                 target="_blank"
                 rel="noreferrer"
               >

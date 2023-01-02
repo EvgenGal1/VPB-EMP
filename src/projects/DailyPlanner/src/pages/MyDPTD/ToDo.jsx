@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
+import { useLocalStorageUH } from "../../../../../scripts/hooks/useLocalStorageUH.jsx";
+
 // TODO
 const ToDoSpan = styled.span`
   // margin-top: 2rem;
@@ -114,10 +116,11 @@ const Input = styled.input`
 
 const Todo = () => {
   // ч/з usSt Сохран. в LS и Отрисов.
-  const initialEvents = localStorage.getItem("ListDPTD");
-  const [todo, setTodo] = useState(
-    initialEvents ? JSON.parse(initialEvents) : []
-  );
+  // const initialEvents = localStorage.getItem("ListDPTD");
+  // const [todos, setTodos] = useState(
+  //   initialEvents ? JSON.parse(initialEvents) : []
+  // );
+  const [todos, setTodos] = useLocalStorageUH("ListDPTD", []);
   // value из input ввода Нов.Эл.
   const [newItem, setNewItem] = useState("");
   // стат. ошибки ввода Нов.Эл.
@@ -142,7 +145,7 @@ const Todo = () => {
       }, 500);
     } else {
       newTodo = [
-        ...todo,
+        ...todos,
         {
           text: newItem,
           // text: "newItem",
@@ -151,24 +154,24 @@ const Todo = () => {
         },
       ];
       localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
-      setTodo(newTodo);
+      setTodos(newTodo);
       setNewItem("");
     }
   };
 
   // кнп. "Завершить" зачеркивает эл. в state и LS
   const strikethrough = (index) => {
-    let newArray = [...todo];
+    let newArray = [...todos];
     newArray[index].completed = !newArray[index].completed;
     localStorage.setItem("ListDPTD", JSON.stringify(newArray));
-    setTodo(newArray);
+    setTodos(newArray);
   };
 
   // кнп. "Удалить" из state и LS
   const deleteItem = (index) => {
-    const newTodo = todo.filter((item, origIndex) => origIndex !== index);
+    const newTodo = todos.filter((item, origIndex) => origIndex !== index);
     localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
-    setTodo(newTodo);
+    setTodos(newTodo);
   };
 
   // РЕДАКТИРОВАНИЕ -----------------------------
@@ -203,19 +206,14 @@ const Todo = () => {
         setEditItemErr(false);
       }, 500);
     } else {
-      editTodos = todo.map((todo) => {
-        // console.log("todo 1 ", todo);
-        // console.log("todo.id 0 ", todo.id);
-        // if (todo.id === id) {
-        // if (todo.id === event) {
+      editTodos = todos.map((todo) => {
         if (todo.id === editId) {
-          // todo.text = text;
           todo.text = editItem;
         }
         return todo;
       });
       localStorage.setItem("ListDPTD", JSON.stringify(editTodos));
-      setTodo(editTodos);
+      setTodos(editTodos);
       setEdit(false);
       setEditItem("");
     }
@@ -227,8 +225,8 @@ const Todo = () => {
         <ToDoHeader>Список Дел</ToDoHeader>
         <ToDoList>
           {/* Сопоставляет все элементы в списке дел (из состояния) и отображает пользователю */}
-          {todo.length > 0 &&
-            todo.map((item, index) => {
+          {todos.length > 0 &&
+            todos.map((item, index) => {
               return (
                 // {/* Отображается зачеркнутым текстом, если состояние указывает на то, что элемент выполнен */}
                 <ToDoItem key={item.id}>
