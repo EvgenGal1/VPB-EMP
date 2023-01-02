@@ -22,13 +22,13 @@ export default function ToDoCard({
   handleChangeStatus,
   ...otherProps
 }) {
-  const [showDescription, setShowDescription] = React.useState(false);
+  const [showDescription, setShowDescription] = useState(false);
 
   // Checking if the card is to be hidden
   if (hide) return null;
 
   return (
-    <div className="ToDoCard" {...otherProps}>
+    <div className="ToDoCard card" {...otherProps}>
       <div className="ToDoCard__left">
         <span
           onClick={() => {
@@ -37,15 +37,18 @@ export default function ToDoCard({
         >
           {status === 0 && (
             <FaExclamationCircle
-              title="Pending"
+              title="В ожидании"
               className="ToDoCard__icon grey_text"
             />
           )}
           {status === 1 && (
-            <FaClock title="Working" className="ToDoCard__icon blue_text" />
+            <FaClock title="В работе" className="ToDoCard__icon blue_text" />
           )}
           {status === 2 && (
-            <FaCheckCircle title="Done" className="ToDoCard__icon green_text" />
+            <FaCheckCircle
+              title="Выполнено"
+              className="ToDoCard__icon green_text"
+            />
           )}
         </span>
       </div>
@@ -56,6 +59,7 @@ export default function ToDoCard({
       <div className="ToDoCard__right">
         <FaTimesCircle
           className="ToDoCard__icon red_text"
+          title="Удалить"
           onClick={() => {
             handleDeleteTodo(id);
           }}
@@ -66,15 +70,15 @@ export default function ToDoCard({
           }}
         >
           {showDescription && (
-            <FaEye title="Show Description" className="ToDoCard__icon" />
+            <FaEye title="Показать описание" className="ToDoCard__icon" />
           )}
           {!showDescription && (
-            <FaEyeSlash title="Hide Description" className="ToDoCard__icon" />
+            <FaEyeSlash title="Скрыть описание" className="ToDoCard__icon" />
           )}
         </span>
-
         <FaPencilAlt
           className="ToDoCard__icon"
+          title="Редактировать"
           onClick={() => {
             handleEditTodo(id);
           }}

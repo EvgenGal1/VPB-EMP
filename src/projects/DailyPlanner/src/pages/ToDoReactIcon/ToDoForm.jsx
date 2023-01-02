@@ -10,9 +10,9 @@ function ToDoForm({
   closeForm,
   handleAddTodo,
 }) {
-  const [title, setTitle] = React.useState(titleProps);
-  const [description, setDescription] = React.useState(descriptionProps);
-  const [status, setStatus] = React.useState(statusProps);
+  const [title, setTitle] = useState(titleProps);
+  const [description, setDescription] = useState(descriptionProps);
+  const [status, setStatus] = useState(statusProps);
 
   function handleTitleChange(e) {
     setTitle(e.target.value);
@@ -36,7 +36,7 @@ function ToDoForm({
   function handleFormSubmit(e) {
     e.preventDefault();
     if (title === "" || description === "") {
-      alert("Please fill in all fields");
+      alert("Пожалуйста, заполните все поля");
       return;
     }
     if (id >= 0) handleAddTodo({ title, description, status, id: id });
@@ -48,10 +48,14 @@ function ToDoForm({
 
   return (
     <form className="ToDoForm" onSubmit={(e) => handleFormSubmit(e)}>
-      <FaTimes className="close-btn" onClick={() => handleCloseForm()} />
+      <FaTimes
+        className="close-btn"
+        title="Отмена"
+        onClick={() => handleCloseForm()}
+      />
       <h2>ToDo Form</h2>
       <div className="ToDoForm__field">
-        <label htmlFor="title">Title</label>
+        <label htmlFor="title">Заголовок</label>
         <input
           type="text"
           id="title"
@@ -60,7 +64,7 @@ function ToDoForm({
         />
       </div>
       <div className="ToDoForm__field">
-        <label htmlFor="description">Description</label>
+        <label htmlFor="description">Описание</label>
         <textarea
           type="text"
           id="description"
@@ -69,19 +73,19 @@ function ToDoForm({
         />
       </div>
       <div className="ToDoForm__field">
-        <label htmlFor="status">Status</label>
+        <label htmlFor="status">Положение дел</label>
         <select
           id="status"
           value={status}
           onChange={(e) => handleStatusChange(e)}
         >
-          <option value="0">Pending</option>
-          <option value="1">Working</option>
-          <option value="2">Done</option>
+          <option value="0">В ожидании</option>
+          <option value="1">В работе</option>
+          <option value="2">Выполнено</option>
         </select>
       </div>
       <div className="ToDoForm__action">
-        <button type="submit">{id === -1 ? "Add" : "Update"}</button>
+        <button type="submit">{id === -1 ? "Добавить" : "Обновить"}</button>
       </div>
     </form>
   );
