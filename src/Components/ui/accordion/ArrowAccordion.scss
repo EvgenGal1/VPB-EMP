@@ -7,6 +7,12 @@
   h3 {
     cursor: pointer;
   }
+  div h1:has(+ p, + ul, + div, + section, + span) {
+    margin-bottom: 0px;
+  }
+  div h1:has(+ p, + ul, + div[class="openDop"], + section, + span) {
+    margin-bottom: 10px;
+  }
   // блок стрелки 1-го уровня
   div[class$="__descript"] {
     position: relative;

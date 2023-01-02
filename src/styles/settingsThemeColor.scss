@@ -178,6 +178,10 @@ body[data-theme="light"] {
       .card {
         background-color: var(--ui-bg);
         border-color: var(--bord-hr);
+        transition: 0.5s;
+        &:hover {
+          background-color: var(--ui-act-col);
+        }
       }
 
       // & > div nav {
