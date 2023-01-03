@@ -16,53 +16,46 @@ const Todos = [
     description: "Learn React and its ecosystem",
     status: 0,
     hide: false,
-    // hide: true,
     id: 1,
   },
   {
     title: "Create a React Component",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis esse aut similique reprehenderit fuga cupiditate porro. Nostrum, ipsam perferendis! Fuga nisi nostrum odit nulla quia, sint harum eligendi recusandae dolore!",
+    description: "Lorem ipsum dolor sit ",
     status: 0,
     hide: false,
     id: 2,
   },
   {
     title: "Learn Vue",
-    description:
-      "Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary.",
+    description: "Far far away .",
     status: 0,
     hide: false,
     id: 3,
   },
   {
     title: "Learn Angular",
-    description:
-      "A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my",
+    description: "A wonderful serenity has ",
     status: 0,
     hide: false,
     id: 4,
   },
   {
     title: "Vue Typewriter",
-    description:
-      "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta.",
+    description: "Sed ut perspiciatis unde omnis  .",
     status: 0,
     hide: false,
     id: 5,
   },
   {
     title: "Learn jQuery",
-    description:
-      "Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa",
+    description: "Li Europan lingues es ",
     status: 0,
     hide: false,
     id: 14,
   },
   {
     title: "Learn Javascript",
-    description:
-      "The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one",
+    description: "The European languages are ",
     status: 0,
     hide: false,
     id: 15,
@@ -78,7 +71,8 @@ export const ToDoReactIcon = () => {
   // const [todos, setTodos] = useState([]);
   // const saved = localStorage.getItem("--ToDoRI");
   // const [todos, setTodos] = useState(saved ? JSON.parse(saved) : []);
-  const [todos, setTodos] = useLocalStorageUH("ToDoRI", Todos);
+  // const [todos, setTodos] = useLocalStorageUH("ToDoRI", Todos);
+  const [todos, setTodos] = useLocalStorageUH("ToDoRI", []);
   const [hideTodos, setHideTodos] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [searchText, setSearchText] = useState("");
@@ -86,20 +80,32 @@ export const ToDoReactIcon = () => {
 
   const maxDisplayTodos = 5;
 
-  // useEffect(() => {
-  useLayoutEffect(() => {
-    //   setTodos([
-    //     {
-    //       title: "Learn React",
-    //       description: "Learn React and its ecosystem",
-    //       status: 0,
-    //       hide: false,
-    //       id: 1,
-    //     },
-    //   ]);
-    localStorage.setItem("ToDoRI", JSON.stringify(todos));
-    // }, []);
-  }, [todos]);
+  // useLayoutEffect(() => {
+  useEffect(
+    () => {
+      //   setTodos([
+      //     {
+      //       title: "Learn React",
+      //       description: "Learn React and its ecosystem",
+      //       status: 0,
+      //       hide: false,
+      //       id: 1,
+      //     },
+      //   ]);
+      // setTodos(Todos);
+      // localStorage.getItem("ToDoRI", JSON.parse(todos));
+      const saved = localStorage.getItem("ToDoRI");
+      // const [todos, setTodos] = useState(saved ? JSON.parse(saved) : []);
+      setTodos(saved ? JSON.parse(saved) : Todos);
+      // saved ? JSON.parse(saved) : [];
+      // localStorage.setItem("ToDoRI", JSON.stringify(todos));
+      // }, []);
+    },
+    [
+      /* setTodos */
+      /* todos */
+    ]
+  );
 
   // ввод ПОИСК
   function handleSearchChange(evt) {
@@ -126,7 +132,6 @@ export const ToDoReactIcon = () => {
         id: Date.now() % 1000000,
       };
       setTodos([...todos, newTodo]);
-      localStorage.setItem("ToDoRI", JSON.stringify([...todos, newTodo]));
     } else {
       const newTodos = todos.map((todo_) => {
         if (todo.id === todo_.id) {
@@ -137,7 +142,6 @@ export const ToDoReactIcon = () => {
         return todo_;
       });
       setTodos(newTodos);
-      localStorage.setItem("ToDoRI", JSON.stringify(newTodos));
     }
     setCurrentTodo({});
     setShowForm(false);
@@ -172,7 +176,6 @@ export const ToDoReactIcon = () => {
   // кнп. УДАЛИТЬ
   function handleDeleteTodo(id) {
     const newTodos = todos.filter((todo) => todo.id !== id);
-    localStorage.setItem("ToDoRI", JSON.stringify(newTodos));
     setTodos(newTodos);
   }
 
@@ -185,7 +188,6 @@ export const ToDoReactIcon = () => {
       return todo;
     });
     setTodos(newTodos);
-    localStorage.setItem("ToDoRI", JSON.stringify(newTodos));
   }
 
   return (
