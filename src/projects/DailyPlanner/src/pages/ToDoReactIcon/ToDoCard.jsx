@@ -24,7 +24,7 @@ export default function ToDoCard({
 }) {
   const [showDescription, setShowDescription] = useState(false);
 
-  // Checking if the card is to be hidden
+  // Проверка, должна ли карта быть скрыта
   if (hide) return null;
 
   return (

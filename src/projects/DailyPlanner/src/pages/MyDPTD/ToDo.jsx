@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 
@@ -37,7 +37,7 @@ const ToDoHeader = styled.h3`
 // блок ЗАДАНИЙ
 const ToDoList = styled.div`
   width: 100%;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
   // padding-right: 1rem;
   // padding-left: 1rem;
 `;
@@ -151,9 +151,9 @@ const Todo = () => {
           // text: "newItem",
           id: Math.floor(Math.random() * 10000),
           completed: false,
+          hide: false,
         },
       ];
-      localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
       setTodos(newTodo);
       setNewItem("");
     }
@@ -163,14 +163,12 @@ const Todo = () => {
   const strikethrough = (index) => {
     let newArray = [...todos];
     newArray[index].completed = !newArray[index].completed;
-    localStorage.setItem("ListDPTD", JSON.stringify(newArray));
     setTodos(newArray);
   };
 
   // кнп. "Удалить" из state и LS
   const deleteItem = (index) => {
     const newTodo = todos.filter((item, origIndex) => origIndex !== index);
-    localStorage.setItem("ListDPTD", JSON.stringify(newTodo));
     setTodos(newTodo);
   };
 
@@ -212,92 +210,167 @@ const Todo = () => {
         }
         return todo;
       });
-      localStorage.setItem("ListDPTD", JSON.stringify(editTodos));
       setTodos(editTodos);
       setEdit(false);
       setEditItem("");
     }
   };
 
+  // ПОИСК -----------------------------
+  const [searchText, setSearchText] = useState("");
+  // ввод ПОИСК
+  function handleSearchChange(evt) {
+    setSearchText(evt.target.value);
+    const newTodos = todos.map((todo) => {
+      todo.hide = !todo.text
+        .toLowerCase()
+        .includes(evt.target.value.toLowerCase());
+      console.log("todo.text ", todo.text);
+      return todo;
+    });
+    console.log("newTodos ", newTodos);
+    setTodos(newTodos);
+    console.log("todos ", todos);
+  }
+
+  // useLayoutEffect(() => {
+  useEffect(
+    () => {
+      //   setTodos([
+      //     {
+      //       title: "Learn React",
+      //       description: "Learn React and its ecosystem",
+      //       status: 0,
+      //       hide: false,
+      //       id: 1,
+      //     },
+      //   ]);
+      // localStorage.setItem("ListDPTD", JSON.stringify(todos));
+      const saved = localStorage.getItem("ListDPTD");
+      // const [todos, setTodos] = useState(saved ? JSON.parse(saved) : []);
+      setTodos(saved ? JSON.parse(saved) : []);
+      // }, []);
+    },
+    [
+      /* todos */
+    ]
+  );
+
   return (
     <ToDoSpan>
       <ToDoWrapper>
         <ToDoHeader>Список Дел</ToDoHeader>
-        <ToDoList>
-          {/* Сопоставляет все элементы в списке дел (из состояния) и отображает пользователю */}
-          {todos.length > 0 &&
-            todos.map((item, index) => {
-              return (
-                // {/* Отображается зачеркнутым текстом, если состояние указывает на то, что элемент выполнен */}
-                <ToDoItem key={item.id}>
-                  {/* Усл.Рендер. Редактируется(input) или Результат(text) при editId */}
-                  {editId === item.id ? (
-                    <Input
-                      type="text"
-                      id="editId"
-                      name="editId"
-                      value={editItem} // Входное значение
-                      onChange={(e) => setEditItem(e.target.value)}
-                      style={
-                        editItemErr ? { outline: "2px solid #8b0000" } : {}
-                      }
-                    />
-                  ) : (
-                    <ToDoText
-                      id={item.text}
-                      className={item.completed && "strikethrough"}
-                      // onDoubleClick={() => handleEditChange(item.text, index)}
-                      onClick={() => handleEditChange(item.id, item.text)}
-                    >
-                      {item.text}
-                      {/* * {item.text} */}
-                      {/* {item.text} - {index} : {item.id} */}
-                    </ToDoText>
-                  )}
-                  {/* Усл.Рендер. КНПи. Редактируется(button) или Результат(2 button) при editId */}
-                  {editId === item.id ? (
-                    <Button
-                      // onClick={() => editTodo(index, item, item.text, item.id)}
-                      // onClick={() => handlerSubmit()}
-                      onClick={() =>
-                        // editTodo(id, index, item, item.text, item.id)
-                        editTodo(item.id, item.text)
-                      }
-                    >
-                      Готово
-                    </Button>
-                  ) : (
-                    <ToDoButtons>
-                      <Right>
+        {/* {(todos || []).map((todo, index) => (
+            <ToDoCard
+              key={index}
+              {...todo}
+              handleChangeStatus={handleChangeStatus}
+              handleEditTodo={handleEditTodo}
+              handleDeleteTodo={handleDeleteTodo}
+            />
+          ))} */}
+        {(todos || []).map((item, index) => {
+          return (
+            //{" "}
+            <ToDoList key={index} {...item}>
+              {/* Сопоставляет все элементы в списке дел (из состояния) и отображает пользователю */}
+              {/* {todos.length > 0 &&
+            todos.map((item, index) => { */}
+              {/* Отображается зачеркнутым текстом, если состояние указывает на то, что элемент выполнен */}
+              {
+                // if (hide) return null;
+                item.hide !== true && (
+                  <ToDoItem key={item.id}>
+                    {/* Усл.Рендер. Редактируется(input) или Результат(text) при editId */}
+                    {editId === item.id ? (
+                      <Input
+                        type="text"
+                        id="editId"
+                        name="editId"
+                        value={editItem} // Входное значение
+                        onChange={(e) => setEditItem(e.target.value)}
+                        style={
+                          editItemErr ? { outline: "2px solid #8b0000" } : {}
+                        }
+                      />
+                    ) : (
+                      <ToDoText
+                        id={item.text}
+                        className={item.completed && "strikethrough"}
+                        // onDoubleClick={() => handleEditChange(item.text, index)}
+                        onClick={() => handleEditChange(item.id, item.text)}
+                      >
+                        {item.text}
+                        {/* * {item.text} */}
+                        {/* {item.text} - {index} : {item.id} */}
+                      </ToDoText>
+                    )}
+                    {/* Усл.Рендер. КНПи. Редактируется(button) или Результат(2 button) при editId */}
+                    {editId === item.id ? (
+                      <Button
+                        // onClick={() => editTodo(index, item, item.text, item.id)}
+                        // onClick={() => handlerSubmit()}
+                        onClick={() =>
+                          // editTodo(id, index, item, item.text, item.id)
+                          editTodo(item.id, item.text)
+                        }
+                      >
+                        Готово
+                      </Button>
+                    ) : (
+                      <ToDoButtons>
+                        {/* <Right> */}
                         <Button
                           onClick={() => strikethrough(index, item, item.text)}
                         >
                           Завершить
                         </Button>
-                      </Right>
-                      <Right>
-                        <Button onClick={() => deleteItem(index)}>
+                        {/* </Right> */}
+                        {/* <Right> */}
+                        <Button
+                          onClick={() => deleteItem(index)}
+                          style={{ marginLeft: "5px" }}
+                        >
                           Удалить
                         </Button>
-                      </Right>
-                    </ToDoButtons>
-                  )}
-                </ToDoItem>
-              );
-            })}
-        </ToDoList>
-        <Form>
-          <label htmlFor="newitem">Добавить эл. списка: </label>
-          <Input
-            type="text"
-            id="newitem"
-            name="newitem"
-            value={newItem}
-            onChange={handleChange}
-            style={newItemErr ? { outline: "2px solid #8b0000" } : {}}
-          />
-          <Button onClick={handlerSubmit}>Отправить</Button>
-        </Form>
+                        {/* </Right> */}
+                      </ToDoButtons>
+                    )}
+                  </ToDoItem>
+                )
+              }
+            </ToDoList>
+          );
+        })}
+        <div className="ToDo--Dop">
+          <div className="ToDo__Search">
+            <input
+              type="text"
+              value={searchText}
+              onChange={(evt) => handleSearchChange(evt)}
+              placeholder="ПОИСК"
+            />
+            {/* <button
+            className="ToDoReactIcon__create_btn"
+            onClick={() => setShowForm(true)}
+          >
+            <FaPlusCircle title="Добавить" />
+          </button> */}
+          </div>
+          <Form>
+            <label htmlFor="newitem">Добавить эл. списка: </label>
+            <Input
+              type="text"
+              id="newitem"
+              name="newitem"
+              value={newItem}
+              onChange={handleChange}
+              placeholder="ДОБАВИТЬ"
+              style={newItemErr ? { outline: "2px solid #8b0000" } : {}}
+            />
+            <Button onClick={handlerSubmit}>Отправить</Button>
+          </Form>
+        </div>
       </ToDoWrapper>
     </ToDoSpan>
   );

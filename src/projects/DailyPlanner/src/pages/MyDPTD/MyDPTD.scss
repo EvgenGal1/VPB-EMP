@@ -50,12 +50,16 @@
       // кнп.
       button,
       input {
-        margin: 0 0 0 5px;
+        // margin: 0 0 0 5px;
+        margin: 0;
         padding: 5px;
         border: 1px solid #bd0000;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 200ms, transform 100ms linear;
+      }
+      input:focus {
+        // width: 100%;
       }
       button {
         padding: 5px 10px;
@@ -67,6 +71,12 @@
       margin-right: 1%;
       // border-radius: 10px;
       // border: 1px solid darkred;
+
+      .ToDo--Dop {
+        margin: 10px 0 0;
+        display: flex;
+        justify-content: space-between;
+      }
 
       // вычёркивание из TODO
       .strikethrough {
@@ -81,6 +91,12 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        label {
+          display: none;
+        }
+        button {
+          margin-left: 5px;
+        }
       }
       // блок заданий
       & > div {
@@ -92,7 +108,7 @@
         & > div {
           // кроме 1ой строки
           &:not(:first-child) {
-            padding: 5px 0 0;
+            // padding: 5px 0 0;
           }
           // задание
           & > span:first-child {

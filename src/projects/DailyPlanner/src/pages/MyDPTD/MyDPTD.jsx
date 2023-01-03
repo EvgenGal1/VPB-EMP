@@ -38,26 +38,19 @@ export const MyDPTD = () => {
             </span>
             . Установка такая же.
           </div>
-          {/* <ol>
+          <ol>
             <li>
-              Устан доп.зависимостей
+              Правки
               <ul>
-                <li>npm i react-modal</li>
-                <li>npm i styled-components @types/styled-components</li>
+                <li>Прописка всех title у значков</li>
+                <li>Переименовка всех кнп.</li>
+                <li>Стандарт стилей (цвета, размеры, отступы)</li>
+                <li>Редактирование Списка Дел по click</li>
+                <li>Добавлен ПОИСК в Списке Дел</li>
+                <li>измен струк. render ToDoList (вернуть?)</li>
               </ul>
             </li>
-            <li>
-              Созд. 2 Основ Компонента
-              <ul>
-                <li>Todo (Лист заданий на styled-components)</li>
-                <li>
-                  Calendar (Календарб на FullCalendar и styled-components)
-                </li>
-              </ul>
-            </li>
-          </ol> */}
-          <br />
-          Добавлено Редактирование Списка Дел
+          </ol>
         </div>
         <ArrowAccordionFnComp
           openArrowAccord={openArrowAccord}
