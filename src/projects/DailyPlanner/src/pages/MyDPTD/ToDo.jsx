@@ -37,7 +37,7 @@ const ToDoHeader = styled.h3`
 // блок ЗАДАНИЙ
 const ToDoList = styled.div`
   width: 100%;
-  margin: 1rem 0;
+  margin: 10px 0 0;
   // padding-right: 1rem;
   // padding-left: 1rem;
 `;

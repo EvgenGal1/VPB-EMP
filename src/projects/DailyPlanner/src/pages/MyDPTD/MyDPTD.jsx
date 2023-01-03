@@ -48,6 +48,7 @@ export const MyDPTD = () => {
                 <li>Редактирование Списка Дел по click</li>
                 <li>Добавлен ПОИСК в Списке Дел</li>
                 <li>измен струк. render ToDoList (вернуть?)</li>
+                <li>Нач. редакт. MyDPTD.Calendar.Modal</li>
               </ul>
             </li>
           </ol>

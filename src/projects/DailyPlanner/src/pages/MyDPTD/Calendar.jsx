@@ -90,16 +90,16 @@ const Calendar = () => {
     }
   };
 
-  // когда пользователь нажимает на дату в календаре, онprompt the user to create an event
+  // когда пользователь нажимает на дату в календаре, ч/з prompt предложить пользователю создать событие
   const handleDateClick = (arg) => {
-    const name = prompt("Event name:");
+    const name = prompt("Название события:");
 
     // не создает событие, если пользователь не указываетtitle
 
     if (name) {
       try {
         let userStart = prompt(
-          "Enter the event start in 24hr 'hh:mm' format: "
+          "Введите начало события в 24-часовом формате «чч:мм»: "
         );
         let hourStart = Number(userStart.substring(0, 2));
         let minuteStart = Number(userStart.substring(3, 5));
@@ -109,15 +109,19 @@ const Calendar = () => {
           !validateHour(hourStart) ||
           !validateMinute(minuteStart)
         ) {
-          alert("Please enter a valid time in 24hr 'hh:mm' format");
-          userStart = prompt("Enter the event start in 24hr 'hh:mm' format: ");
+          alert("Введите допустимое время в 24-часовом формате «чч:мм».");
+          userStart = prompt(
+            "Введите начало события в 24-часовом формате «чч:мм»: "
+          );
           hourStart = Number(userStart.substring(0, 2));
           minuteStart = Number(userStart.substring(3, 5));
         }
 
         let start = arg.date.toString();
 
-        let userEnd = prompt("Enter the event end in 24hr 'hh:mm' format: ");
+        let userEnd = prompt(
+          "Введите конец события в 24-часовом формате «чч:мм»: "
+        );
         let hourEnd = Number(userEnd.substring(0, 2));
         let minuteEnd = Number(userEnd.substring(3, 5));
         // просит пользователя повторить попытку, если ввод недействителен
@@ -128,16 +132,18 @@ const Calendar = () => {
           !startBeforeEnd(hourStart, minuteStart, hourEnd, minuteEnd)
         ) {
           alert(
-            "Please enter a valid time in 24hr 'hh:mm' format, ensuring that it is after the event start time"
+            "Введите допустимое время в 24-часовом формате «чч:мм», убедившись, что оно больше времени начала мероприятия."
           );
-          userEnd = prompt("Enter the event start in 24hr 'hh:mm' format: ");
+          userEnd = prompt(
+            "Введите начало события в 24-часовом формате «чч:мм»: "
+          );
           hourEnd = Number(userEnd.substring(0, 2));
           minuteEnd = Number(userEnd.substring(3, 5));
         }
 
         let end = Date.parse(start.replace("00:00:00", userEnd + ":00"));
         start = Date.parse(start.replace("00:00:00", userStart + ":00"));
-        let description = prompt("Description (optional):");
+        let description = prompt("Описание (необязательно):");
         let id = events.length ? events[events.length - 1].id + 1 : 1;
         // добавляет событие в календарь
         addEvent({
@@ -149,12 +155,12 @@ const Calendar = () => {
         });
       } catch {
         // предупреждает пользователя, если он нажмет «Отмена»
-        alert("Event not created");
+        alert("Событие не создано");
       }
     }
   };
 
-  // устанавливает состояние на основе события, которое щелкает пользовательon in the calendar
+  // устанавливает состояние на основе события, которое щелкает пользователь в календаре
   const renderEventContent = ({ event }) => {
     setEventInfo({
       title: event._def.title,
@@ -165,12 +171,12 @@ const Calendar = () => {
     });
   };
 
-  // после обновления состояния информации о событии открывается модальное окно сthe info about that event
+  // после обновления состояния информации о событии открывается модальное окно с информацией об этом событии
   useEffect(() => {
     eventInfo && openModal();
   }, [eventInfo]);
 
-  // удаляет событие из состояния и локального хранилища, когдаuser clicks on the event and then clicks delete
+  // удаляет событие из состояния и локального хранилища, когда пользователь нажимает на событие, а затем нажимает удалить
   const deleteEvent = (event) => {
     event.preventDefault();
     const newEvents = events.filter(
@@ -277,7 +283,7 @@ const Calendar = () => {
 
   return (
     <CalendarSpan>
-      {/* Modal */}
+      {/* модальное окно */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -340,9 +346,73 @@ const Calendar = () => {
         <Button onClick={deleteEvent}>Delete event</Button>
         <Button onClick={closeModal}>Close window</Button>
       </Modal>
-      {/* Modal */}
+      {/* Обертка календаря */}
       <CalendarWrapper>
         {/* <CalendarPadding> */}
+
+        {/* модальное окно */}
+        {/* <div
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          className="modal"
+          overlayClassName="overlayModal"
+          contentLabel="Event"
+        >
+          <InfoStyle>
+            <p style={{ margin: "5px" }}>
+              <b>Title:</b> {eventInfo && eventInfo.title}
+            </p>
+            <Button
+              onClick={(event) => {
+                editEvent(event, "title");
+              }}
+            >
+              Edit
+            </Button>
+          </InfoStyle>
+
+          <InfoStyle>
+            <p style={{ margin: "5px" }}>
+              <b>Start:</b> {eventInfo && ausDateStyle(eventInfo.start)}
+            </p>
+            <Button
+              onClick={(event) => {
+                editEvent(event, "start");
+              }}
+            >
+              Edit
+            </Button>
+          </InfoStyle>
+
+          <InfoStyle>
+            <p style={{ margin: "5px" }}>
+              <b>End:</b> {eventInfo && ausDateStyle(eventInfo.end)}
+            </p>
+            <Button
+              onClick={(event) => {
+                editEvent(event, "end");
+              }}
+            >
+              Edit
+            </Button>
+          </InfoStyle>
+
+          <InfoStyle>
+            <p style={{ margin: "5px" }}>
+              <b>Description:</b> {eventInfo && eventInfo.description}
+            </p>
+            <Button
+              onClick={(event) => {
+                editEvent(event, "description");
+              }}
+            >
+              Edit
+            </Button>
+          </InfoStyle>
+
+          <Button onClick={deleteEvent}>Delete event</Button>
+          <Button onClick={closeModal}>Close window</Button>
+        </div> */}
         {/* Календарь из библиотеки fullcalendar.io */}
         <FullCalendar
           locale="en-gb"
