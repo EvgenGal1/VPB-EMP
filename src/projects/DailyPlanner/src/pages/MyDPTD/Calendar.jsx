@@ -293,58 +293,58 @@ const Calendar = () => {
       >
         <InfoStyle>
           <p style={{ margin: "5px" }}>
-            <b>Title:</b> {eventInfo && eventInfo.title}
+            <b>Заголовок:</b> {eventInfo && eventInfo.title}
           </p>
           <Button
             onClick={(event) => {
               editEvent(event, "title");
             }}
           >
-            Edit
+            Редактировать
           </Button>
         </InfoStyle>
 
         <InfoStyle>
           <p style={{ margin: "5px" }}>
-            <b>Start:</b> {eventInfo && ausDateStyle(eventInfo.start)}
+            <b>Начало:</b> {eventInfo && ausDateStyle(eventInfo.start)}
           </p>
           <Button
             onClick={(event) => {
               editEvent(event, "start");
             }}
           >
-            Edit
+            Редактировать
           </Button>
         </InfoStyle>
 
         <InfoStyle>
           <p style={{ margin: "5px" }}>
-            <b>End:</b> {eventInfo && ausDateStyle(eventInfo.end)}
+            <b>Конец:</b> {eventInfo && ausDateStyle(eventInfo.end)}
           </p>
           <Button
             onClick={(event) => {
               editEvent(event, "end");
             }}
           >
-            Edit
+            Редактировать
           </Button>
         </InfoStyle>
 
         <InfoStyle>
           <p style={{ margin: "5px" }}>
-            <b>Description:</b> {eventInfo && eventInfo.description}
+            <b>Описание:</b> {eventInfo && eventInfo.description}
           </p>
           <Button
             onClick={(event) => {
               editEvent(event, "description");
             }}
           >
-            Edit
+            Редактировать
           </Button>
         </InfoStyle>
 
-        <Button onClick={deleteEvent}>Delete event</Button>
-        <Button onClick={closeModal}>Close window</Button>
+        <Button onClick={deleteEvent}>Удалить событие</Button>
+        <Button onClick={closeModal}>Закрытое окно</Button>
       </Modal>
       {/* Обертка календаря */}
       <CalendarWrapper>
