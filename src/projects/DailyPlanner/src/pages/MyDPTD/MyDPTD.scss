@@ -67,12 +67,54 @@
     }
 
     // TODO ----------------------------------------------------------------------------------
-    span:first-child > div {
-      margin-right: 1%;
-      // border-radius: 10px;
-      // border: 1px solid darkred;
+    .ToDo {
+      // margin-top: 2rem;
+      width: 35%;
+      font-family: "Manrope", sans-serif;
+      // font-weight: bold;
+      // @media only screen and (max-width: 700px) {
+      @media only screen and (max-width: 898px) {
+        width: 100%;
+      }
 
-      .ToDo--Dop {
+      // Список эл.
+      &--Lists {
+        margin: 10px 0 0;
+        .ToDo__Item {
+          margin: 10px 0 0;
+          .ToDoBody {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            &:not(:first-child) {
+              padding: 5px 0 0;
+            }
+            .item {
+              &__left {
+                // flex: 0 1 2.5rem;
+                flex-grow: 0;
+                flex-shrink: 1;
+                // flex-basis: 2.5rem;
+              }
+              &__center {
+                flex: 3 1;
+                text-align: center;
+              }
+              &__right {
+                display: flex;
+                gap: 8px;
+                flex: 0 1 2.5rem;
+                flex-grow: 0;
+                flex-shrink: 1;
+                flex-basis: 2.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      // ПОИСК/ДОБАВЛЕНИЕ
+      &--Dop {
         margin: 10px 0 0;
         display: flex;
         justify-content: space-between;

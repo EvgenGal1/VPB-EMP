@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 
 import { useLocalStorageUH } from "../../../../../scripts/hooks/useLocalStorageUH.jsx";
+import { SvgPath } from "../../../../../Components/ui/SvgPath";
 
 // TODO
 const ToDoSpan = styled.span`
@@ -150,6 +151,7 @@ const Todo = () => {
           text: newItem,
           // text: "newItem",
           id: Math.floor(Math.random() * 10000),
+          description: "123",
           completed: false,
           hide: false,
         },
@@ -167,8 +169,10 @@ const Todo = () => {
   };
 
   // кнп. "Удалить" из state и LS
-  const deleteItem = (index) => {
-    const newTodo = todos.filter((item, origIndex) => origIndex !== index);
+  // const deleteItem = (index) => {
+  const deleteItem = (id) => {
+    // const newTodo = todos.filter((item, origIndex) => origIndex !== index);
+    const newTodo = todos.filter((todo) => todo.id !== id);
     setTodos(newTodo);
   };
 
@@ -256,92 +260,138 @@ const Todo = () => {
     ]
   );
 
+  // Показ ОПИСАНИЯ  -------------------------------------------------
+  const [showDescription, setShowDescription] = useState(false);
+
+  const showDescript = (id) => {
+    setShowDescription(id);
+  };
+
   return (
-    <ToDoSpan>
-      <ToDoWrapper>
-        <ToDoHeader>Список Дел</ToDoHeader>
-        {/* {(todos || []).map((todo, index) => (
-            <ToDoCard
-              key={index}
-              {...todo}
-              handleChangeStatus={handleChangeStatus}
-              handleEditTodo={handleEditTodo}
-              handleDeleteTodo={handleDeleteTodo}
-            />
-          ))} */}
-        {(todos || []).map((item, index) => {
-          return (
-            //{" "}
-            <ToDoList key={index} {...item}>
-              {/* Сопоставляет все элементы в списке дел (из состояния) и отображает пользователю */}
-              {/* {todos.length > 0 &&
-            todos.map((item, index) => { */}
-              {/* Отображается зачеркнутым текстом, если состояние указывает на то, что элемент выполнен */}
-              {
-                // if (hide) return null;
-                item.hide !== true && (
-                  <ToDoItem key={item.id}>
-                    {/* Усл.Рендер. Редактируется(input) или Результат(text) при editId */}
-                    {editId === item.id ? (
-                      <Input
-                        type="text"
-                        id="editId"
-                        name="editId"
-                        value={editItem} // Входное значение
-                        onChange={(e) => setEditItem(e.target.value)}
-                        style={
-                          editItemErr ? { outline: "2px solid #8b0000" } : {}
-                        }
-                      />
-                    ) : (
-                      <ToDoText
-                        id={item.text}
-                        className={item.completed && "strikethrough"}
-                        // onDoubleClick={() => handleEditChange(item.text, index)}
-                        onClick={() => handleEditChange(item.id, item.text)}
-                      >
-                        {item.text}
-                        {/* * {item.text} */}
-                        {/* {item.text} - {index} : {item.id} */}
-                      </ToDoText>
-                    )}
-                    {/* Усл.Рендер. КНПи. Редактируется(button) или Результат(2 button) при editId */}
-                    {editId === item.id ? (
-                      <Button
-                        // onClick={() => editTodo(index, item, item.text, item.id)}
-                        // onClick={() => handlerSubmit()}
-                        onClick={() =>
-                          // editTodo(id, index, item, item.text, item.id)
-                          editTodo(item.id, item.text)
-                        }
-                      >
-                        Готово
-                      </Button>
-                    ) : (
-                      <ToDoButtons>
-                        {/* <Right> */}
-                        <Button
-                          onClick={() => strikethrough(index, item, item.text)}
-                        >
-                          Завершить
-                        </Button>
-                        {/* </Right> */}
-                        {/* <Right> */}
-                        <Button
-                          onClick={() => deleteItem(index)}
-                          style={{ marginLeft: "5px" }}
-                        >
-                          Удалить
-                        </Button>
-                        {/* </Right> */}
-                      </ToDoButtons>
-                    )}
-                  </ToDoItem>
-                )
-              }
-            </ToDoList>
-          );
-        })}
+    <span className="ToDo">
+      <div className="ToDo--Wrapper">
+        <h3>Список Дел</h3>
+        {/* проверка длины Списка Дели из сост и отрисовка перебором */}
+        <div className="ToDo--Lists">
+          {todos.length > 0 &&
+            (todos || []).map((item, index) => {
+              return (
+                <div className="ToDo__Item" key={index}>
+                  {item.hide !== true && (
+                    <div className="ToDoBody" key={item.id}>
+                      {/* Усл.Рендер. Редактируется(input + button) или Результат(text + 2 button) при editId */}
+                      {editId === item.id ? (
+                        <>
+                          222
+                          <Input
+                            type="text"
+                            id="editId"
+                            name="editId"
+                            value={editItem} // Входное значение
+                            onChange={(e) => setEditItem(e.target.value)}
+                            style={
+                              editItemErr
+                                ? { outline: "2px solid #8b0000" }
+                                : {}
+                            }
+                          />
+                          <Button
+                            // onClick={() => editTodo(index, item, item.text, item.id)}
+                            // onClick={() => handlerSubmit()}
+                            onClick={() =>
+                              // editTodo(id, index, item, item.text, item.id)
+                              editTodo(item.id, item.text)
+                            }
+                          >
+                            Готово
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <span className="item__left">
+                            <SvgPath size="16px" title="удалить" />
+                          </span>
+                          <span
+                            className="item__center"
+                            // id={item.text}
+                            // className={item.completed && "strikethrough"}
+                            // onDoubleClick={() => handleEditChange(item.text, index)}
+                            // onClick={() => handleEditChange(item.id, item.text)}
+                          >
+                            {item.text}
+                            {showDescription === item.id && (
+                              <p
+                                style={{
+                                  lineHeight: "1",
+                                  display: "inline-block",
+                                  paddingLeft: "5px",
+                                }}
+                              >
+                                {item.description}
+                              </p>
+                            )}
+                            {/* * {item.text} */}
+                            {/* {item.text} - {index} : {item.id} */}
+                          </span>
+                          <span className="item__right">
+                            {/* <Button onClick={() => strikethrough(index)}>
+                            Завершить
+                          </Button>  */}
+
+                            {showDescription === item.id ? (
+                              <span
+                                onClick={() => {
+                                  setShowDescription(false);
+                                }}
+                              >
+                                <SvgPath
+                                  box="576"
+                                  size="16px"
+                                  title="показать"
+                                />
+                              </span>
+                            ) : (
+                              <span
+                                onClick={() => {
+                                  // setShowDescription(!showDescription);
+                                  showDescript(item.id);
+                                }}
+                              >
+                                <SvgPath box="640" size="16px" title="скрыть" />
+                              </span>
+                            )}
+                            <span
+                              // id={item.text}
+                              // className={item.completed && "strikethrough"}
+                              // onDoubleClick={() => handleEditChange(item.text, index)}
+                              onClick={() =>
+                                handleEditChange(item.id, item.text)
+                              }
+                            >
+                              <SvgPath size="16px" title="редактировать" />
+                            </span>
+                            {/* <Button
+                            onClick={() => deleteItem(index)}
+                            style={{ marginLeft: "5px" }}
+                          >
+                            Удалить
+                          </Button> */}
+                            <span
+                              // onClick={() => deleteItem(index)}
+                              onClick={() => deleteItem(item.id)}
+                              // style={{ marginLeft: "5px" }}
+                            >
+                              <SvgPath size="16px" title="удалить" col="red" />
+                            </span>
+                          </span>
+                        </>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+        </div>
         <div className="ToDo--Dop">
           <div className="ToDo__Search">
             <input
@@ -371,8 +421,8 @@ const Todo = () => {
             <Button onClick={handlerSubmit}>Отправить</Button>
           </Form>
         </div>
-      </ToDoWrapper>
-    </ToDoSpan>
+      </div>
+    </span>
   );
 };
 
